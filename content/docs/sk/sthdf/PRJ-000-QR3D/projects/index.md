@@ -139,7 +139,7 @@ V tejto sekcii nájdeš všetky projektové výstupy pre STHDF.
 
 ## 🔗 Navigácia
 
-- [7Ds – Manažérsky cyklus](./7ds/index.md)
+- [7Ds – Manažérsky cyklus](./7Ds/index.md)
 - [Q12 – Hodnotová os](./q12/index.md)
 - [SDLC – Technická dokumentácia](./sdlc/index.md)
 

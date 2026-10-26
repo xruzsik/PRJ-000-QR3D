@@ -36,7 +36,7 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Roman Kazicka"
+  - "Dániel Ruzsik"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,73 +131,66 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 📝 Project Summary
 
 ## 🔖 Identifikácia
+
+- **Projekt:** PRJ-000-QR3D
+- **Repozitár:** https://github.com/<user>/PRJ-000-QR3D
+- **Predmet:** Systémové myslenie v IT a digitálna fabrikácia (STHDF), FIIT STU, 2026/2027
+
 ## 1️⃣ Názov projektu
-*(Jasný, výstižný, inšpiratívny – ako by sa mal objaviť na plagáte.)*
-- **Názov projektu:** `PRJ_XXX_<Názov>_<ST_XXX>_<ST_XXX>`
-- **Stručný popis:** 2–3 vety
+
+- **Názov projektu:** `PRJ_000_QR3D_<ST_042>_<ST_045>`
+- **Pracovný názov:** *QR3D – 3D model ukrytý v QR kóde*
+- **Stručný popis:** Navrhujeme systém, ktorý do QR kódu zakóduje údaje o 3D modeli (napr. budova, zviera, artefakt). Po naskenovaní mobilom sa model zobrazí priamo v prehliadači – bez inštalácie aplikácie. Typické využitie je v múzeu: pri makete zrúcaniny návštevník naskenuje kód a uvidí, ako stavba vyzerala v pôvodnej podobe.
 
 ## 2️⃣ Členovia tímu
 
 | ST ID | Meno | Rola v tíme | Kompetencie |
 |-------|------|-------------|-------------|
-| ST001 |      | Project Lead | koordinácia |
-| ST002 |      | Developer | implementácia |
-| ST003 |      | Designer | UI/UX |
+| ST0XX | <meno> | Project Lead | koordinácia, dokumentácia (7Ds, SDLC) |
+| ST0XX | <meno> | Developer | web viewer (three.js), QR generátor |
+| ST0XX | <meno> | 3D / Designer | príprava a optimalizácia 3D modelov, UI |
 
 ## 3️⃣ Motivácia tímu
-- Prečo ste si vybrali tento projekt?
-- Aký osobný alebo profesný zmysel má pre vás riešenie tejto témy?
-- Prečo je projekt dôležitý
-- Aký problém rieši
+
+- **Prečo tento projekt:** spája softvér s fyzickým svetom (tlač QR kódu, maketa, 3D model) – presne v duchu digitálnej fabrikácie.
+- **Aký problém rieši:** fyzické exponáty (makety, zrúcaniny, preparáty) ukazujú len to, čo sa zachovalo. Návštevník si chýbajúce časti musí predstaviť z textu na tabuľke.
+- **Prečo je to dôležité:** interaktívny 3D pohľad zvyšuje záujem a pochopenie, najmä u detí a mladých návštevníkov. Riešenie v prehliadači znižuje bariéru – netreba sťahovať aplikáciu.
+- **Osobný význam:** <doplňte – čo vás na téme baví, čo sa chcete naučiť>
 
 ## 4️⃣ Cieľ a pridaná hodnota projektu
-- Aký je finálny cieľ
-- Ako spoznáme, že projekt je úspešný
+
+- **Finálny cieľ:** funkčný prototyp „QR kód → 3D model v prehliadači“ a fyzická ukážka (maketa s nalepeným QR kódom).
+- **Pridaná hodnota:**
+  - žiadna inštalácia – stačí fotoaparát mobilu a prehliadač,
+  - hybridný režim: základný (low-poly) model je uložený priamo v QR kóde a funguje aj offline, detailný model sa dotiahne z webu,
+  - nízke náklady pre prevádzkovateľa (statický web, napr. GitHub Pages).
+- **Ako spoznáme úspech (merateľné kritériá):**
+  - [ ] QR kód sa dá naskenovať bežným mobilom zo vzdialenosti aspoň <X> cm pri veľkosti <Y> cm,
+  - [ ] model sa zobrazí do <Z> s od naskenovania,
+  - [ ] offline režim zobrazí aspoň zjednodušený model,
+  - [ ] min. <N> testovacích používateľov úspešne prejde scenár „naskenuj → prezri si model“.
 
 ## 5️⃣ Popis riešenia
-- Stručne opíšte architektúru, nástroje a technológie, ktoré použijete.
-- Zamerajte sa na **"čo"** riešite, nie ešte "ako".
+
+- **Komponenty:**
+  1. **Generátor** – zo 3D modelu (OBJ/GLB) vytvorí zjednodušenú verziu, skomprimuje ju a vygeneruje QR kód (URL + dáta v časti za `#`).
+  2. **Web viewer** – statická stránka, ktorá dekóduje dáta z URL a zobrazí model (three.js / `<model-viewer>`), voliteľne načíta HD verziu.
+  3. **Fyzická ukážka** – vytlačená alebo kartónová maketa zrúcaniny s QR kódom.
+- **Technológie (predbežne):** JavaScript, three.js alebo `<model-viewer>`, Python (generátor), knižnica na QR, GitHub Pages.
+- **Rozšírenia (ak zostane čas):** AR – model sa zobrazí priamo nad maketou v kamere; časová os (rôzne obdobia stavby); viac jazykov.
 
 ## 6️⃣ Projektový plán
-- Odhadovaný čas na prácu: _x hodín / týždeň_
-- Predpokladaný stav v čase prezentácie: _MVP / prototyp / dokumentácia / funkčný produkt_
-- Hlavné míľniky:
-  - [ ] Príprava
-  - [ ] Implementácia
-  - [ ] Testovanie
-  - [ ] Prezentácia
 
-### 📅 Míľniky a výstupy
-- **Do januára dodáme:**
-  - [ ] prototyp
-  - [ ] prezentáciu
-  - [ ] dokumentáciu
-
-## 7️⃣ Zákazník a hodnoty
-- Kto by mohol byť používateľom projektu?
-- Čo mu to prinesie?
-
-## 8️⃣ Očakávané výstupy
-- Dokumentácia: (napr. README, KNIFE článok, demo stránka...)
-- Artefakty: (napr. prototyp, appka, vizualizácia...)
-
-## 📚 Kontext
-- KNIFE príspevky, literatúra, inšpirácie
-
-## 🧭 Riziká a závislosti
-- Riziká projektu
-- Na čom závisí
-
-## 9️⃣ Reflexia a ďalšie kroky
-Čo očakávate, že sa naučíte?
-Ako by sa projekt mohol rozvíjať ďalej?
-
----
-
-## Navigácia
-- [↩️ Späť](../index.md)
+- **Odhadovaný čas na prácu:** _<x> hodín / týždeň_ na člena
+- **Predpokladaný stav v čase prezentácie:** _funkčný prototyp (MVP) + fyzická ukážka_
+- **Hlavné míľniky:**
+  - [ ] Príprava – zadanie, Project Summary, 7Ds D1–D2, výber technológií
+  - [ ] Pitch – problém, riešenie, hodnota (Q12), user stories
+  - [ ] Implementácia – generátor, viewer, prvý QR kód s modelom
+  - [ ] Testovanie – čitateľnosť QR, rýchlosť, test s používateľmi
+  - [ ] Finálna prezentácia – demo, výsledky, reflexia

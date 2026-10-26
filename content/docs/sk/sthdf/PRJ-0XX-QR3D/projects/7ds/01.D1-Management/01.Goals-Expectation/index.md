@@ -36,7 +36,7 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Roman Kazicka"
+  - "Dániel Ruzsik, Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +131,28 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Goals & Expectations
 
-Sekcia **Goals & Expectations** – vyplňte obsah podľa potreby.
+## 🎯 Hlavný cieľ
 
----
+Vytvoriť funkčný prototyp, ktorý po naskenovaní QR kódu zobrazí 3D model v mobilnom prehliadači, a predviesť ho na fyzickej makete.
+
+## 📌 Čiastkové ciele
+
+| # | Cieľ | Ako overíme splnenie |
+|---|------|----------------------|
+| G1 | Zakódovať zjednodušený 3D model priamo do QR kódu | model sa zobrazí aj bez internetu |
+| G2 | Web viewer bez inštalácie aplikácie | funguje v Chrome (Android) a Safari (iOS) |
+| G3 | Hybridný režim – HD model z webu | po načítaní sa low-poly verzia nahradí detailnou |
+| G4 | Fyzická ukážka | maketa s QR kódom pripravená na prezentáciu |
+| G5 | Dokumentácia podľa KNIFE (7Ds, SDLC, Q12) | všetky deliverables vyplnené v repozitári |
+
+## 🤝 Očakávania
+
+- **Od tímu:** pravidelná práca (<x> h/týždeň), commity do vetvy `dev`, týždenný záznam vo Work Activities Evidence.
+- **Od vyučujúceho:** spätná väzba k Project Summary a pitchu.
+- **Mimo rozsahu (out of scope):** natívna mobilná aplikácia, vlastný 3D skener, správa obsahu pre múzeá (CMS).
+
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

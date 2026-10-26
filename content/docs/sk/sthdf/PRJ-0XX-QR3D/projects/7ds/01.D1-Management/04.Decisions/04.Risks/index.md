@@ -36,7 +36,7 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Roman Kazicka"
+  - "Dániel Ruzsik, Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +131,17 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Risks
 
-Sekcia **Risks** – vyplňte obsah podľa potreby.
+| # | Riziko | Pravdepodobnosť | Dopad | Opatrenie |
+|---|--------|-----------------|-------|-----------|
+| R1 | Kapacita QR kódu (max. ~3 KB) nestačí na užitočný model | vysoká | vysoký | hybridný režim: v QR len low-poly model + URL na HD verziu; kvantizácia a kompresia dát |
+| R2 | Hustý QR kód sa zle skenuje | stredná | vysoký | testovať veľkosti a úrovne korekcie chýb; obmedziť objem dát |
+| R3 | Rozdiely medzi prehliadačmi (iOS Safari vs. Android Chrome) | stredná | stredný | testovať na oboch od prvého prototypu |
+| R4 | AR rozšírenie je technicky náročné | vysoká | nízky | AR je voliteľné rozšírenie, MVP funguje bez neho |
+| R5 | Nedostatok vhodných 3D modelov | nízka | stredný | voľne licencované modely (CC) alebo vlastný jednoduchý model |
+| R6 | Časová vyťaženosť tímu počas semestra | stredná | stredný | malé priebežné míľniky, týždenný záznam práce |
 
----
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

@@ -6,7 +6,7 @@ title: "Štandard pomenovania a taxonómia KNIFE"
 description: "Komplexný štandard pre konvencie pomenovania a taxonómiu v rámci rámca KNIFE na zabezpečenie konzistencie, jasnosti a interoperability."
 author: "Roman Kazicka"
 authors:
-  - "Roman Kazicka"
+  - "Dániel Ruzsik, Lukáš Šebök"
 category: "referencia"
 type: "štandard"
 priority: "HI"

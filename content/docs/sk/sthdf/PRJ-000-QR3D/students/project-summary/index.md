@@ -36,7 +36,7 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik"
+  - "Dániel Ruzsik, Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -151,9 +151,9 @@ fm_reserved2: ""
 
 | ST ID | Meno | Rola v tíme | Kompetencie |
 |-------|------|-------------|-------------|
-| ST0XX | <meno> | Project Lead | koordinácia, dokumentácia (7Ds, SDLC) |
-| ST0XX | <meno> | Developer | web viewer (three.js), QR generátor |
-| ST0XX | <meno> | 3D / Designer | príprava a optimalizácia 3D modelov, UI |
+| ST043 | Dániel Ruzsik | Project Lead | koordinácia, dokumentácia (7Ds, SDLC) |
+| ST043 | Dániel Ruzsik | Developer | web viewer (three.js), QR generátor |
+| ST045 | Lukáš Šebök | 3D / Designer | príprava a optimalizácia 3D modelov, UI |
 
 ## 3️⃣ Motivácia tímu
 

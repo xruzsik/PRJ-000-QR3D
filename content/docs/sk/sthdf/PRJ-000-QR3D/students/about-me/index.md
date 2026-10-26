@@ -3,7 +3,7 @@
 fm_version: "1.0.1"
 
 # Dátum buildu – generuje skript
-fm_build: "2026-10-26T08:24:38.441486+00:00"
+fm_build: "2026-10-26T08:24:38.681781+00:00"
 
 # Poznámka k verzii – voliteľné
 fm_version_comment: ""
@@ -12,10 +12,9 @@ fm_version_comment: ""
 # 🆔 IDENTITY --------------------------------------------------------
 
 # ID generuje CLI / skript
-id: "PRJ-0XX-QR3D"
 
 # Unikátne UUID – generuje skript
-guid: "e65fa5e9-8c7c-4061-8f5d-44e3e52739ca"
+guid: "9590d801-9d75-46e3-9b7a-ae83763e601c"
 
 
 # 🧭 CONTEXT ---------------------------------------------------------
@@ -24,7 +23,7 @@ guid: "e65fa5e9-8c7c-4061-8f5d-44e3e52739ca"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "PRJ-0XX-QR3D – PRJ-0XX QR3D"
+title: "about me"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
 description: "{{DESCRIPTION}}"
@@ -37,7 +36,7 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Roman Kazicka"
+  - "Dániel Ruzsik, Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -132,37 +131,29 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-# 👥 Študenti – Dashboard
+<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
 
-V tejto sekcii sa nachádzajú študentské deliverables.
+# 🙋 About Me
 
-## 🔗 Navigácia
+## 🔖 Základné informácie
+- Meno a priezvisko
+- Študentský GitHub profil (link)
+- Kontaktný e-mail
 
-- **01 – About Me**  
-  → [01 – About Me](./students/deliverables/01_about-me.md)
-  
-- **02 – Knowledge Contribution (A2)**  
-  → [02 – Knowledge Contribution (A2)](./students/deliverables/02_knowledge-contribution.md)
+## 🎯 Profesijné záujmy
+- Oblasti, ktoré ma bavia (IT, dizajn, podnikanie, …)
+- Aké skúsenosti by som chcel získať
 
-- **03 – Project Summary**  
-  → [03 – Project Summary](./students/deliverables/03_project-summary.md)
+## 💡 Moje hobby / záujmy
+- Šport, hudba, varenie, cestovanie …
+- Čokoľvek, čo odhaľuje „ľudskú stránku"
 
-- **04 – Project Outcomes**  
-  → [04 – Project Outcomes](./students/deliverables/04_project-outcomes.md)
+## 🚀 Očakávania od predmetu
+- Čo chcem dosiahnuť v rámci kurzu
+- Čo očakávam od spolupráce s tímom a komunitou
 
-- **05 – Pitch Presentation**  
-  → [05 – Pitch Presentation](./students/deliverables/05_pitch_presentation.md)
-
-- **06 – Final Presentation**  
-  → [06 – Final Presentation](./students/deliverables/06_final_presentation.md)
-
-- **07 – Reflexia**  
-  → [07 – Reflexia](./students/deliverables/07_reflexia.md)
-
----
-
-## ℹ️ Poznámka
-Tento súbor je súčasťou *defaultného template* a zabezpečuje stabilitu sidebaru aj navigácie.
+## 🚀 Čo viem ponúknuť
+- Čo chcem ponúknuť v rámci kurzu
 
 ## Navigácia
-- [↩️ Späť](../../index.md)
+- [↩️ Späť](../index.md)

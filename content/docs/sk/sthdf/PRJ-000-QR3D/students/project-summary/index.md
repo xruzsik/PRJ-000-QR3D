@@ -138,7 +138,7 @@ fm_reserved2: ""
 ## 🔖 Identifikácia
 
 - **Projekt:** PRJ-000-QR3D
-- **Repozitár:** https://github.com/<user>/PRJ-000-QR3D
+- **Repozitár:** https://github.com/xruzsik/PRJ-000-QR3D
 - **Predmet:** Systémové myslenie v IT a digitálna fabrikácia (STHDF), FIIT STU, 2026/2027
 
 ## 1️⃣ Názov projektu
@@ -160,7 +160,7 @@ fm_reserved2: ""
 - **Prečo tento projekt:** spája softvér s fyzickým svetom (tlač QR kódu, maketa, 3D model) – presne v duchu digitálnej fabrikácie.
 - **Aký problém rieši:** fyzické exponáty (makety, zrúcaniny, preparáty) ukazujú len to, čo sa zachovalo. Návštevník si chýbajúce časti musí predstaviť z textu na tabuľke.
 - **Prečo je to dôležité:** interaktívny 3D pohľad zvyšuje záujem a pochopenie, najmä u detí a mladých návštevníkov. Riešenie v prehliadači znižuje bariéru – netreba sťahovať aplikáciu.
-- **Osobný význam:** <doplňte – čo vás na téme baví, čo sa chcete naučiť>
+- **Osobný význam:** _(doplňte: čo vás na téme baví, čo sa chcete naučiť)_
 
 ## 4️⃣ Cieľ a pridaná hodnota projektu
 
@@ -170,10 +170,10 @@ fm_reserved2: ""
   - hybridný režim: základný (low-poly) model je uložený priamo v QR kóde a funguje aj offline, detailný model sa dotiahne z webu,
   - nízke náklady pre prevádzkovateľa (statický web, napr. GitHub Pages).
 - **Ako spoznáme úspech (merateľné kritériá):**
-  - [ ] QR kód sa dá naskenovať bežným mobilom zo vzdialenosti aspoň x cm pri veľkosti <Y> cm,
-  - [ ] model sa zobrazí do <Z> s od naskenovania,
+  - [ ] QR kód sa dá naskenovať bežným mobilom zo vzdialenosti aspoň x cm pri veľkosti Y cm,
+  - [ ] model sa zobrazí do Z s od naskenovania,
   - [ ] offline režim zobrazí aspoň zjednodušený model,
-  - [ ] min. <N> testovacích používateľov úspešne prejde scenár „naskenuj → prezri si model“.
+  - [ ] min. N testovacích používateľov úspešne prejde scenár „naskenuj → prezri si model“.
 
 ## 5️⃣ Popis riešenia
 

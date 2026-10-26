@@ -139,10 +139,10 @@ fm_reserved2: ""
 
 | Fáza | Obsah | Výstupy v repozitári | Termín |
 |------|-------|----------------------|--------|
-| 1. Príprava | zadanie, tím, ciele, stakeholderi | About Me, Project Summary, 7Ds D1–D2 | <dátum> |
-| 2. Pitch | problém, hodnota, biznis pohľad | Pitch, Q12, SDLC 01-Requirements | <dátum> |
-| 3. Vývoj | generátor, viewer, maketa | SDLC 03–04, 7Ds D3–D5, KNIFE (A2) | <dátum> |
-| 4. Uzavretie | testy, demo, hodnotenie | SDLC 05–06, 7Ds D6–D7, Outcomes, Final, Reflexia | <dátum> |
+| 1. Príprava | zadanie, tím, ciele, stakeholderi | About Me, Project Summary, 7Ds D1–D2 | [dátum]> |
+| 2. Pitch | problém, hodnota, biznis pohľad | Pitch, Q12, SDLC 01-Requirements | [dátum]> |
+| 3. Vývoj | generátor, viewer, maketa | SDLC 03–04, 7Ds D3–D5, KNIFE (A2) | [dátum]> |
+| 4. Uzavretie | testy, demo, hodnotenie | SDLC 05–06, 7Ds D6–D7, Outcomes, Final, Reflexia | [dátum]> |
 
 ## 🔀 Pravidlá práce s repozitárom
 

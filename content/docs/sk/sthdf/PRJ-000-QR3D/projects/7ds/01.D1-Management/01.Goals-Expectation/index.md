@@ -151,7 +151,7 @@ Vytvoriť funkčný prototyp, ktorý po naskenovaní QR kódu zobrazí 3D model 
 
 ## 🤝 Očakávania
 
-- **Od tímu:** pravidelná práca (<x> h/týždeň), commity do vetvy `dev`, týždenný záznam vo Work Activities Evidence.
+- **Od tímu:** pravidelná práca (x h/týždeň), commity do vetvy `dev`, týždenný záznam vo Work Activities Evidence.
 - **Od vyučujúceho:** spätná väzba k Project Summary a pitchu.
 - **Mimo rozsahu (out of scope):** natívna mobilná aplikácia, vlastný 3D skener, správa obsahu pre múzeá (CMS).
 

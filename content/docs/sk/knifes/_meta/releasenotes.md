@@ -8,7 +8,7 @@ dao: "knife"
 title: "KNIFE Overview — Release v1.1.1 (2025-09-07)"
 description: "-"
 author: "Roman Kazička"
-authors: ["Roman Kazička",""]
+authors: ["Dániel Ruzsik", "Lukáš Šebök"]
 category: "-"
 type: "-"
 priority: "no"

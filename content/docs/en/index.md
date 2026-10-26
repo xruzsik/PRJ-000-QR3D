@@ -8,7 +8,7 @@ dao: "knife"
 title: "KNIFE – Overview (EN)"
 description: ""
 author: "Roman Kazička"
-authors: ["Roman Kazička",""]
+authors: ["Dániel Ruzsik", "Lukáš Šebök"]
 category: ""
 type: ""
 priority: "no"

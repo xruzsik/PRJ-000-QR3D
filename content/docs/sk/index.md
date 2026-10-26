@@ -8,7 +8,7 @@ dao: "knife"
 title: "KNIFE – Prehľad (SK)"
 description: "Slovenská domovská stránka dokumentácie KNIFE."
 author: "Roman Kazička"
-authors: ["Roman Kazička"]
+authors: ["Dániel Ruzsik", "Lukáš Šebök"]
 category: ""
 type: ""
 priority: "no"

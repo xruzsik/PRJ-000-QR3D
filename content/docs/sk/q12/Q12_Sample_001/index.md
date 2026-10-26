@@ -37,7 +37,7 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Roman Kazicka"
+  - "Dániel Ruzsik, Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------

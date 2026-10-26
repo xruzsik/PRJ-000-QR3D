@@ -170,7 +170,7 @@ fm_reserved2: ""
   - hybridný režim: základný (low-poly) model je uložený priamo v QR kóde a funguje aj offline, detailný model sa dotiahne z webu,
   - nízke náklady pre prevádzkovateľa (statický web, napr. GitHub Pages).
 - **Ako spoznáme úspech (merateľné kritériá):**
-  - [ ] QR kód sa dá naskenovať bežným mobilom zo vzdialenosti aspoň <X> cm pri veľkosti <Y> cm,
+  - [ ] QR kód sa dá naskenovať bežným mobilom zo vzdialenosti aspoň x cm pri veľkosti <Y> cm,
   - [ ] model sa zobrazí do <Z> s od naskenovania,
   - [ ] offline režim zobrazí aspoň zjednodušený model,
   - [ ] min. <N> testovacích používateľov úspešne prejde scenár „naskenuj → prezri si model“.
@@ -186,7 +186,7 @@ fm_reserved2: ""
 
 ## 6️⃣ Projektový plán
 
-- **Odhadovaný čas na prácu:** _<x> hodín / týždeň_ na člena
+- **Odhadovaný čas na prácu:** _x hodín / týždeň_ na člena
 - **Predpokladaný stav v čase prezentácie:** _funkčný prototyp (MVP) + fyzická ukážka_
 - **Hlavné míľniky:**
   - [ ] Príprava – zadanie, Project Summary, 7Ds D1–D2, výber technológií

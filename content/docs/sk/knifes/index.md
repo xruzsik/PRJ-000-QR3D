@@ -8,7 +8,7 @@ dao: "knife"
 title: "SK_KNIFES_HOME – KNIFES (SK)"
 description: "Úvod do KNIFES sekcie."
 author: "Roman Kazička"
-authors: ["Roman Kazička"]
+authors: ["Dániel Ruzsik", "Lukáš Šebök"]
 category: ""
 type: ""
 priority: "no"

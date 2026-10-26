@@ -133,15 +133,10 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
 
-# 🪞 Reflexia a spätná väzba
+# 🪞 Reflexia a spätná väzba - tím PRJ-000-QR3D
 
-1. Čo bolo pre teba v tomto predmete/úlohe najľahšie?
-2. Čo bolo najťažšie a prečo?
-3. Čo nové si sa naučil?
-4. Ako by si postupoval inak, keby si mal začať odznova?
-5. Ako to súvisí s tvojím projektom alebo budúcou praxou?
-6. Akú jednu vetu by si chcel, aby si z tohto zapamätali tvoji spolužiaci?
-7. Čo by si odporučil na zlepšenie predmetu?
+- 👤 [Dániel Ruzsik (ST043)](./ST043-Ruzsik/index.md)
+- 👤 [Lukáš Šebök (ST045)](./ST045-Sebok/index.md)
 
 ## Navigácia
 - [↩️ Späť](../index.md)

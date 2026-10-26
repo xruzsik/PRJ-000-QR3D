@@ -133,27 +133,10 @@ fm_reserved2: ""
 
 <!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
 
-# 🙋 About Me
+# 🙋 About Me - tím PRJ-000-QR3D
 
-## 🔖 Základné informácie
-- Meno a priezvisko
-- Študentský GitHub profil (link)
-- Kontaktný e-mail
-
-## 🎯 Profesijné záujmy
-- Oblasti, ktoré ma bavia (IT, dizajn, podnikanie, …)
-- Aké skúsenosti by som chcel získať
-
-## 💡 Moje hobby / záujmy
-- Šport, hudba, varenie, cestovanie …
-- Čokoľvek, čo odhaľuje „ľudskú stránku"
-
-## 🚀 Očakávania od predmetu
-- Čo chcem dosiahnuť v rámci kurzu
-- Čo očakávam od spolupráce s tímom a komunitou
-
-## 🚀 Čo viem ponúknuť
-- Čo chcem ponúknuť v rámci kurzu
+- 👤 [Dániel Ruzsik (ST043)](./ST043-Ruzsik/index.md)
+- 👤 [Lukáš Šebök (ST045)](./ST045-Sebok/index.md)
 
 ## Navigácia
 - [↩️ Späť](../index.md)

@@ -12,7 +12,7 @@ title: "SDLC – Framework (SK)"
 description: "Slovenská domovská stránka pre SDLC vrstvu v KNIFE/CAA ekosystéme."
 
 author: "Roman Kazička"
-authors: ["Roman Kazička"]
+authors: ["Dániel Ruzsik", "Lukáš Šebök"]
 
 category: ""
 type: ""

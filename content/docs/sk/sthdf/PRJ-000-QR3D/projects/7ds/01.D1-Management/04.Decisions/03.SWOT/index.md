@@ -23,10 +23,10 @@ guid: "2d7eb32d-09fd-4810-a79d-5ec7b0295753"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "03.SWOT"
+title: "SWOT"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "SWOT analýza projektu QR3D - silné a slabé stránky, príležitosti a hrozby."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,21 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # SWOT
 
-Sekcia **SWOT** – vyplňte obsah podľa potreby.
+# SWOT
 
+| | **Pozitívne** | **Negatívne** |
+|---|---|---|
+| **Interné** | **Silné stránky (S)**<br/>• žiadna aplikácia – stačí mobil a prehliadač<br/>• funguje aj offline (model je priamo v QR)<br/>• takmer nulové náklady na prevádzku (statický web)<br/>• otvorené riešenie bez predplatného<br/>• jednoduché nasadenie – vytlačiť QR kód | **Slabé stránky (W)**<br/>• kapacita QR kódu obmedzuje detail offline modelu<br/>• tím má len dvoch členov a obmedzený čas<br/>• nemáme skúsenosti s 3D modelovaním historických stavieb<br/>• bez AR je zážitok menej pôsobivý ako pri komerčných riešeniach |
+| **Externé** | **Príležitosti (O)**<br/>• digitalizácia kultúrneho dedičstva a cestovného ruchu<br/>• veľa malých múzeí, obcí a náučných chodníkov bez rozpočtu na aplikácie<br/>• využitie v školách (výlety, vyučovanie dejepisu)<br/>• ďalšie využitia: náučné chodníky, 3D tlačené predmety | **Hrozby (T)**<br/>• komerčné AR QR platformy (napr. AR Code) s hotovými nástrojmi<br/>• rozdiely v podpore prehliadačov a AR na mobiloch<br/>• autorské práva k 3D modelom<br/>• kritika odborníkov, ak by rekonštrukcia pôsobila ako historicky presná |
+
+## 💡 Čo z toho vyplýva
+
+- **S + O:** zameriame sa na malé inštitúcie, pre ktoré sú komerčné riešenia drahé.
+- **W → opatrenie:** hybridný režim (offline low-poly + HD z webu) zmierňuje obmedzenú kapacitu QR.
+- **T → opatrenie:** model označujeme ako ilustračný (princíp P6) a používame len modely s vhodnou licenciou.
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

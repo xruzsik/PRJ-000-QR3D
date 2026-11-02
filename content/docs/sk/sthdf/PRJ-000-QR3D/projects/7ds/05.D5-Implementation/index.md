@@ -23,10 +23,10 @@ guid: "61360c03-5411-4509-9932-fa3db726ecac"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "05.D5 Implementation"
+title: "D5 - Implementation"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Realizácia QR3D – štruktúra kódu, technológie a stav implementácie."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,46 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # D5 – Implementation
 
-Realizácia a implementačné detaily.
+*Stav: pripravuje sa – sekciu dopĺňame priebežne počas vývoja.*
+
+## 📁 Štruktúra kódu
+
+```text
+app/
+├── generator/      # Python: 3D model → zjednodušenie → bajty → QR kód
+├── viewer/         # statická webová stránka (HTML + JS, three.js)
+├── models/         # HD modely (GLB) a zdrojové modely
+└── experiments/    # experiment s kapacitou QR (M4)
+```
+
+## 🛠️ Technológie
+
+| Oblasť | Technológia | Prečo |
+|--------|-------------|-------|
+| Generátor | Python, knižnica na tvorbu QR kódov | jednoduché spracovanie dát a súborov |
+| Viewer | JavaScript, three.js | zobrazí aj model, ktorý si sami dekódujeme |
+| Kompresia | deflate (v prehliadači cez `DecompressionStream`) | bez ďalších knižníc |
+| Hosting | GitHub Pages | zadarmo, bez servera |
+| 3D modely | Blender | zjednodušenie a export modelov |
+
+## ✅ Stav implementácie
+
+| Časť | Stav | Poznámka |
+|------|------|----------|
+| Experiment s kapacitou QR | ⏳ | míľnik M4 |
+| Dekódovanie a zobrazenie modelu z URL | ⏳ | míľnik M5 |
+| Generátor QR kódov | ⏳ | míľnik M6 |
+| HD model z webu | ⏳ | míľnik M6 |
+| Časová os | ⏳ | bonus |
+| AR | ⏳ | bonus |
+
+## 🧠 Dôležité implementačné rozhodnutia
+
+Zapisujeme sem priebežne (čo, prečo, aká bola alternatíva). Väčšie rozhodnutia patria aj do [záznamu rozhodnutí](../01.D1-Management/04.Decisions/index.md).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

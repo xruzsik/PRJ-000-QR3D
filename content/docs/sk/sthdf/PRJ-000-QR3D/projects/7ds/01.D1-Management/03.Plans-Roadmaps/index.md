@@ -23,10 +23,10 @@ guid: "edeb671b-495e-4343-b1ac-00b25cc79893"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "03.Plans Roadmaps"
+title: "Plans & Roadmaps"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Roadmapa projektu QR3D – štyri fázy, ich obsah a výstupy v repozitári."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -135,19 +136,21 @@ fm_reserved2: ""
 
 # Plans & Roadmaps
 
-## 🗺️ Roadmapa (fázy)
+## 🗺️ Roadmapa
 
-| Fáza | Obsah | Výstupy v repozitári | Termín |
-|------|-------|----------------------|--------|
-| 1. Príprava | zadanie, tím, ciele, stakeholderi | About Me, Project Summary, 7Ds D1–D2 | [dátum]> |
-| 2. Pitch | problém, hodnota, biznis pohľad | Pitch, Q12, SDLC 01-Requirements | [dátum]> |
-| 3. Vývoj | generátor, viewer, maketa | SDLC 03–04, 7Ds D3–D5, KNIFE (A2) | [dátum]> |
-| 4. Uzavretie | testy, demo, hodnotenie | SDLC 05–06, 7Ds D6–D7, Outcomes, Final, Reflexia | [dátum]> |
+| Fáza | Obsah | Výstupy v repozitári | Míľniky |
+|------|-------|----------------------|---------|
+| **1. Príprava** | tím, príbeh, ciele, stakeholderi, repozitár | About Me, Project Summary, 7Ds D1–D2 | M1, M2 |
+| **2. Pitch a analýza** | problém, konkurencia, biznis pohľad, experiment s QR | Pitch, Q12, 7Ds D3, SDLC 01–02 | M3, M4 |
+| **3. Vývoj** | dátový formát, viewer, generátor, HD režim, maketa | 7Ds D4–D5, SDLC 03–04, KNIFE článok | M5, M6 |
+| **4. Overenie a uzavretie** | testy s používateľmi, demo, zhodnotenie | 7Ds D6–D7, SDLC 05–06, Outcomes, Final, Reflexia | M7, M8 |
+
+Podrobné termíny sú v [Plans & Milestones](../02.Plans-Milestones/index.md).
 
 ## 🔀 Pravidlá práce s repozitárom
 
-- Vývoj prebieha vo vetve `dev`, väčšie úlohy vo vetvách `feature/<nazov>`.
-- Do `main` sa zlučuje cez Pull Request, keď je deliverable hotový.
+- Vývoj prebieha vo vetve `dev`, väčšie úlohy vo vetvách `feature/nazov-ulohy`.
+- Do `main` sa zlučuje cez Pull Request, keď je časť hotová – z `main` sa publikuje web.
 - Kód aplikácie je v priečinku `app/` v koreni repozitára.
 
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

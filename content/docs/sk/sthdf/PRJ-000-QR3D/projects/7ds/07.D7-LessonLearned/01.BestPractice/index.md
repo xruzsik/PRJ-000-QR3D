@@ -23,10 +23,10 @@ guid: "134accf9-e089-4e35-b5bc-4c32c7aebad5"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "01.BestPractice"
+title: "Best Practice"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Postupy, ktoré sa v projekte QR3D osvedčili."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,15 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Best Practice
 
-Sekcia **Best Practice** – vyplňte obsah podľa potreby.
+- **Overiť najväčšie riziko ako prvé.** Experiment s kapacitou QR kódu robíme pred samotným vývojom – ak by sa do QR nič užitočné nezmestilo, musíme zmeniť návrh hneď, nie na konci.
+- **Jeden konkrétny príbeh.** Príbeh „Okno do minulosti“ spája všetky dokumenty (7Ds, SDLC, Q12, pitch) – nevyzerajú ako vypĺňanie šablóny.
+- **Pred pushom do `main` spustiť `make build`.** Build je prísnejší ako `make dev` – odhalí nefunkčné odkazy skôr, ako spadne publikovanie.
+- **Malé commity s jasnou správou.** Ľahšie sa hľadá, kedy a prečo sa niečo zmenilo.
+- **Prieskum konkurencie na začiatku.** Vďaka nemu vieme jasne povedať, čím sme iní (bez aplikácie + offline + bez servera).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

@@ -23,10 +23,10 @@ guid: "e7144c40-6bde-426c-aca5-13c671e2af16"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "05.WorkActivitiesEvidence"
+title: "Work Activities Evidence"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Denník práce tímu QR3D – čo, kto a kedy urobil."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,20 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Work Activities Evidence
 
-Záznamy o aktivitách, skriptoch a výstupoch.
+Denník práce tímu. Nový záznam pridávame **hore**. Podrobnosti o zmenách v kóde sú v histórii commitov na GitHube.
+
+| Dátum | Kto | Čo sme urobili | Výstup / odkaz |
+|-------|-----|----------------|----------------|
+| 02.11.2026 | tím | výber príbehu A „Okno do minulosti“, prieskum existujúcich riešení (AR QR platformy, výskum ukladania 3D modelov do QR) | [D3 – Analysis](../../03.D3-Analysis/index.md), [Decisions](../04.Decisions/index.md) |
+| 26.10.2026 | Dániel Ruzsik | stránky About Me a Reflexia pre každého člena tímu | `students/about-me`, `students/reflexia` |
+| 26.10.2026 | Dániel Ruzsik | oprava chýb šablóny (veľké/malé písmená v cestách, nefunkčné odkazy, MDX), workflow pre GitHub Pages | commity `0f7ac16`, `673d440` |
+| 26.10.2026 | Dániel Ruzsik | sfunkčnenie Docusaurusu lokálne aj na GitHub Pages | commit `7523c28` |
+| 26.10.2026 | Dániel Ruzsik | prvé texty: Project Summary, ciele, plán, riziká, stakeholderi | commit `b9baff5` |
+| 26.10.2026 | Dániel Ruzsik | čistý klon šablóny predmetu, vygenerovanie štruktúry projektu (`make S31-sthdf-new`) | commity `a677984`, `6ae8f21` |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

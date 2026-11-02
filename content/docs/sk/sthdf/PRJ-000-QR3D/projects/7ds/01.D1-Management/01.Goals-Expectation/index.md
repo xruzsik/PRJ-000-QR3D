@@ -23,10 +23,10 @@ guid: "adb67b65-16bb-420c-bd2c-1a223e0191d4"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "01.Goals Expectation"
+title: "Goals & Expectations"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Hlavný cieľ, čiastkové ciele s kritériami splnenia, očakávania a rozsah projektu QR3D."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -137,22 +138,32 @@ fm_reserved2: ""
 
 ## 🎯 Hlavný cieľ
 
-Vytvoriť funkčný prototyp, ktorý po naskenovaní QR kódu zobrazí 3D model v mobilnom prehliadači, a predviesť ho na fyzickej makete.
+Vytvoriť funkčný prototyp **„Okno do minulosti“**: návštevník pri zrúcanine alebo jej makete naskenuje QR kód a v mobilnom prehliadači – bez inštalácie aplikácie – uvidí 3D model stavby v jej pôvodnej podobe. Zjednodušený model je uložený priamo v QR kóde, takže funguje aj bez signálu.
 
 ## 📌 Čiastkové ciele
 
 | # | Cieľ | Ako overíme splnenie |
 |---|------|----------------------|
-| G1 | Zakódovať zjednodušený 3D model priamo do QR kódu | model sa zobrazí aj bez internetu |
-| G2 | Web viewer bez inštalácie aplikácie | funguje v Chrome (Android) a Safari (iOS) |
-| G3 | Hybridný režim – HD model z webu | po načítaní sa low-poly verzia nahradí detailnou |
-| G4 | Fyzická ukážka | maketa s QR kódom pripravená na prezentáciu |
-| G5 | Dokumentácia podľa KNIFE (7Ds, SDLC, Q12) | všetky deliverables vyplnené v repozitári |
+| G1 | Zakódovať zjednodušený (low-poly) 3D model priamo do QR kódu | model sa zobrazí v režime lietadlo (bez internetu) |
+| G2 | Web viewer bez inštalácie aplikácie | funguje v Chrome (Android) aj Safari (iOS) |
+| G3 | Hybridný režim – detailný (HD) model z webu | pri pripojení sa low-poly verzia nahradí detailnou |
+| G4 | Generátor QR kódov | z 3D súboru (OBJ/GLB) vznikne QR kód jedným príkazom |
+| G5 | Fyzická ukážka | maketa zrúcaniny s QR kódom pripravená na finálnu prezentáciu |
+| G6 | Dokumentácia podľa KNIFE (7Ds, SDLC, Q12) a 1 KNIFE článok | všetky deliverables vyplnené a publikované na GitHub Pages |
+| G7 *(bonus)* | Časová os – prepínanie období stavby | posuvník ukáže aspoň 2 obdobia |
+| G8 *(bonus)* | AR zobrazenie | model sa dá umiestniť do priestoru cez kameru mobilu |
 
 ## 🤝 Očakávania
 
-- **Od tímu:** pravidelná práca (x h/týždeň), commity do vetvy `dev`, týždenný záznam vo Work Activities Evidence.
-- **Od vyučujúceho:** spätná väzba k Project Summary a pitchu.
-- **Mimo rozsahu (out of scope):** natívna mobilná aplikácia, vlastný 3D skener, správa obsahu pre múzeá (CMS).
+- **Od tímu:** pravidelná práca (cca 4–6 h týždenne na člena), práca vo vetve `dev`, záznam do [Work Activities Evidence](../05.WorkActivitiesEvidence/index.md) aspoň raz týždenne.
+- **Od vyučujúceho:** spätná väzba k Project Summary a k pitchu.
+- **Od používateľov (testerov):** 3–5 ľudí, ktorí vyskúšajú scenár „naskenuj → prezri si model“ a povedia, čo im prekážalo.
+
+## 🚫 Mimo rozsahu (out of scope)
+
+- natívna mobilná aplikácia (Android/iOS),
+- vlastné 3D skenovanie reálnych zrúcanín,
+- odborne presná historická rekonštrukcia – náš model je **ilustračný**,
+- správa obsahu pre múzeá (CMS, používateľské účty).
 
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

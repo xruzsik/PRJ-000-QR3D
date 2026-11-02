@@ -23,10 +23,10 @@ guid: "b4958fbc-9d38-4d89-8461-8af1e1729897"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "01.Principles"
+title: "Principles"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Zásady, ktorými sa riadi návrh a vývoj QR3D."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,21 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Principles
 
-Sekcia **Principles** – vyplňte obsah podľa potreby.
+# Principles
+
+| # | Princíp | Čo to znamená v praxi |
+|---|---------|------------------------|
+| P1 | **Bez inštalácie** | stačí fotoaparát v mobile a prehliadač; žiadna aplikácia ani registrácia |
+| P2 | **Offline-first** | základný (low-poly) model musí fungovať bez internetu; HD verzia je bonus |
+| P3 | **Bez servera** | všetko je statický web; prevádzkovateľ nič nespravuje a neplatí |
+| P4 | **Jednoduché pre prevádzkovateľa** | múzeum dostane QR kód na vytlačenie – nič viac nepotrebuje |
+| P5 | **Otvorenosť** | kód a dokumentácia sú verejné (MIT / CC-BY); žiadna závislosť od jednej platformy |
+| P6 | **Poctivosť k histórii** | rekonštrukcia je označená ako ilustračná; uvádzame zdroje, z ktorých vychádza |
+| P7 | **Súkromie** | nezbierame žiadne osobné údaje, žiadne sledovanie používateľov |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

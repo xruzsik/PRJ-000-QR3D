@@ -23,10 +23,10 @@ guid: "a4126a58-de5b-488e-8d91-e03da0ea16c1"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "04.Proposals"
+title: "Proposals"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Návrhy na zlepšenie projektu QR3D a šablóny predmetu."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,24 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Proposals
 
-Sekcia **Proposals** – vyplňte obsah podľa potreby.
+## 🚀 Pre projekt
+
+- **Časová os stavby** – posuvník medzi obdobiami (bonus G7).
+- **AR režim** – umiestnenie modelu do priestoru cez kameru (bonus G8).
+- **Viac jazykov** – popis stavby v SK / EN / HU podľa jazyka telefónu.
+- **Webový generátor** – kurátor nahrá model v prehliadači a stiahne si QR kód, bez Pythonu.
+
+## 🧰 Pre šablónu predmetu (spätná väzba vyučujúcemu)
+
+- `sidebars.ts` odkazuje na `sk/7ds`, priečinok sa však volá `7Ds` → na Linuxe (GitHub) build spadne.
+- Generátor (`make S31-sthdf-new`) vytvára v `index.md` odkazy na neexistujúce súbory `students/deliverables/0X_….md`.
+- Nadpis v `01.D1-Management/index.md` je „D2 – Motivation“ namiesto „D1 – Management“.
+- Workflow `pages.yml` (MkDocs) sa spúšťa pri každom pushi do `dev` a končí chybou.
+- `make dev` v Git Bash na Windows nastaví `BASE_URL` na `C:/Program Files/Git/` (pomôže `MSYS_NO_PATHCONV=1`).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

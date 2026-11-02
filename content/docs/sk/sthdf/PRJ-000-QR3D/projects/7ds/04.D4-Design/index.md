@@ -23,10 +23,10 @@ guid: "0b824284-f523-45b8-a564-e8fb7cff5587"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "04.D4 Design"
+title: "D4 - Design"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Návrh riešenia QR3D – architektúra, dátový formát v QR kóde a návrh používateľského rozhrania."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,58 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # D4 – Design
 
-Návrh riešenia a jeho štruktúra.
+*Stav: návrh – spresníme po experimente s kapacitou QR (M4).*
+
+## 🏗️ Architektúra
+
+![Architektúra QR3D – generátor, QR kód, web viewer, offline a HD režim](./img/qr3d.drawio.png)
+
+*Obrázok 1: Architektúra riešenia QR3D. Zdroj diagramu: `img/qr3d.drawio.png` (dá sa otvoriť v draw.io).*
+
+## 🧩 Komponenty
+
+| Komponent | Úloha | Technológia |
+|-----------|-------|-------------|
+| **Generátor** | 3D súbor → zjednodušený model → bajty → QR kód (PNG/SVG) | Python |
+| **Web viewer** | prečíta dáta z URL, dekóduje model, zobrazí ho, voliteľne načíta HD verziu | HTML + JavaScript, three.js |
+| **HD modely** | detailné verzie modelov (GLB) | statické súbory na GitHub Pages |
+| **Maketa** | fyzická ukážka s nalepeným QR kódom | kartón / 3D tlač |
+
+## 📦 Formát dát v QR kóde (návrh)
+
+QR kód obsahuje bežnú webovú adresu, napr.:
+
+```text
+https://xruzsik.github.io/PRJ-000-QR3D/viewer/#m=ÚDAJE_MODELU&hd=zobor
+```
+
+- Časť za znakom `#` (fragment) prehliadač **nikdy neposiela na server** – viewer ju prečíta priamo v telefóne, preto to funguje aj offline (ak je viewer uložený v cache) a so statickým webom.
+- `hd=zobor` je voliteľný identifikátor detailného modelu na webe.
+
+Štruktúra `ÚDAJE_MODELU` (pred kompresiou):
+
+| Časť | Obsah |
+|------|-------|
+| hlavička | verzia formátu, počet vrcholov, počet trojuholníkov, počet období |
+| ohraničenie | minimum a maximum súradníc (bounding box) |
+| vrcholy | súradnice x, y, z kvantizované na 10 bitov v rámci ohraničenia |
+| trojuholníky | indexy vrcholov, rozdielovo zakódované (delta) |
+| obdobia *(bonus)* | ku každému trojuholníku značka, v ktorom období stavba existovala |
+
+Celé sa skomprimuje (deflate) a zakóduje do textu bezpečného pre URL (base64url).
+
+## 📱 Návrh rozhrania viewera
+
+- **Na celú obrazovku 3D model**, otáčanie prstom, priblíženie dvoma prstami.
+- Hore **názov lokality** a označenie *„ilustračná rekonštrukcia“*.
+- Dole **posuvník období** (bonus), napr. 12. stor. → 15. stor. → dnes.
+- Tlačidlo **„Načítať detailný model“** (zobrazí sa, len ak je pripojenie).
+- Tlačidlo **„ℹ️ O stavbe“** – krátky text a zdroje.
+- *(bonus)* tlačidlo **„Zobraziť v AR“**.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

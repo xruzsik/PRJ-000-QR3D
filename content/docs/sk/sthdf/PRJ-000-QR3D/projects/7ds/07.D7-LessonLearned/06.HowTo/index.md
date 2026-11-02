@@ -23,10 +23,10 @@ guid: "c7e9c5f8-5c99-47e2-bead-1749f80b1256"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "06.HowTo"
+title: "HowTo"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Krátke návody, ktoré sa zišli pri práci na projekte QR3D."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,36 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
-# How To
+# HowTo
 
-Sekcia **How To** – vyplňte obsah podľa potreby.
+## Spustiť dokumentáciu lokálne (Windows, Git Bash)
+
+```bash
+cd publishing/docusaurus && npm ci && cd ../..        # raz: inštalácia závislostí
+rm -rf publishing/docusaurus/docs && mkdir -p publishing/docusaurus/docs && cp -r content/docs/. publishing/docusaurus/docs/
+MSYS_NO_PATHCONV=1 make dev                           # web na http://localhost:3000
+```
+
+Po každej úprave v `content/docs/` treba znova skopírovať obsah (2. riadok, u nás alias `docsync`).
+
+## Vytvoriť novú stránku
+
+1. Vytvoriť priečinok a v ňom `index.md` (najľahšie skopírovať existujúci, aby sa zachoval frontmatter).
+2. Vygenerovať nové `guid`: `python3 -c "import uuid; print(uuid.uuid4())"`.
+3. Upraviť `title` (zobrazí sa v menu) a obsah.
+4. Pridať odkaz na stránku z nadradeného `index.md`.
+
+## Vytvoriť KNIFE článok
+
+```bash
+make knifes-new ID=K000XXX name="nazov-clanku" title="Názov článku" LOCALE=sk
+```
+
+## Publikovať na GitHub Pages
+
+Zlúčiť zmeny z `dev` do `main` cez Pull Request – publikovanie prebehne automaticky (GitHub Actions). Stav je vidieť v záložke **Actions**.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

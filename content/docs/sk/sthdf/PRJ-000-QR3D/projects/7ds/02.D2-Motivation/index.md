@@ -23,10 +23,10 @@ guid: "c53acbef-c7e5-449b-8b61-eeac83c0878f"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "02.D2 Motivation"
+title: "D2 - Motivation"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Prečo projekt QR3D vzniká – problém, vízia, persony a hodnota pre stakeholderov."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,36 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # D2 – Motivation
 
-Stakeholderi, dôvody a dopady.
+## 🌅 Vízia
+
+> **Každá zrúcanina môže ukázať, aká bola – stačí kúsok papiera s QR kódom.**
+
+## ❓ Problém
+
+Z mnohých hradov a kláštorov na Slovensku zostali len základy múrov. Návštevník číta tabuľu s textom, ale nevie si predstaviť, ako stavba vyzerala. Malé múzeá, obce a správcovia lokalít nemajú peniaze na vlastnú aplikáciu ani na AR sprievodcu. Na mnohých miestach navyše nie je dobrý signál.
+
+## 💡 Naše riešenie v skratke
+
+Vytlačený QR kód pri zrúcanine alebo pri jej makete. Po naskenovaní sa v prehliadači zobrazí 3D model pôvodnej stavby – **bez aplikácie, bez registrácie a aj bez internetu**. Keď je signál, načíta sa detailnejší model.
+
+## 👥 Persony
+
+| Persona | Kto to je | Čo potrebuje | Čo jej prekáža dnes |
+|---------|-----------|--------------|---------------------|
+| **Ema (11)** | žiačka na školskom výlete | niečo zaujímavé, čo sa dá „chytiť“ v mobile | dlhé texty na tabuliach |
+| **Peter (45)** | turista na výlete s rodinou | rýchlo pochopiť, čo vidí | nemá signál, nechce inštalovať ďalšiu aplikáciu |
+| **Jana** | kurátorka malého regionálneho múzea | oživiť expozíciu lacno a bez IT oddelenia | komerčné AR riešenia sú drahé a na predplatné |
+| **Učiteľ / sprievodca** | vedie skupinu po lokalite | názornú pomôcku pri výklade | nemá čo ukázať okrem fotiek v knihe |
+
+*Persony sú vymyslené – slúžia na tvorbu user stories a testovacích scenárov.*
+
+## 🔗 Podrobnejšie
+
+- [Stakeholder Analysis](./01.StakeholderAnalysis/index.md)
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

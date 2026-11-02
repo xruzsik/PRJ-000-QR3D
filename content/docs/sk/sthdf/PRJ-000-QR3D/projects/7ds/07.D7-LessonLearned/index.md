@@ -23,10 +23,10 @@ guid: "3beb7379-3bd9-42e2-9b73-bbbd5f5c0855"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "07.D7 LessonLearned"
+title: "D7 - Lesson Learned"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Poznatky z projektu QR3D – čo fungovalo, čo nie, otvorené otázky, návrhy a návody."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,21 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # D7 – Lessons Learned
 
-Získané poznatky a odporúčania.
+Sem zapisujeme, čo sme sa naučili – priebežne, nie až na konci. Z najzaujímavejších poznatkov vznikajú KNIFE články.
+
+| Sekcia | Obsah |
+|--------|-------|
+| [Best Practice](./01.BestPractice/index.md) | čo sa osvedčilo |
+| [Bad Practice](./02.BadPractice/index.md) | čo sa neosvedčilo a prečo |
+| [Questions](./03.Questions/index.md) | otvorené otázky |
+| [Proposals](./04.Proposals/index.md) | návrhy na zlepšenie (projektu aj šablóny predmetu) |
+| [Next Steps](./05.NextSteps/index.md) | najbližšie kroky |
+| [HowTo](./06.HowTo/index.md) | krátke návody, ktoré sa nám zišli |
+| [TroubleShooting](./07.TroubleShooting/index.md) | problémy, na ktoré sme narazili, a ich riešenia |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

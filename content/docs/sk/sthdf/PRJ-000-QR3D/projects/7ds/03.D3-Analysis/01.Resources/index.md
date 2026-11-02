@@ -23,10 +23,10 @@ guid: "0a2efa3b-d5a1-4fd5-834d-09fa613e7afd"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "01.Resources"
+title: "Resources"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Zdroje projektu QR3D – ľudia, čas, náklady, nástroje a zdroje 3D modelov."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,43 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Resources
 
-Ľudia, čas, financie a iné zdroje.
+## 👥 Ľudia
+
+| Člen | Rola | Zameranie |
+|------|------|-----------|
+| Dániel Ruzsik (ST043) | Project Lead, Developer | koordinácia, dokumentácia, web viewer, generátor |
+| Lukáš Šebök (ST045) | 3D / Designer | príprava a zjednodušenie 3D modelov, UI, maketa |
+
+## ⏱️ Čas
+
+- cca 4–6 hodín týždenne na člena počas semestra,
+- najviac práce vo fáze vývoja (míľniky M5–M6).
+
+## 💶 Náklady
+
+| Položka | Odhad |
+|---------|-------|
+| Hosting (GitHub Pages) | 0 € |
+| Softvér (Blender, three.js, Python, VS Code) | 0 € (open source) |
+| Tlač QR kódov a materiál na maketu (kartón, prípadne 3D tlač) | do 20 € |
+| Testovacie zariadenia | vlastné telefóny (Android + iOS) |
+
+## 🧰 Nástroje
+
+- **Vývoj:** VS Code, Git, Node.js, Python
+- **3D:** Blender (zjednodušenie modelu, export do OBJ/GLB)
+- **Web:** three.js, prípadne Google `model-viewer`
+- **Dokumentácia:** KNIFE šablóna, Docusaurus, GitHub Pages
+
+## 🏛️ Zdroje 3D modelov
+
+- voľne licencované modely (CC0 / CC-BY) z verejných 3D knižníc,
+- vlastný zjednodušený model v Blenderi podľa pôdorysu a dobových vyobrazení,
+- pri každom modeli uvádzame autora a licenciu (riziko R6).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

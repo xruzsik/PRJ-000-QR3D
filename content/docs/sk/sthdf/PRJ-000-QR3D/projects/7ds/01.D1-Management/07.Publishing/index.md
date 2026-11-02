@@ -23,10 +23,10 @@ guid: "55b5891b-f4d7-4ea6-bd24-f98e8595be01"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "07.Publishing"
+title: "Publishing"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Kde a ako projekt QR3D publikuje dokumentáciu, kód a demo."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,23 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Publishing
 
-Sekcia **Publishing** – vyplňte obsah podľa potreby.
+| Výstup | Kde | Ako sa aktualizuje |
+|--------|-----|--------------------|
+| Dokumentácia (tento web) | https://xruzsik.github.io/PRJ-000-QR3D/ | automaticky po zlúčení do vetvy `main` (GitHub Actions) |
+| Zdrojový kód a dokumentácia | https://github.com/xruzsik/PRJ-000-QR3D | push do `dev`, Pull Request do `main` |
+| Web viewer (demo) | [doplniť odkaz po nasadení] | rovnako ako dokumentácia |
+| KNIFE článok | v tomto repozitári, sekcia Knowledge Contribution | `make knifes-new`, potom PR do `main` |
+| Odovzdanie vyučujúcemu | odkaz na repozitár podľa pokynov vyučujúceho | jednorazovo pri odovzdaní |
+
+## 📜 Licencia
+
+- kód a skripty: MIT,
+- texty a dokumentácia: CC-BY 4.0,
+- 3D modely: podľa licencie autora (uvádzame pri každom modeli).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

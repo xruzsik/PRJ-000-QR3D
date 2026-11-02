@@ -23,10 +23,10 @@ guid: "dac1bb59-7fb0-420b-9565-fe753d85cf8c"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "01.D1 Management"
+title: "D1 - Management"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Riadenie projektu QR3D - ciele, plány, rozhodnutia, riziká a evidencia práce."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,24 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
-# D2 – Motivation
+# D1 – Management
 
-Stakeholderi, dôvody a dopady.
+Riadenie projektu **QR3D – Okno do minulosti**: čo chceme dosiahnuť, ako to naplánujeme, aké rozhodnutia sme urobili a ako sledujeme postup.
+
+## 📂 Obsah
+
+| Sekcia | Čo tu nájdeš |
+|--------|--------------|
+| [Goals & Expectations](./01.Goals-Expectation/index.md) | hlavný cieľ, čiastkové ciele, čo je mimo rozsahu |
+| [Plans & Milestones](./02.Plans-Milestones/index.md) | míľniky a kritériá ich splnenia |
+| [Strategy](./02.Strategy/index.md) | ako k projektu pristupujeme |
+| [Plans & Roadmaps](./03.Plans-Roadmaps/index.md) | fázy projektu v čase |
+| [Decisions](./04.Decisions/index.md) | záznam rozhodnutí, princípy, pravidlá, SWOT, riziká, metriky |
+| [Work Activities Evidence](./05.WorkActivitiesEvidence/index.md) | denník práce tímu |
+| [Reportings](./06.Reportings/index.md) | priebežné správy o stave |
+| [Publishing](./07.Publishing/index.md) | kde a ako výstupy zverejňujeme |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

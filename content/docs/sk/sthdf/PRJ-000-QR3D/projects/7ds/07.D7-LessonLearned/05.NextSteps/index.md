@@ -23,10 +23,10 @@ guid: "9e45ac9e-f225-4d71-9a04-67abf30dacc9"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "05.NextSteps"
+title: "Next Steps"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Najbližšie kroky v projekte QR3D."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,16 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Next Steps
 
-Sekcia **Next Steps** – vyplňte obsah podľa potreby.
+- [ ] Doplniť Q12 (biznis pohľad) a user stories v SDLC 01-Requirements
+- [ ] Pripraviť pitch (5–7 min)
+- [ ] Zistiť od vyučujúceho číslo projektu a odpovede na otázky v [Questions](../03.Questions/index.md)
+- [ ] Vybrať 3D model zrúcaniny (alebo začať vlastný v Blenderi)
+- [ ] Spraviť experiment s kapacitou QR kódu (M4)
+- [ ] Začať KNIFE článok „Ako zakódovať 3D model do QR kódu“
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

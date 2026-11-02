@@ -23,10 +23,10 @@ guid: "baa3ae2c-4f26-4efb-80a2-b6978e143252"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "02.Strategy"
+title: "Strategy"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Strategický prístup projektu QR3D – offline-first, bez aplikácie, najprv MVP, potom rozšírenia."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,23 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Strategy
 
-Sekcia **Strategy** – vyplňte obsah podľa potreby.
+## 🧭 Ako k projektu pristupujeme
+
+1. **Najprv overiť najväčšie riziko.** Kľúčová otázka je, či sa do QR kódu zmestí model, ktorý je ešte na niečo dobrý. Preto ako prvé robíme experiment s kapacitou QR (míľnik M4) – až potom staviame zvyšok.
+2. **MVP pred rozšíreniami.** Najprv „QR → model v prehliadači“. Časová os a AR prídu, až keď základ funguje.
+3. **Offline-first.** Zrúcaniny bývajú v lese alebo na kopci, kde je slabý signál. Základný zážitok preto nesmie závisieť od internetu.
+4. **Žiadna aplikácia, žiadny server.** Všetko beží v prehliadači ako statický web (GitHub Pages). Prevádzkovateľ nemusí nič spravovať ani platiť predplatné.
+5. **Otvorené riešenie.** Kód aj dokumentácia sú verejné (MIT / CC-BY), takže si ho môže nasadiť ktokoľvek – aj malé múzeum alebo obec.
+6. **Jeden konkrétny príbeh.** Všetko demonštrujeme na jednej zrúcanine (ilustračná rekonštrukcia), ostatné využitia (náučný chodník, 3D tlačené predmety) len spomenieme ako ďalšie možnosti.
+
+## 🔗 Súvisiace
+
+- [Knife Management](./Knife_Management/index.md) – plán KNIFE článkov
+- [Docusaurus Guide](./Docusaurus-Guide/index.md) – ako písať dokumentáciu
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

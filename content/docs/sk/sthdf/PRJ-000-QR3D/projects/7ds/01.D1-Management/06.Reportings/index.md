@@ -23,10 +23,10 @@ guid: "b2e33dfc-ddc5-4480-b86b-09cfa346c5e2"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "06.Reportings"
+title: "Reportings"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Priebežné správy o stave projektu QR3D."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,28 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Reportings
 
-Sekcia **Reportings** – vyplňte obsah podľa potreby.
+Krátka správa o stave raz za 2 týždne – pre tím aj pre vyučujúceho. Formát: *čo je hotové, čo ďalej, čo nás blokuje*.
+
+## 📅 Správa č. 1 – 02.11.2026
+
+- **Hotové:** repozitár a web (GitHub Pages), Project Summary, ciele, plán, riziká, stakeholderi, výber príbehu, prieskum konkurencie.
+- **Ďalej:** pitch, Q12, user stories, experiment s kapacitou QR kódu.
+- **Blokuje nás:** zatiaľ nemáme pridelené číslo projektu (`PRJ-000` je dočasné).
+- **Stav voči plánu:** 🟢 podľa plánu
+
+## 🧾 Šablóna ďalšej správy
+
+```text
+Správa č. X – DD.MM.RRRR
+- Hotové:
+- Ďalej:
+- Blokuje nás:
+- Stav voči plánu: 🟢 / 🟡 / 🔴
+```
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

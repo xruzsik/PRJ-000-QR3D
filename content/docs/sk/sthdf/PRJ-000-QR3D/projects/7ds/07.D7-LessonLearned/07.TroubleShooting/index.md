@@ -23,10 +23,10 @@ guid: "449c109f-e0ea-4d7f-afb1-ba70357f5d1a"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "07.TroubleShooting"
+title: "TroubleShooting"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Problémy, na ktoré sme narazili pri projekte QR3D, a ich riešenia."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,21 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
-# Troubleshooting
+# TroubleShooting
 
-Sekcia **Troubleshooting** – vyplňte obsah podľa potreby.
+| Problém | Príčina | Riešenie |
+|---------|---------|----------|
+| `make: command not found` v Git Bash | Git Bash neobsahuje `make` | `winget install ezwinports.make`, reštart Git Bash |
+| `Python was not found` | Windows má namiesto Pythonu len odkaz do Microsoft Store | nainštalovať Python z Microsoft Store (vytvorí aj príkaz `python3`) |
+| `rm -rf` nefunguje v cmd | je to príkaz pre bash | v cmd `rmdir /s /q .git`, v PowerShelli `Remove-Item -Recurse -Force .git`, alebo použiť Git Bash |
+| `Sidebar category 7Ds (SK) has neither any subitem nor a link` | `sidebars.ts` hľadá `sk/7ds`, priečinok je `7Ds` | opraviť `dirName` na `sk/7Ds` |
+| `MDX compilation failed … Unexpected character` | v texte je `<niečo>` mimo spätných apostrofov | nahradiť `[niečo]` alebo dať do `` `…` `` |
+| Chyba pretrváva aj po oprave | Docusaurus číta starú kópiu / cache | `npx docusaurus clear`, znova skopírovať obsah, reštart `make dev` |
+| Všetky stránky „Page Not Found“, server beží na `localhost:3000/C:/Program Files/Git/` | Git Bash preložil `BASE_URL=/` na Windows cestu | `MSYS_NO_PATHCONV=1 make dev` (natrvalo cez `~/.bashrc`) |
+| Prepínač jazyka (EN) v menu ukáže 404 pri `make dev` | dev server spúšťa iba jeden jazyk | ignorovať, alebo `make dev DS_LOCALE=en`; na GitHub Pages funguje |
+
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

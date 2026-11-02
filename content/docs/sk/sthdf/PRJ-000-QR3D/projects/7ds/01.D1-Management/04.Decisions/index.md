@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "04.Decisions"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Záznam kľúčových rozhodnutí projektu QR3D s dôvodmi a odkazy na princípy, pravidlá, SWOT, riziká a metriky."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,30 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Decisions
 
-Princípy, pravidlá, SWOT, riziká a opatrenia.
+## 🗂️ Podsekcie
+
+- [Principles](./01.Principles/index.md) – zásady, ktorými sa riadime
+- [Rules](./02.Rules/index.md) – pravidlá spolupráce v tíme
+- [SWOT](./03.SWOT/index.md) – silné a slabé stránky, príležitosti, hrozby
+- [Risks](./04.Risks/index.md) – riziká a opatrenia
+- [Measures](./05.Measures/index.md) – ako meriame úspech
+
+## 📝 Záznam rozhodnutí
+
+| # | Rozhodnutie | Prečo | Alternatíva, ktorú sme zamietli | Dátum | Stav |
+|---|-------------|-------|----------------------------------|-------|------|
+| R-01 | Pracujeme s príbehom A – **„Okno do minulosti“** (zrúcanina) | najsilnejší efekt, zrozumiteľný problém, reálny zákazník (múzeum, obec) | náučný chodník, 3D tlačený predmet (zostávajú ako ďalšie využitia) | 02.11.2026 | ✅ |
+| R-02 | Webová stránka namiesto natívnej aplikácie | používateľ nemusí nič inštalovať | aplikácia pre Android/iOS | 02.11.2026 | ✅ |
+| R-03 | Dáta modelu ukladáme do URL za znak `#` (fragment) | fragment sa neposiela na server → funguje so statickým webom a offline | samostatný formát QR, ktorý by vyžadoval vlastnú aplikáciu | 02.11.2026 | 🔄 overí M4 |
+| R-04 | Hosting na GitHub Pages | zadarmo, bez servera, rovnaký repozitár ako dokumentácia | vlastný server, komerčné AR platformy | 26.10.2026 | ✅ |
+| R-05 | Kód aplikácie v priečinku `app/` v tom istom repozitári | jeden odkaz pre vyučujúceho, dokumentácia a kód spolu | samostatný repozitár | 02.11.2026 | ✅ |
+| R-06 | Zobrazenie cez three.js, AR voliteľne cez `model-viewer` | three.js dovolí vlastný dekódovaný model a časovú os | iba `model-viewer` (vyžaduje hotový GLB súbor) | [dátum] | ⏳ návrh |
+
+Legenda: ✅ prijaté · 🔄 prijaté, čaká na overenie · ⏳ návrh
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

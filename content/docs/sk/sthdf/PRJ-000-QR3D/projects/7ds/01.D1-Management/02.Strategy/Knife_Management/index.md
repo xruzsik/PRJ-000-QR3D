@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "Knife Management"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Plán KNIFE článkov, ktoré z projektu QR3D vzniknú."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,21 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Knife Management
 
-Sekcia **Knife Management** – vyplňte obsah podľa potreby.
+KNIFE (*Knowledge In Friendly Examples*) je krátky článok, ktorý zdieľa poznatok z projektu. Platí pravidlo: *ak niečo zabralo viac ako 5 minút zisťovania, oplatí sa to zapísať.*
+
+## 🗂️ Plánované články
+
+| # | Téma | Autor | Stav |
+|---|------|-------|------|
+| 1 | **Ako zakódovať 3D model do QR kódu** – kapacita QR, kvantizácia, kompresia, dáta v URL za `#` (hlavný KNIFE – deliverable A2) | [meno] | ⏳ |
+| 2 | **Docusaurus na Windows v Git Bash** – prečo `BASE_URL=/` skončí ako `C:/Program Files/Git/` a ako to opraviť (`MSYS_NO_PATHCONV`) | [meno] | ⏳ |
+| 3 | **MDX nástrahy v KNIFE šablóne** – znaky `<` a `{` v texte, veľké/malé písmená v cestách (`7Ds` vs `7ds`) | [meno] | ⏳ |
+
+Nový článok vytvoríme príkazom `make knifes-new` a odkaz naň pridáme do sekcie Knowledge Contribution.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

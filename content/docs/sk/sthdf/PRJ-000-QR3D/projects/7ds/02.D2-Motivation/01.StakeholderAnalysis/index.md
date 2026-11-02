@@ -23,10 +23,10 @@ guid: "0f9645c7-96f8-4d27-9c59-3173889623a9"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "01.StakeholderAnalysis"
+title: "Stakeholder Analysis"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Stakeholderi projektu QR3D – čo potrebujú, čo im riešenie prinesie a aký majú vplyv."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -137,15 +138,20 @@ fm_reserved2: ""
 
 | Stakeholder | Čo potrebuje / očakáva | Prínos riešenia | Vplyv na projekt |
 |-------------|------------------------|-----------------|------------------|
-| Návštevník múzea | pochopiť exponát rýchlo a zaujímavo | 3D pohľad na pôvodnú podobu stavby bez inštalácie aplikácie | nízky (používateľ) |
-| Deti a študenti | interaktívny, hravý zážitok | model sa dá otáčať a približovať | nízky |
-| Kurátor / múzeum | lacné a jednoduché doplnenie expozície | stačí vytlačiť QR kód, statický web bez servera | vysoký (zákazník) |
-| Učiteľ / sprievodca (napr. náučný chodník) | názorná pomôcka pri výklade | QR kód na tabuli alebo v pracovnom liste | stredný |
+| Návštevník / turista | pochopiť lokalitu rýchlo a zaujímavo, aj bez signálu | 3D pohľad na pôvodnú podobu stavby bez inštalácie aplikácie | nízky (používateľ) |
+| Deti a študenti | interaktívny, hravý zážitok | model sa dá otáčať, približovať a prepínať obdobia | nízky (používateľ) |
+| Kurátor / múzeum | lacné a jednoduché doplnenie expozície | stačí vytlačiť QR kód; statický web bez servera a predplatného | vysoký (zákazník) |
+| Obec / správca lokality | pritiahnuť návštevníkov, oživiť tabule | QR kód na existujúcu informačnú tabuľu | vysoký (zákazník) |
+| Učiteľ / sprievodca | názorná pomôcka pri výklade | QR kód na tabuli alebo v pracovnom liste | stredný |
+| Historik / odborník na pamiatky | aby rekonštrukcia nebola zavádzajúca | model je označený ako ilustračný, so zdrojmi | stredný (kontrola obsahu) |
+| Autor 3D modelu | uznanie autorstva, dodržanie licencie | uvedenie autora a licencie pri modeli | nízky |
 | Tím projektu | naučiť sa 3D web, kódovanie dát, prácu podľa KNIFE | praktická skúsenosť a portfólio | vysoký |
-| Vyučujúci | splnené deliverables a kvalitná dokumentácia | projekt zdokumentovaný podľa 7Ds/SDLC/Q12 | vysoký (hodnotí) |
+| Vyučujúci | splnené deliverables a kvalitná dokumentácia | projekt zdokumentovaný podľa 7Ds / SDLC / Q12 | vysoký (hodnotí) |
 
-## 💡 Prečo projekt dáva zmysel
+## 🎯 Mapa záujmu a vplyvu
 
-Fyzický exponát ukazuje len to, čo sa zachovalo. Digitálne doplnenie cez QR kód ukáže aj to, čo chýba – lacno, bez aplikácie a pre každého, kto má mobil.
+- **Vysoký vplyv, vysoký záujem** (úzko spolupracovať): kurátor / múzeum, obec, vyučujúci
+- **Vysoký záujem, nižší vplyv** (informovať, testovať s nimi): návštevníci, deti, učitelia
+- **Nižší záujem, vplyv na kvalitu** (konzultovať): historik, autori 3D modelov
 
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

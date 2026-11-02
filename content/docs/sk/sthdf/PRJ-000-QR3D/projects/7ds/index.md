@@ -23,10 +23,10 @@ guid: "74a9ace9-dfbd-46ca-87da-a9323ec000d7"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "7ds"
+title: "7Ds"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "7Ds - 7 dimenzií projektu QR3D"
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------

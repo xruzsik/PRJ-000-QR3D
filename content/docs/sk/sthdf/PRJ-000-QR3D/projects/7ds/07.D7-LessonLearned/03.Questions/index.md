@@ -23,10 +23,10 @@ guid: "2f4a1d20-92ca-49af-a4f0-0a255c041271"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "03.Questions"
+title: "Questions"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Otvorené otázky projektu QR3D – pre vyučujúceho aj technické."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,26 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Questions
 
-Sekcia **Questions** – vyplňte obsah podľa potreby.
+## 🎓 Pre vyučujúceho
+
+| # | Otázka | Odpoveď |
+|---|--------|---------|
+| Q1 | Aké je naše číslo projektu (`PRJ-0XX`)? Zatiaľ používame `PRJ-000`. | [doplniť] |
+| Q2 | Majú byť individuálne výstupy (About Me, Reflexia, KNIFE) v tímovom repozitári, alebo v osobných repozitároch `ST-0XX`? | [doplniť] |
+| Q3 | Má mať každý člen tímu vlastný KNIFE článok? | [doplniť] |
+
+## ⚙️ Technické
+
+| # | Otázka | Ako ju zodpovieme |
+|---|--------|-------------------|
+| Q4 | Koľko trojuholníkov sa reálne zmestí do čitateľného QR kódu? | experiment M4 |
+| Q5 | Ktorú verziu QR a úroveň korekcie chýb zvoliť? | experiment M4, test T1 |
+| Q6 | Bude viewer fungovať offline aj pri prvom otvorení (bez cache)? | test T2; prípadne service worker |
+| Q7 | Kde získať vhodný 3D model zrúcaniny s voľnou licenciou? | prieskum, prípadne vlastný model |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

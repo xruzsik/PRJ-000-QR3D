@@ -23,10 +23,10 @@ guid: "dc2431b7-c5db-4ee0-a08a-127fd0c37953"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "05.Measures"
+title: "Measures"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Metriky úspechu projektu QR3D a ich cieľové hodnoty."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,19 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Measures
 
-Sekcia **Measures** – vyplňte obsah podľa potreby.
+Cieľové hodnoty sú počiatočný odhad – spresníme ich po experimente s kapacitou QR (M4) a výsledky zapíšeme do [D6](../../../06.D6-Verification-Testing/index.md).
 
+| # | Metrika | Cieľová hodnota | Ako meriame | Výsledok |
+|---|---------|-----------------|-------------|----------|
+| K1 | Čitateľnosť QR kódu | QR s rozmerom 6 × 6 cm sa načíta zo vzdialenosti aspoň 30 cm | test s 2 telefónmi, bežné osvetlenie | [doplniť] |
+| K2 | Čas do zobrazenia modelu (offline) | do 3 s od naskenovania | stopky / meranie v prehliadači | [doplniť] |
+| K3 | Detail offline modelu | aspoň 200 trojuholníkov v jednom QR kóde | výstup generátora | [doplniť] |
+| K4 | Podpora prehliadačov | funguje v Chrome (Android) aj Safari (iOS) | manuálny test | [doplniť] |
+| K5 | Úspešnosť používateľov | aspoň 4 z 5 testerov zvládnu scenár bez pomoci | test s používateľmi | [doplniť] |
+| K6 | Spokojnosť používateľov | priemer aspoň 4 z 5 na otázku „Pomohlo ti to predstaviť si stavbu?“ | krátky dotazník po teste | [doplniť] |
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

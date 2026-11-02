@@ -23,10 +23,10 @@ guid: "7bb94a84-7f5a-4635-b691-ef493e400cd8"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "02.Plans Milestones"
+title: "Plans & Milestones"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Míľniky projektu QR3D a kritériá, podľa ktorých ich považujeme za splnené."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,22 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Plans & Milestones
 
-Sekcia **Plans & Milestones** – vyplňte obsah podľa potreby.
+| # | Míľnik | Kritérium splnenia („hotovo, keď…“) | Termín | Stav |
+|---|--------|--------------------------------------|--------|------|
+| M1 | Repozitár a dokumentácia pripravené | repo podľa šablóny, Docusaurus beží, GitHub Pages funguje | 26.10.2026 | ✅ |
+| M2 | Zadanie projektu | Project Summary, About Me, 7Ds D1–D2 vyplnené | [termín] | 🔄 |
+| M3 | Pitch | prezentácia 5–7 min, Q12, user stories | [termín pitchu] | ⏳ |
+| M4 | Experiment s kapacitou QR | vieme, koľko trojuholníkov sa zmestí do QR a aký QR je ešte čitateľný | [termín] | ⏳ |
+| M5 | Prvý funkčný prototyp | QR kód → model sa zobrazí v prehliadači (offline) | [termín] | ⏳ |
+| M6 | Hybrid + generátor + maketa | HD model z webu, generátor z OBJ/GLB, fyzická maketa | [termín] | ⏳ |
+| M7 | Testovanie | test s 3–5 používateľmi, výsledky v D6 | [termín] | ⏳ |
+| M8 | Finálna prezentácia | demo, Project Outcomes, Reflexia, KNIFE článok | [termín finálnej prezentácie] | ⏳ |
+
+Legenda: ✅ hotovo · 🔄 rozpracované · ⏳ čaká
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

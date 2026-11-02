@@ -23,10 +23,10 @@ guid: "dd7f10c7-933b-44cd-8fd7-87b049cbc321"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "02.BadPractice"
+title: "Bad Practice"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Chyby a postupy, ktoré sa v projekte QR3D neosvedčili."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,14 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Bad Practice
 
-Sekcia **Bad Practice** – vyplňte obsah podľa potreby.
+- **Zástupné texty v tvare `<doplňte>` v Markdown súboroch.** Docusaurus spracúva `.md` ako MDX a `<…>` berie ako HTML značku → build spadne. Lepšie: `[doplňte]`.
+- **Spoliehať sa na Windows pri názvoch priečinkov.** Windows nerozlišuje `7Ds` a `7ds`, Linux na GitHube áno – lokálne všetko fungovalo, na GitHube nie.
+- **Upravovať súbory v `publishing/docusaurus/docs/`.** Je to len kópia, pri ďalšom `docsync` / `make build` sa zmeny stratia. Písať treba do `content/docs/`.
+- **Viac mien v jednej položke `authors`** (`"Meno1, Meno2"`) – skripty to berú ako jedného autora. Každé meno patrí na samostatný riadok.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

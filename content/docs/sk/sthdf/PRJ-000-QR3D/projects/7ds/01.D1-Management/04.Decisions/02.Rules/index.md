@@ -23,10 +23,10 @@ guid: "46482264-f85e-4174-8d60-deeb18ced9cb"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "02.Rules"
+title: "Rules"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Pravidlá spolupráce v tíme QR3D - git, komunikácia, dokumentácia."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -131,11 +132,30 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # Rules
 
-Sekcia **Rules** – vyplňte obsah podľa potreby.
+# Rules
+
+## 🔀 Git a repozitár
+
+- Pracujeme vo vetve `dev`; väčšie úlohy vo vetvách `feature/nazov-ulohy`.
+- Do `main` ide zmena len cez **Pull Request**, ktorý si pozrie druhý člen tímu.
+- Commit správy píšeme stručne a výstižne (čo a prečo), napr. `Add QR capacity experiment results`.
+- Pred pushom do `main` overíme, že prejde `make build` (inak spadne publikovanie webu).
+
+## 📝 Dokumentácia
+
+- Obsah píšeme do `content/docs/`, nikdy nie do `publishing/docusaurus/docs/` (to je len kópia).
+- V texte nepoužívame znaky `<` a `{` mimo spätných apostrofov (MDX ich berie ako kód).
+- Každú významnú prácu zapíšeme do [Work Activities Evidence](../../05.WorkActivitiesEvidence/index.md).
+
+## 💬 Komunikácia
+
+- Dohodnutý kanál: [Discord / Teams / WhatsApp].
+- Krátke stretnutie tímu raz týždenne ([deň, čas]) – čo sme urobili, čo ďalej, čo nás blokuje.
+- Ak niekto nestíha úlohu, ozve sa včas, nie v deň termínu.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

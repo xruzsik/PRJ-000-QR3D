@@ -23,10 +23,10 @@ guid: "d91c726a-d196-4c2d-9c96-6d9de4b5bc17"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "04.Risks"
+title: "Risks"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Riziká projektu QR3D - pravdepodobnosť, dopad a opatrenia."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -36,7 +36,8 @@ author: "Roman Kazicka"
 
 # Zoznam autorov – generuje skript
 authors:
-  - "Dániel Ruzsik, Lukáš Šebök"
+  - "Dániel Ruzsik"
+  - "Lukáš Šebök"
 
 
 # 🗂 CLASSIFICATION ---------------------------------------------------
@@ -135,13 +136,17 @@ fm_reserved2: ""
 
 # Risks
 
+# Risks
+
 | # | Riziko | Pravdepodobnosť | Dopad | Opatrenie |
 |---|--------|-----------------|-------|-----------|
-| R1 | Kapacita QR kódu (max. ~3 KB) nestačí na užitočný model | vysoká | vysoký | hybridný režim: v QR len low-poly model + URL na HD verziu; kvantizácia a kompresia dát |
-| R2 | Hustý QR kód sa zle skenuje | stredná | vysoký | testovať veľkosti a úrovne korekcie chýb; obmedziť objem dát |
+| R1 | Kapacita QR kódu (max. cca 3 KB) nestačí na užitočný model | vysoká | vysoký | hybridný režim: v QR len low-poly model + odkaz na HD verziu; kvantizácia a kompresia; experiment hneď na začiatku (M4) |
+| R2 | Hustý QR kód sa zle skenuje | stredná | vysoký | testovať rôzne veľkosti a úrovne korekcie chýb; zvoliť kompromis medzi detailom a čitateľnosťou |
 | R3 | Rozdiely medzi prehliadačmi (iOS Safari vs. Android Chrome) | stredná | stredný | testovať na oboch od prvého prototypu |
-| R4 | AR rozšírenie je technicky náročné | vysoká | nízky | AR je voliteľné rozšírenie, MVP funguje bez neho |
-| R5 | Nedostatok vhodných 3D modelov | nízka | stredný | voľne licencované modely (CC) alebo vlastný jednoduchý model |
-| R6 | Časová vyťaženosť tímu počas semestra | stredná | stredný | malé priebežné míľniky, týždenný záznam práce |
+| R4 | AR rozšírenie je technicky náročné | vysoká | nízky | AR je voliteľný bonus, MVP funguje bez neho |
+| R5 | Nemáme vhodný 3D model zrúcaniny | stredná | stredný | voľne licencovaný model (CC) alebo vlastný zjednodušený model v Blenderi |
+| R6 | Autorské práva k použitým modelom | nízka | stredný | používať len modely s licenciou CC0/CC-BY a uvádzať autora |
+| R7 | Rekonštrukcia pôsobí ako historicky presná, hoci nie je | stredná | stredný | jasné označenie „ilustračná rekonštrukcia“ a uvedenie zdrojov (princíp P6) |
+| R8 | Časová vyťaženosť tímu počas semestra | stredná | stredný | malé priebežné míľniky, týždenný záznam práce, prioritizácia MVP |
 
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

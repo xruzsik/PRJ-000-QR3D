@@ -138,18 +138,33 @@ fm_reserved2: ""
 ## 🔖 Základné informácie
 - Dániel Ruzsik
 - [Študentský GitHub profil (link)](https://github.com/xruzsik)
-- Kontaktný e-mail
+- Kontaktný e-mail: daniruzsik@gmail.com
 
 ## 🎯 Profesijné záujmy
-- Oblasti, ktoré ma bavia (IT, dizajn, podnikanie, …)
-- Aké skúsenosti by som chcel získať
+Oblasti, ktoré ma bavia:
+- IT, IT architektúra
+- Webové aplikácie => Full-stack vývoj
+- Desktopové aplikácie
+
+Aké skúsenosti by som chcel získať:
+- 
+
 
 ## 💡 Moje hobby / záujmy
-- Šport, hudba, varenie, cestovanie …
-- Čokoľvek, čo odhaľuje „ľudskú stránku"
+- Hudba:
+Hra na gitare, počúvanie rôznych žánrov hudby
+- Varenie:
+Príprava jedla (na internáte, alebo aj doma)
+- Šport:
+Turistika, pohyb v prírode
+- Skauting (Zväz slovenských skautov maďarskej národnosti):
+Aktívna účasť a práca v miestnej skupine, ale aj v rámci zväzu
+- Šachy:
+Amatérský hráč, 1-2x denne na chess.com
 
 ## 🚀 Očakávania od predmetu
 - Čo chcem dosiahnuť v rámci kurzu
+
 - Čo očakávam od spolupráce s tímom a komunitou
 
 ## 🚀 Čo viem ponúknuť

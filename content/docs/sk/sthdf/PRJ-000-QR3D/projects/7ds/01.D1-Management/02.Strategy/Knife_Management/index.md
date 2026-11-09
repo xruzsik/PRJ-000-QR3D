@@ -142,7 +142,7 @@ KNIFE (*Knowledge In Friendly Examples*) je krátky článok, ktorý zdieľa poz
 
 | # | Téma | Autor | Stav |
 |---|------|-------|------|
-| 1 | **Ako zakódovať 3D model do QR kódu** – kapacita QR, kvantizácia, kompresia, dáta v URL za `#` (hlavný KNIFE – deliverable A2) | [meno] | ⏳ |
+| 1 | **Ako umiestniť AR objekt vo vzťahu ku QR kódu (ARCore, Kotlin)** – nájdenie QR v obraze kamery, poloha a natočenie kódu v priestore, posun objektu (hlavný KNIFE – deliverable A2) | [meno] | ⏳ |
 | 2 | **Docusaurus na Windows v Git Bash** – prečo `BASE_URL=/` skončí ako `C:/Program Files/Git/` a ako to opraviť (`MSYS_NO_PATHCONV`) | [meno] | ⏳ |
 | 3 | **MDX nástrahy v KNIFE šablóne** – znaky `<` a `{` v texte, veľké/malé písmená v cestách (`7Ds` vs `7ds`) | [meno] | ⏳ |
 

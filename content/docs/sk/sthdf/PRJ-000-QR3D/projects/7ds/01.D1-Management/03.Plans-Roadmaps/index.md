@@ -140,10 +140,10 @@ fm_reserved2: ""
 
 | Fáza | Obsah | Výstupy v repozitári | Míľniky |
 |------|-------|----------------------|---------|
-| **1. Príprava** | tím, príbeh, ciele, stakeholderi, repozitár | About Me, Project Summary, 7Ds D1–D2 | M1, M2 |
-| **2. Pitch a analýza** | problém, konkurencia, biznis pohľad, experiment s QR | Pitch, Q12, 7Ds D3, SDLC 01–02 | M3, M4 |
-| **3. Vývoj** | dátový formát, viewer, generátor, HD režim, maketa | 7Ds D4–D5, SDLC 03–04, KNIFE článok | M5, M6 |
-| **4. Overenie a uzavretie** | testy s používateľmi, demo, zhodnotenie | 7Ds D6–D7, SDLC 05–06, Outcomes, Final, Reflexia | M7, M8 |
+| **1. Príprava** | tím, nápad, ciele, stakeholderi, repozitár, prvý AR prototyp (kocka na QR) | About Me, Project Summary, 7Ds D1–D2 | M1, M2, M3 |
+| **2. Pitch a analýza** | problém, konkurencia, biznis pohľad, experiment s umiestnením v AR | Pitch, Q12, 7Ds D3, SDLC 01–02 | M4, M5 |
+| **3. Vývoj** | postavičky, zbierka, trasa a cieľ, offline režim | 7Ds D4–D5, SDLC 03–04, KNIFE článok | M6, M7 |
+| **4. Overenie a uzavretie** | test na trase s používateľmi, demo, zhodnotenie | 7Ds D6–D7, SDLC 05–06, Outcomes, Final, Reflexia | M8, M9 |
 
 Podrobné termíny sú v [Plans & Milestones](../02.Plans-Milestones/index.md).
 
@@ -153,4 +153,5 @@ Podrobné termíny sú v [Plans & Milestones](../02.Plans-Milestones/index.md).
 - Do `main` sa zlučuje cez Pull Request, keď je časť hotová – z `main` sa publikuje web.
 - Kód aplikácie je v priečinku `app/` v koreni repozitára.
 
+---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

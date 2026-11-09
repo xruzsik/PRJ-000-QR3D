@@ -147,6 +147,5 @@ fm_reserved2: ""
 | Všetky stránky „Page Not Found“, server beží na `localhost:3000/C:/Program Files/Git/` | Git Bash preložil `BASE_URL=/` na Windows cestu | `MSYS_NO_PATHCONV=1 make dev` (natrvalo cez `~/.bashrc`) |
 | Prepínač jazyka (EN) v menu ukáže 404 pri `make dev` | dev server spúšťa iba jeden jazyk | ignorovať, alebo `make dev DS_LOCALE=en`; na GitHub Pages funguje |
 
-
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

@@ -138,20 +138,22 @@ fm_reserved2: ""
 
 | Stakeholder | Čo potrebuje / očakáva | Prínos riešenia | Vplyv na projekt |
 |-------------|------------------------|-----------------|------------------|
-| Návštevník / turista | pochopiť lokalitu rýchlo a zaujímavo, aj bez signálu | 3D pohľad na pôvodnú podobu stavby bez inštalácie aplikácie | nízky (používateľ) |
-| Deti a študenti | interaktívny, hravý zážitok | model sa dá otáčať, približovať a prepínať obdobia | nízky (používateľ) |
-| Kurátor / múzeum | lacné a jednoduché doplnenie expozície | stačí vytlačiť QR kód; statický web bez servera a predplatného | vysoký (zákazník) |
-| Obec / správca lokality | pritiahnuť návštevníkov, oživiť tabule | QR kód na existujúcu informačnú tabuľu | vysoký (zákazník) |
-| Učiteľ / sprievodca | názorná pomôcka pri výklade | QR kód na tabuli alebo v pracovnom liste | stredný |
-| Historik / odborník na pamiatky | aby rekonštrukcia nebola zavádzajúca | model je označený ako ilustračný, so zdrojmi | stredný (kontrola obsahu) |
-| Autor 3D modelu | uznanie autorstva, dodržanie licencie | uvedenie autora a licencie pri modeli | nízky |
-| Tím projektu | naučiť sa 3D web, kódovanie dát, prácu podľa KNIFE | praktická skúsenosť a portfólio | vysoký |
-| Vyučujúci | splnené deliverables a kvalitná dokumentácia | projekt zdokumentovaný podľa 7Ds / SDLC / Q12 | vysoký (hodnotí) |
+| Turista / hráč | zábavný výlet, výzva, niečo nové | hra so zbieraním postavičiek, odznak v cieli | nízky (používateľ) |
+| Rodiny s deťmi | dôvod, aby deti išli na výlet rady | deti hľadajú postavičky, výlet je hra | nízky (používateľ) |
+| Školy, oddiely mládeže (skauti, turistické krúžky) | hotový program na výlet | trasa s hrou a krátkymi informáciami o prírode a mieste | stredný (častí používatelia, testeri) |
+| Obec / regionálna organizácia cestovného ruchu (OOCR) | viac návštevníkov, oživenie trás, lacno | stačí vytlačiť QR kódy, obsah dodáme my | vysoký (zákazník) |
+| Turistický klub / správca značenia (napr. KST) | trasy zostanú prehľadné a nepoškodené | QR kódy pri existujúcom značení, hra vedie po značenom chodníku | vysoký (povoľuje umiestnenie) |
+| Správa chráneného územia | ochrana prírody, žiadne nové chodníky | zastávky len na značenej trase, hra nikoho nevedie mimo nej | vysoký (povoľuje umiestnenie) |
+| Vlastník pozemku | aby nevznikla škoda | dočasné a nenápadné umiestnenie kódov | stredný |
+| Autor 3D postavičiek | uznanie autorstva, dodržanie licencie | uvedenie autora a licencie | nízky |
+| Tím projektu | naučiť sa AR v Androide, prácu podľa KNIFE | praktická skúsenosť a portfólio | vysoký |
+| Vyučujúci | splnené deliverables a kvalitná dokumentácia | projekt zdokumentovaný podľa 7Ds / SDLC / Q12 | vysoký (hodnotí, schvaľuje zmenu zamerania) |
 
 ## 🎯 Mapa záujmu a vplyvu
 
-- **Vysoký vplyv, vysoký záujem** (úzko spolupracovať): kurátor / múzeum, obec, vyučujúci
-- **Vysoký záujem, nižší vplyv** (informovať, testovať s nimi): návštevníci, deti, učitelia
-- **Nižší záujem, vplyv na kvalitu** (konzultovať): historik, autori 3D modelov
+- **Vysoký vplyv, vysoký záujem** (úzko spolupracovať): obec / OOCR, vyučujúci
+- **Vysoký vplyv, nižší záujem** (získať súhlas): turistický klub, správa chráneného územia, vlastník pozemku
+- **Vysoký záujem, nižší vplyv** (informovať, testovať s nimi): rodiny, deti, oddiely mládeže, hráči
 
+---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

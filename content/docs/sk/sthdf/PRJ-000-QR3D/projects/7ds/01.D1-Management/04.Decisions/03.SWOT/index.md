@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "SWOT"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "SWOT analýza projektu QR3D - silné a slabé stránky, príležitosti a hrozby."
+description: "SWOT analýza projektu QR3D – silné a slabé stránky, príležitosti a hrozby."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -136,17 +136,16 @@ fm_reserved2: ""
 
 # SWOT
 
-# SWOT
-
 | | **Pozitívne** | **Negatívne** |
 |---|---|---|
-| **Interné** | **Silné stránky (S)**<br/>• žiadna aplikácia – stačí mobil a prehliadač<br/>• funguje aj offline (model je priamo v QR)<br/>• takmer nulové náklady na prevádzku (statický web)<br/>• otvorené riešenie bez predplatného<br/>• jednoduché nasadenie – vytlačiť QR kód | **Slabé stránky (W)**<br/>• kapacita QR kódu obmedzuje detail offline modelu<br/>• tím má len dvoch členov a obmedzený čas<br/>• nemáme skúsenosti s 3D modelovaním historických stavieb<br/>• bez AR je zážitok menej pôsobivý ako pri komerčných riešeniach |
-| **Externé** | **Príležitosti (O)**<br/>• digitalizácia kultúrneho dedičstva a cestovného ruchu<br/>• veľa malých múzeí, obcí a náučných chodníkov bez rozpočtu na aplikácie<br/>• využitie v školách (výlety, vyučovanie dejepisu)<br/>• ďalšie využitia: náučné chodníky, 3D tlačené predmety | **Hrozby (T)**<br/>• komerčné AR QR platformy (napr. AR Code) s hotovými nástrojmi<br/>• rozdiely v podpore prehliadačov a AR na mobiloch<br/>• autorské práva k 3D modelom<br/>• kritika odborníkov, ak by rekonštrukcia pôsobila ako historicky presná |
+| **Interné** | **Silné stránky (S)**<br/>• spojenie hľadania, zbierania a AR – zážitok, nie len informácia<br/>• postavičky viazané na konkrétne miesto a jeho príbeh<br/>• funguje offline<br/>• lacné nasadenie – stačí vytlačiť QR kódy<br/>• máme funkčný prototyp (QR + objekt v AR) | **Slabé stránky (W)**<br/>• treba si stiahnuť aplikáciu<br/>• len Android (ARCore), nie všetky telefóny podporujú AR<br/>• tím má len dvoch členov a obmedzený čas<br/>• potrebujeme 3D postavičky – nemáme skúseného 3D grafika |
+| **Externé** | **Príležitosti (O)**<br/>• obce a regionálne organizácie cestovného ruchu už dnes financujú QR kódy na náučných chodníkoch<br/>• princíp zbierania na trasách funguje (turistické známky, geocaching)<br/>• rodiny s deťmi, školy a oddiely mládeže hľadajú dôvod ísť von<br/>• trasa sa dá rozšíriť o povesti, prírodu a históriu regiónu | **Hrozby (T)**<br/>• existujúce hry (Munzee, geocaching, Pokémon GO)<br/>• povolenia na umiestnenie QR kódov (chránené územia)<br/>• poškodenie QR kódov počasím a vandalizmom<br/>• podvádzanie – zdieľané fotky QR kódov<br/>• bezpečnosť – nepozornosť pri pozeraní do mobilu |
 
 ## 💡 Čo z toho vyplýva
 
-- **S + O:** zameriame sa na malé inštitúcie, pre ktoré sú komerčné riešenia drahé.
-- **W → opatrenie:** hybridný režim (offline low-poly + HD z webu) zmierňuje obmedzenú kapacitu QR.
-- **T → opatrenie:** model označujeme ako ilustračný (princíp P6) a používame len modely s vhodnou licenciou.
+- **S + O:** ponúkneme obciam a regionálnym organizáciám lacný spôsob, ako oživiť existujúce trasy – nie konkurenciu globálnym hrám, ale lokálnu hru o ich regióne.
+- **W → opatrenie:** postavičky v MVP jednoduché (low-poly), voľne licencované modely; overiť podporu AR na telefónoch testerov včas.
+- **T → opatrenie:** GPS overenie zastávky (bonus), odolné QR (laminácia), umiestnenie len s povolením (princíp P5).
+
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

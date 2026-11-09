@@ -136,15 +136,16 @@ fm_reserved2: ""
 
 # Measures
 
-Cieľové hodnoty sú počiatočný odhad – spresníme ich po experimente s kapacitou QR (M4) a výsledky zapíšeme do [D6](../../../06.D6-Verification-Testing/index.md).
+Cieľové hodnoty sú počiatočný odhad – spresníme ich po experimente s umiestnením v AR (M5) a výsledky zapíšeme do [D6](../../../06.D6-Verification-Testing/index.md).
 
 | # | Metrika | Cieľová hodnota | Ako meriame | Výsledok |
 |---|---------|-----------------|-------------|----------|
-| K1 | Čitateľnosť QR kódu | QR s rozmerom 6 × 6 cm sa načíta zo vzdialenosti aspoň 30 cm | test s 2 telefónmi, bežné osvetlenie | [doplniť] |
-| K2 | Čas do zobrazenia modelu (offline) | do 3 s od naskenovania | stopky / meranie v prehliadači | [doplniť] |
-| K3 | Detail offline modelu | aspoň 200 trojuholníkov v jednom QR kóde | výstup generátora | [doplniť] |
-| K4 | Podpora prehliadačov | funguje v Chrome (Android) aj Safari (iOS) | manuálny test | [doplniť] |
-| K5 | Úspešnosť používateľov | aspoň 4 z 5 testerov zvládnu scenár bez pomoci | test s používateľmi | [doplniť] |
-| K6 | Spokojnosť používateľov | priemer aspoň 4 z 5 na otázku „Pomohlo ti to predstaviť si stavbu?“ | krátky dotazník po teste | [doplniť] |
+| K1 | Čitateľnosť QR kódu | QR s rozmerom 10 × 10 cm sa načíta zo vzdialenosti aspoň 1 m | test s 2 telefónmi, vonku aj vnútri | [doplniť] |
+| K2 | Čas do zobrazenia postavičky | do 3 s od namierenia kamery na kód | stopky | [doplniť] |
+| K3 | Stabilita postavičky | pri obchádzaní okolo sa postavička neposunie o viac ako cca 10 cm | vizuálne, pri teste | [doplniť] |
+| K4 | Podpora zariadení | funguje aspoň na 2 rôznych telefónoch s Androidom | manuálny test | [doplniť] |
+| K5 | Dokončenie trasy | aspoň 4 z 5 testerov nazbierajú všetky postavičky a získajú odznak | test na trase | [doplniť] |
+| K6 | Motivácia | priemer aspoň 4 z 5 na otázku „Šiel by si na ďalšiu trasu s touto hrou?“ | krátky dotazník po teste | [doplniť] |
+
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

@@ -140,7 +140,10 @@ Denník práce tímu. Nový záznam pridávame **hore**. Podrobnosti o zmenách 
 
 | Dátum | Kto | Čo sme urobili | Výstup / odkaz |
 |-------|-----|----------------|----------------|
-| 02.11.2026 | tím | výber príbehu A „Okno do minulosti“, prieskum existujúcich riešení (AR QR platformy, výskum ukladania 3D modelov do QR) | [D3 – Analysis](../../03.D3-Analysis/index.md), [Decisions](../04.Decisions/index.md) |
+| 02.11.2026 | tím | **zmena zamerania projektu** na turistickú hru so zbieraním AR postavičiek; prepis 7Ds | [Decisions – R-07](../04.Decisions/index.md) |
+| 02.11.2026 | tím | Android aplikácia (Kotlin, ARCore): nájde QR kód a položí naň kocku | [D5 – Implementation](../../05.D5-Implementation/index.md) |
+| 02.11.2026 | tím | prieskum existujúcich riešení (AR QR platformy, Munzee, QR na náučných chodníkoch) | [D3 – Analysis](../../03.D3-Analysis/index.md) |
+| 02.11.2026 | Dániel Ruzsik | 7Ds texty (pôvodná verzia), diagram architektúry | commit `d9d5dbf` |
 | 26.10.2026 | Dániel Ruzsik | stránky About Me a Reflexia pre každého člena tímu | `students/about-me`, `students/reflexia` |
 | 26.10.2026 | Dániel Ruzsik | oprava chýb šablóny (veľké/malé písmená v cestách, nefunkčné odkazy, MDX), workflow pre GitHub Pages | commity `0f7ac16`, `673d440` |
 | 26.10.2026 | Dániel Ruzsik | sfunkčnenie Docusaurusu lokálne aj na GitHub Pages | commit `7523c28` |

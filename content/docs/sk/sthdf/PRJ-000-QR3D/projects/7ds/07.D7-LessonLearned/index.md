@@ -23,7 +23,7 @@ guid: "3beb7379-3bd9-42e2-9b73-bbbd5f5c0855"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "D7 - Lesson Learned"
+title: "D7 – Lessons Learned"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
 description: "Poznatky z projektu QR3D – čo fungovalo, čo nie, otvorené otázky, návrhy a návody."

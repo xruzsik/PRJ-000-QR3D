@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "Resources"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Zdroje projektu QR3D – ľudia, čas, náklady, nástroje a zdroje 3D modelov."
+description: "Zdroje projektu QR3D – ľudia, čas, náklady, nástroje a zdroje 3D postavičiek."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -140,35 +140,35 @@ fm_reserved2: ""
 
 | Člen | Rola | Zameranie |
 |------|------|-----------|
-| Dániel Ruzsik (ST043) | Project Lead, Developer | koordinácia, dokumentácia, web viewer, generátor |
-| Lukáš Šebök (ST045) | 3D / Designer | príprava a zjednodušenie 3D modelov, UI, maketa |
+| Dániel Ruzsik (ST043) | Project Lead, Developer | koordinácia, dokumentácia, Android aplikácia |
+| Lukáš Šebök (ST045) | 3D / Designer | 3D postavičky, UI aplikácie, príprava trasy a QR kódov |
 
 ## ⏱️ Čas
 
 - cca 4–6 hodín týždenne na člena počas semestra,
-- najviac práce vo fáze vývoja (míľniky M5–M6).
+- najviac práce vo fáze vývoja (míľniky M6–M7).
 
 ## 💶 Náklady
 
 | Položka | Odhad |
 |---------|-------|
-| Hosting (GitHub Pages) | 0 € |
-| Softvér (Blender, three.js, Python, VS Code) | 0 € (open source) |
-| Tlač QR kódov a materiál na maketu (kartón, prípadne 3D tlač) | do 20 € |
-| Testovacie zariadenia | vlastné telefóny (Android + iOS) |
+| Vývojové nástroje (Android Studio, Kotlin, ARCore, Blender) | 0 € (zadarmo / open source) |
+| Hosting dokumentácie a APK (GitHub) | 0 € |
+| Tlač a laminácia QR kódov pre testovaciu trasu | do 15 € |
+| Testovacie zariadenia | vlastné telefóny s Androidom a podporou ARCore |
+| Zverejnenie v Google Play *(mimo MVP)* | jednorazový poplatok za vývojársky účet |
 
 ## 🧰 Nástroje
 
-- **Vývoj:** VS Code, Git, Node.js, Python
-- **3D:** Blender (zjednodušenie modelu, export do OBJ/GLB)
-- **Web:** three.js, prípadne Google `model-viewer`
-- **Dokumentácia:** KNIFE šablóna, Docusaurus, GitHub Pages
+- **Vývoj:** Android Studio, Kotlin, ARCore, knižnica na čítanie QR kódov (ML Kit / ZXing), Git
+- **3D:** Blender (úprava a zjednodušenie postavičiek, export do GLB)
+- **Dokumentácia:** KNIFE šablóna, Docusaurus, GitHub Pages, draw.io
 
-## 🏛️ Zdroje 3D modelov
+## 🧸 Zdroje 3D postavičiek
 
 - voľne licencované modely (CC0 / CC-BY) z verejných 3D knižníc,
-- vlastný zjednodušený model v Blenderi podľa pôdorysu a dobových vyobrazení,
-- pri každom modeli uvádzame autora a licenciu (riziko R6).
+- vlastné jednoduché low-poly postavičky v Blenderi,
+- pri každej postavičke uvádzame autora a licenciu (riziko R6).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

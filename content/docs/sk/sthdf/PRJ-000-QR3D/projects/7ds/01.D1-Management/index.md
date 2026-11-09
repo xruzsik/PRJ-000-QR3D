@@ -23,10 +23,10 @@ guid: "dac1bb59-7fb0-420b-9565-fe753d85cf8c"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "D1 - Management"
+title: "D1 – Management"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Riadenie projektu QR3D - ciele, plány, rozhodnutia, riziká a evidencia práce."
+description: "Riadenie projektu QR3D – ciele, plány, rozhodnutia, riziká a evidencia práce."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -136,7 +136,7 @@ fm_reserved2: ""
 
 # D1 – Management
 
-Riadenie projektu **QR3D – Okno do minulosti**: čo chceme dosiahnuť, ako to naplánujeme, aké rozhodnutia sme urobili a ako sledujeme postup.
+Riadenie projektu **QR3D – Postavičky na trase**: čo chceme dosiahnuť, ako to naplánujeme, aké rozhodnutia sme urobili a ako sledujeme postup.
 
 ## 📂 Obsah
 

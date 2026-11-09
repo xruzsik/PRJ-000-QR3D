@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "Rules"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Pravidlá spolupráce v tíme QR3D - git, komunikácia, dokumentácia."
+description: "Pravidlá spolupráce v tíme QR3D – git, komunikácia, dokumentácia."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -133,8 +133,6 @@ fm_reserved2: ""
 ---
 
 <!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
-
-# Rules
 
 # Rules
 

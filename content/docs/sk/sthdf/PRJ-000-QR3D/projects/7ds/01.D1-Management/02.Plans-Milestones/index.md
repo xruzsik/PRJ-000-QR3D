@@ -139,13 +139,14 @@ fm_reserved2: ""
 | # | Míľnik | Kritérium splnenia („hotovo, keď…“) | Termín | Stav |
 |---|--------|--------------------------------------|--------|------|
 | M1 | Repozitár a dokumentácia pripravené | repo podľa šablóny, Docusaurus beží, GitHub Pages funguje | 26.10.2026 | ✅ |
-| M2 | Zadanie projektu | Project Summary, About Me, 7Ds D1–D2 vyplnené | [termín] | 🔄 |
-| M3 | Pitch | prezentácia 5–7 min, Q12, user stories | [termín pitchu] | ⏳ |
-| M4 | Experiment s kapacitou QR | vieme, koľko trojuholníkov sa zmestí do QR a aký QR je ešte čitateľný | [termín] | ⏳ |
-| M5 | Prvý funkčný prototyp | QR kód → model sa zobrazí v prehliadači (offline) | [termín] | ⏳ |
-| M6 | Hybrid + generátor + maketa | HD model z webu, generátor z OBJ/GLB, fyzická maketa | [termín] | ⏳ |
-| M7 | Testovanie | test s 3–5 používateľmi, výsledky v D6 | [termín] | ⏳ |
-| M8 | Finálna prezentácia | demo, Project Outcomes, Reflexia, KNIFE článok | [termín finálnej prezentácie] | ⏳ |
+| M2 | Základ AR aplikácie | aplikácia nájde QR kód a položí naň kocku | 02.11.2026 | ✅ |
+| M3 | Zadanie projektu | Project Summary (nové zameranie) schválené, About Me, 7Ds D1–D2 | [termín] | 🔄 |
+| M4 | Pitch | prezentácia 5–7 min, Q12, user stories | [termín pitchu] | ⏳ |
+| M5 | Experiment s umiestnením v AR | vieme spoľahlivo postaviť objekt vedľa QR kódu (offset), aj vonku | [termín] | ⏳ |
+| M6 | Postavičky a zbierka | 3D postavička namiesto kocky, rôzne postavičky pre rôzne kódy, zbierka sa ukladá | [termín] | ⏳ |
+| M7 | Trasa a cieľ | 3–5 zastávok, odznak v cieli, offline režim | [termín] | ⏳ |
+| M8 | Testovanie na trase | test s 3–5 používateľmi, výsledky v D6 | [termín] | ⏳ |
+| M9 | Finálna prezentácia | demo, Project Outcomes, Reflexia, KNIFE článok | [termín finálnej prezentácie] | ⏳ |
 
 Legenda: ✅ hotovo · 🔄 rozpracované · ⏳ čaká
 

@@ -140,10 +140,11 @@ Krátka správa o stave raz za 2 týždne – pre tím aj pre vyučujúceho. For
 
 ## 📅 Správa č. 1 – 02.11.2026
 
-- **Hotové:** repozitár a web (GitHub Pages), Project Summary, ciele, plán, riziká, stakeholderi, výber príbehu, prieskum konkurencie.
-- **Ďalej:** pitch, Q12, user stories, experiment s kapacitou QR kódu.
+- **Hotové:** repozitár a web (GitHub Pages), About Me, prvý AR prototyp (Android aplikácia nájde QR kód a položí naň kocku), prieskum konkurencie.
+- **Zmena:** projekt sme preorientovali z vzdelávacieho nástroja pre múzeá na **turistickú hru so zbieraním AR postavičiek** (rozhodnutie R-07). Project Summary treba aktualizovať a dať znova schváliť.
+- **Ďalej:** pitch, Q12, user stories, experiment s umiestnením postavičky vedľa QR kódu.
 - **Blokuje nás:** zatiaľ nemáme pridelené číslo projektu (`PRJ-000` je dočasné).
-- **Stav voči plánu:** 🟢 podľa plánu
+- **Stav voči plánu:** 🟡 posun kvôli zmene zamerania, technický základ však máme
 
 ## 🧾 Šablóna ďalšej správy
 

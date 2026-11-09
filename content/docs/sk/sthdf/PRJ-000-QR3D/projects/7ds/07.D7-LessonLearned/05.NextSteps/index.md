@@ -136,12 +136,15 @@ fm_reserved2: ""
 
 # Next Steps
 
+- [ ] Oznámiť vyučujúcemu zmenu zamerania a dať schváliť nový Project Summary
+- [ ] Aktualizovať Project Summary podľa nového nápadu
 - [ ] Doplniť Q12 (biznis pohľad) a user stories v SDLC 01-Requirements
 - [ ] Pripraviť pitch (5–7 min)
-- [ ] Zistiť od vyučujúceho číslo projektu a odpovede na otázky v [Questions](../03.Questions/index.md)
-- [ ] Vybrať 3D model zrúcaniny (alebo začať vlastný v Blenderi)
-- [ ] Spraviť experiment s kapacitou QR kódu (M4)
-- [ ] Začať KNIFE článok „Ako zakódovať 3D model do QR kódu“
+- [ ] Experiment: postaviť objekt vedľa QR kódu (offset) a otestovať vonku (M5)
+- [ ] Prekresliť diagram architektúry v D4 (draw.io)
+- [ ] Vybrať trasu a 3–5 zastávok; zistiť, kto povoľuje umiestnenie QR kódov
+- [ ] Nájsť alebo vytvoriť prvé 3D postavičky
+- [ ] Začať KNIFE článok „Ako umiestniť AR objekt vo vzťahu ku QR kódu“
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

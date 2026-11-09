@@ -23,7 +23,7 @@ guid: "edb7f8d9-9d28-49f2-862d-f8de58285839"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "04.Decisions"
+title: "Decisions"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
 description: "Záznam kľúčových rozhodnutí projektu QR3D s dôvodmi a odkazy na princípy, pravidlá, SWOT, riziká a metriky."
@@ -148,14 +148,18 @@ fm_reserved2: ""
 
 | # | Rozhodnutie | Prečo | Alternatíva, ktorú sme zamietli | Dátum | Stav |
 |---|-------------|-------|----------------------------------|-------|------|
-| R-01 | Pracujeme s príbehom A – **„Okno do minulosti“** (zrúcanina) | najsilnejší efekt, zrozumiteľný problém, reálny zákazník (múzeum, obec) | náučný chodník, 3D tlačený predmet (zostávajú ako ďalšie využitia) | 02.11.2026 | ✅ |
-| R-02 | Webová stránka namiesto natívnej aplikácie | používateľ nemusí nič inštalovať | aplikácia pre Android/iOS | 02.11.2026 | ✅ |
-| R-03 | Dáta modelu ukladáme do URL za znak `#` (fragment) | fragment sa neposiela na server → funguje so statickým webom a offline | samostatný formát QR, ktorý by vyžadoval vlastnú aplikáciu | 02.11.2026 | 🔄 overí M4 |
-| R-04 | Hosting na GitHub Pages | zadarmo, bez servera, rovnaký repozitár ako dokumentácia | vlastný server, komerčné AR platformy | 26.10.2026 | ✅ |
+| R-01 | ~~Príbeh „Okno do minulosti“ – vzdelávací doplnok pre múzeá~~ | – | – | 02.11.2026 | ❌ nahradené R-07 |
+| R-02 | ~~Webová stránka namiesto natívnej aplikácie~~ | – | – | 02.11.2026 | ❌ nahradené R-08 |
+| R-03 | ~~Dáta 3D modelu priamo v QR kóde (v URL za `#`)~~ | – | – | 02.11.2026 | ❌ nahradené R-09 |
+| R-04 | Dokumentácia na GitHub Pages | zadarmo, bez servera, rovnaký repozitár ako kód | vlastný server | 26.10.2026 | ✅ |
 | R-05 | Kód aplikácie v priečinku `app/` v tom istom repozitári | jeden odkaz pre vyučujúceho, dokumentácia a kód spolu | samostatný repozitár | 02.11.2026 | ✅ |
-| R-06 | Zobrazenie cez three.js, AR voliteľne cez `model-viewer` | three.js dovolí vlastný dekódovaný model a časovú os | iba `model-viewer` (vyžaduje hotový GLB súbor) | [dátum] | ⏳ návrh |
+| R-06 | ~~Zobrazenie cez three.js / `model-viewer`~~ | – | – | 02.11.2026 | ❌ nahradené R-08 |
+| **R-07** | **Zmena zamerania: turistická hra so zbieraním AR postavičiek namiesto vzdelávacieho nástroja pre múzeá** | funkčný prototyp (kocka na QR) ukázal, že AR v priestore je silnejší zážitok ako samotný model; motivácia k pohybu je širší problém; obce a regióny už dnes platia za QR kódy na trasách | pokračovať s múzeom („Okno do minulosti“); spojiť obe myšlienky (odložené) | 02.11.2026 | ✅ |
+| **R-08** | **Natívna Android aplikácia v Kotline s ARCore** | AR so sledovaním priestoru, zbierka uložená v telefóne, plná kontrola nad umiestnením postavičky; tím už má funkčný prototyp | webová aplikácia (WebXR – slabšia podpora), Unity (väčšia aplikácia, nová technológia pre tím) | 02.11.2026 | ✅ |
+| **R-09** | **QR kód nesie len identifikátor zastávky, postavičky sú uložené v aplikácii** | kód je malý a ľahko čitateľný; postavičky môžu byť detailné; funguje offline | 3D model priamo v QR (kapacita max. cca 3 KB) | 02.11.2026 | ✅ |
+| R-10 | Overenie polohy cez GPS ako bonus | bráni „zbieraniu z gauča“, ale nie je nutné pre MVP | povinné GPS od začiatku | [dátum] | ⏳ návrh |
 
-Legenda: ✅ prijaté · 🔄 prijaté, čaká na overenie · ⏳ návrh
+Legenda: ✅ prijaté · ⏳ návrh · ❌ zrušené (ponechané kvôli histórii)
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

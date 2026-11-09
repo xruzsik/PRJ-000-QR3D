@@ -138,32 +138,35 @@ fm_reserved2: ""
 
 ## 🎯 Hlavný cieľ
 
-Vytvoriť funkčný prototyp **„Okno do minulosti“**: návštevník pri zrúcanine alebo jej makete naskenuje QR kód a v mobilnom prehliadači – bez inštalácie aplikácie – uvidí 3D model stavby v jej pôvodnej podobe. Zjednodušený model je uložený priamo v QR kóde, takže funguje aj bez signálu.
+Vytvoriť Android aplikáciu **„Postavičky na trase“**, ktorá premení turistickú trasu na hru: na zaujímavých miestach trasy sú QR kódy, po ich naskenovaní sa v rozšírenej realite (AR) vedľa kódu objaví 3D postavička viazaná na dané miesto a uloží sa do zbierky. Kto nazbiera všetky postavičky, získa v cieli odznak. Cieľom je **motivovať ľudí ísť von a dôjsť až do cieľa**.
 
 ## 📌 Čiastkové ciele
 
 | # | Cieľ | Ako overíme splnenie |
 |---|------|----------------------|
-| G1 | Zakódovať zjednodušený (low-poly) 3D model priamo do QR kódu | model sa zobrazí v režime lietadlo (bez internetu) |
-| G2 | Web viewer bez inštalácie aplikácie | funguje v Chrome (Android) aj Safari (iOS) |
-| G3 | Hybridný režim – detailný (HD) model z webu | pri pripojení sa low-poly verzia nahradí detailnou |
-| G4 | Generátor QR kódov | z 3D súboru (OBJ/GLB) vznikne QR kód jedným príkazom |
-| G5 | Fyzická ukážka | maketa zrúcaniny s QR kódom pripravená na finálnu prezentáciu |
-| G6 | Dokumentácia podľa KNIFE (7Ds, SDLC, Q12) a 1 KNIFE článok | všetky deliverables vyplnené a publikované na GitHub Pages |
-| G7 *(bonus)* | Časová os – prepínanie období stavby | posuvník ukáže aspoň 2 obdobia |
-| G8 *(bonus)* | AR zobrazenie | model sa dá umiestniť do priestoru cez kameru mobilu |
+| G1 | Nájsť QR kód v obraze kamery a určiť jeho polohu v priestore | aplikácia položí objekt na QR kód *(✅ hotové – kocka na QR)* |
+| G2 | Umiestniť postavičku **vo vzťahu ku QR kódu** (napr. 1 m vedľa, na zemi) | postavička stojí na správnom mieste a „neuteká“ pri pohybe mobilu |
+| G3 | Rôzne postavičky pre rôzne zastávky | každý QR kód trasy zobrazí inú postavičku s krátkym textom o mieste |
+| G4 | Zbierka | naskenované postavičky sa uložia a ostanú aj po reštarte aplikácie |
+| G5 | Cieľ a odznak | po nazbieraní všetkých postavičiek trasy aplikácia udelí odznak |
+| G6 | Offline režim | celá hra funguje bez internetu (v horách býva slabý signál) |
+| G7 | Testovacia trasa | 3–5 QR kódov na krátkej trase, otestované s používateľmi |
+| G8 | Dokumentácia podľa KNIFE (7Ds, SDLC, Q12) a 1 KNIFE článok | všetky deliverables vyplnené a publikované na GitHub Pages |
+| G9 *(bonus)* | Overenie polohy cez GPS | postavičku získa len ten, kto je naozaj pri zastávke |
+| G10 *(bonus)* | Body a viac trás | body za trasu, výber z viacerých trás |
 
 ## 🤝 Očakávania
 
 - **Od tímu:** pravidelná práca (cca 4–6 h týždenne na člena), práca vo vetve `dev`, záznam do [Work Activities Evidence](../05.WorkActivitiesEvidence/index.md) aspoň raz týždenne.
-- **Od vyučujúceho:** spätná väzba k Project Summary a k pitchu.
-- **Od používateľov (testerov):** 3–5 ľudí, ktorí vyskúšajú scenár „naskenuj → prezri si model“ a povedia, čo im prekážalo.
+- **Od vyučujúceho:** spätná väzba k Project Summary a k pitchu, schválenie zmeny zamerania projektu.
+- **Od používateľov (testerov):** 3–5 ľudí, ktorí prejdú testovaciu trasu a povedia, čo ich bavilo a čo prekážalo.
 
 ## 🚫 Mimo rozsahu (out of scope)
 
-- natívna mobilná aplikácia (Android/iOS),
-- vlastné 3D skenovanie reálnych zrúcanín,
-- odborne presná historická rekonštrukcia – náš model je **ilustračný**,
-- správa obsahu pre múzeá (CMS, používateľské účty).
+- verzia pre iOS,
+- online rebríček, používateľské účty a multiplayer,
+- editor trás pre správcov (obce, kluby) – v MVP trasu pripravujeme ručne,
+- trvalé rozmiestnenie QR kódov v teréne – na to treba povolenie správcu územia.
 
+---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

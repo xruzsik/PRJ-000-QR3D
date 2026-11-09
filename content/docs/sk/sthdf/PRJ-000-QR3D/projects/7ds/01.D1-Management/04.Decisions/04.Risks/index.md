@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "Risks"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Riziká projektu QR3D - pravdepodobnosť, dopad a opatrenia."
+description: "Riziká projektu QR3D – pravdepodobnosť, dopad a opatrenia."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -136,17 +136,18 @@ fm_reserved2: ""
 
 # Risks
 
-# Risks
-
 | # | Riziko | Pravdepodobnosť | Dopad | Opatrenie |
 |---|--------|-----------------|-------|-----------|
-| R1 | Kapacita QR kódu (max. cca 3 KB) nestačí na užitočný model | vysoká | vysoký | hybridný režim: v QR len low-poly model + odkaz na HD verziu; kvantizácia a kompresia; experiment hneď na začiatku (M4) |
-| R2 | Hustý QR kód sa zle skenuje | stredná | vysoký | testovať rôzne veľkosti a úrovne korekcie chýb; zvoliť kompromis medzi detailom a čitateľnosťou |
-| R3 | Rozdiely medzi prehliadačmi (iOS Safari vs. Android Chrome) | stredná | stredný | testovať na oboch od prvého prototypu |
-| R4 | AR rozšírenie je technicky náročné | vysoká | nízky | AR je voliteľný bonus, MVP funguje bez neho |
-| R5 | Nemáme vhodný 3D model zrúcaniny | stredná | stredný | voľne licencovaný model (CC) alebo vlastný zjednodušený model v Blenderi |
-| R6 | Autorské práva k použitým modelom | nízka | stredný | používať len modely s licenciou CC0/CC-BY a uvádzať autora |
-| R7 | Rekonštrukcia pôsobí ako historicky presná, hoci nie je | stredná | stredný | jasné označenie „ilustračná rekonštrukcia“ a uvedenie zdrojov (princíp P6) |
-| R8 | Časová vyťaženosť tímu počas semestra | stredná | stredný | malé priebežné míľniky, týždenný záznam práce, prioritizácia MVP |
+| R1 | AR vonku funguje nespoľahlivo (ostré slnko, tieň, málo textúr, pohyb) | stredná | vysoký | experiment hneď na začiatku (M5); postavičku ukotviť k zemi (detekcia roviny), nie len ku kódu |
+| R2 | QR kód sa v teréne zle číta (vzdialenosť, uhol, zašpinený) | stredná | vysoký | dostatočná veľkosť kódu, vyššia úroveň korekcie chýb, test T1 |
+| R3 | QR kódy poškodí počasie alebo vandal | vysoká | stredný | laminácia / odolné nálepky; v MVP testovacia trasa len na čas testu |
+| R4 | Telefón testera nepodporuje ARCore | stredná | stredný | overiť zoznam podporovaných zariadení vopred; náhradný režim bez AR (postavička na obrazovke) |
+| R5 | Nemáme vhodné 3D postavičky | stredná | stredný | voľne licencované modely (CC0 / CC-BY) alebo jednoduché vlastné low-poly v Blenderi |
+| R6 | Autorské práva k použitým modelom | nízka | stredný | len modely s licenciou CC0 / CC-BY, uvádzať autora |
+| R7 | Podvádzanie – „zbieranie“ z fotiek QR kódov na internete | vysoká | nízky | GPS overenie zastávky (bonus G9); pre MVP akceptovateľné |
+| R8 | Umiestnenie QR kódov bez povolenia (chránené územie, súkromný pozemok) | stredná | vysoký | pre test krátka trasa s povolením alebo dočasné umiestnenie; trvalé umiestnenie len cez správcu územia (princíp P5) |
+| R9 | Nepozornosť pri chôdzi s mobilom | nízka | vysoký | skenuje sa len pri zastávke, upozornenie v aplikácii (princíp P6) |
+| R10 | Časová vyťaženosť tímu počas semestra | stredná | stredný | malé priebežné míľniky, týždenný záznam práce, prioritizácia MVP |
 
+---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

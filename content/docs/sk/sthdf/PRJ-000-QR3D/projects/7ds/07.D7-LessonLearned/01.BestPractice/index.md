@@ -136,11 +136,12 @@ fm_reserved2: ""
 
 # Best Practice
 
-- **Overiť najväčšie riziko ako prvé.** Experiment s kapacitou QR kódu robíme pred samotným vývojom – ak by sa do QR nič užitočné nezmestilo, musíme zmeniť návrh hneď, nie na konci.
-- **Jeden konkrétny príbeh.** Príbeh „Okno do minulosti“ spája všetky dokumenty (7Ds, SDLC, Q12, pitch) – nevyzerajú ako vypĺňanie šablóny.
+- **Skorý funkčný prototyp.** Jednoduchá aplikácia „QR kód → kocka v AR“ nám ukázala, čo je na nápade naozaj silné, a viedla k lepšiemu zameraniu projektu (rozhodnutie R-07). Zmena smeru na začiatku je lacná, na konci drahá.
+- **Zmenu zapísať ako rozhodnutie.** Pôvodné rozhodnutia sme nezmazali, ale označili ako zrušené a doplnili nové s dôvodom – je vidieť, prečo sa projekt zmenil.
+- **Overiť najväčšie riziko ako prvé.** Experiment s umiestnením v AR vonku robíme pred ďalším vývojom.
 - **Pred pushom do `main` spustiť `make build`.** Build je prísnejší ako `make dev` – odhalí nefunkčné odkazy skôr, ako spadne publikovanie.
 - **Malé commity s jasnou správou.** Ľahšie sa hľadá, kedy a prečo sa niečo zmenilo.
-- **Prieskum konkurencie na začiatku.** Vďaka nemu vieme jasne povedať, čím sme iní (bez aplikácie + offline + bez servera).
+- **Prieskum konkurencie na začiatku.** Vďaka nemu vieme jasne povedať, čím sme iní.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

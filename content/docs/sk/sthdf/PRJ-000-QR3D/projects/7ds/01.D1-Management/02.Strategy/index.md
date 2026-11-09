@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "Strategy"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Strategický prístup projektu QR3D – offline-first, bez aplikácie, najprv MVP, potom rozšírenia."
+description: "Strategický prístup projektu QR3D – najprv overiť AR v teréne, MVP pred rozšíreniami, offline-first."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -138,12 +138,13 @@ fm_reserved2: ""
 
 ## 🧭 Ako k projektu pristupujeme
 
-1. **Najprv overiť najväčšie riziko.** Kľúčová otázka je, či sa do QR kódu zmestí model, ktorý je ešte na niečo dobrý. Preto ako prvé robíme experiment s kapacitou QR (míľnik M4) – až potom staviame zvyšok.
-2. **MVP pred rozšíreniami.** Najprv „QR → model v prehliadači“. Časová os a AR prídu, až keď základ funguje.
-3. **Offline-first.** Zrúcaniny bývajú v lese alebo na kopci, kde je slabý signál. Základný zážitok preto nesmie závisieť od internetu.
-4. **Žiadna aplikácia, žiadny server.** Všetko beží v prehliadači ako statický web (GitHub Pages). Prevádzkovateľ nemusí nič spravovať ani platiť predplatné.
-5. **Otvorené riešenie.** Kód aj dokumentácia sú verejné (MIT / CC-BY), takže si ho môže nasadiť ktokoľvek – aj malé múzeum alebo obec.
-6. **Jeden konkrétny príbeh.** Všetko demonštrujeme na jednej zrúcanine (ilustračná rekonštrukcia), ostatné využitia (náučný chodník, 3D tlačené predmety) len spomenieme ako ďalšie možnosti.
+1. **Najprv overiť najväčšie riziko.** Kľúčová otázka je, či AR vonku na trase funguje spoľahlivo – svetlo, pohyb, QR kód na strome či stĺpiku. Preto čo najskôr skúšame umiestnenie postavičky vedľa QR kódu aj vonku (míľnik M5).
+2. **Stavať na tom, čo funguje.** Máme aplikáciu, ktorá nájde QR kód a položí naň kocku. Každý ďalší krok (postavička, zbierka, cieľ) ju len rozširuje.
+3. **MVP pred rozšíreniami.** Najprv jedna trasa, pár postavičiek, zbierka a odznak. GPS overenie, body a viac trás prídu, až keď základ funguje.
+4. **Offline-first.** Na turistických trasách býva slabý signál. Postavičky, texty aj zbierka sú uložené priamo v aplikácii – internet nie je potrebný.
+5. **Hra musí mať zmysel.** Postavička nie je len odmena, ale nesie aj krátku informáciu o mieste – výlet je zábavný aj obohacujúci.
+6. **Jedna konkrétna trasa.** Všetko demonštrujeme na jednej trase s 3–5 zastávkami. Ďalšie trasy sú len otázka obsahu, nie novej technológie.
+7. **Otvorené riešenie.** Kód aj dokumentácia sú verejné (MIT / CC-BY).
 
 ## 🔗 Súvisiace
 

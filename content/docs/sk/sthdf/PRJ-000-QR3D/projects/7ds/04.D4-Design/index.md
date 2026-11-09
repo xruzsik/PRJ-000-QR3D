@@ -23,10 +23,10 @@ guid: "0b824284-f523-45b8-a564-e8fb7cff5587"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "D4 - Design"
+title: "D4 – Design"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Návrh riešenia QR3D – architektúra, dátový formát v QR kóde a návrh používateľského rozhrania."
+description: "Návrh riešenia QR3D – architektúra Android aplikácie, obsah QR kódu, umiestnenie postavičky, dátový model a obrazovky."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -136,54 +136,76 @@ fm_reserved2: ""
 
 # D4 – Design
 
-*Stav: návrh – spresníme po experimente s kapacitou QR (M4).*
+*Stav: návrh – spresníme po experimente s umiestnením v AR (M5). Diagram architektúry v draw.io treba prekresliť podľa tohto návrhu.*
 
 ## 🏗️ Architektúra
 
-![Architektúra QR3D – generátor, QR kód, web viewer, offline a HD režim](./img/qr3d.drawio.png)
+```text
+ TERÉN                         ANDROID APLIKÁCIA (Kotlin + ARCore)
+ ┌──────────────┐   kamera    ┌──────────────────────────────────────────────┐
+ │  QR kód na   │ ──────────▶ │ 1. AR kamera (ARCore)                         │
+ │  zastávke    │             │ 2. čítačka QR (ML Kit / ZXing) → ID zastávky  │
+ │  „zastavka-3“│             │ 3. výpočet polohy kódu → kotva (Anchor)       │
+ └──────────────┘             │ 4. postavička vedľa kódu (offset, na zem)     │
+                              │ 5. uloženie do zbierky → odznak v cieli       │
+                              └──────────────┬───────────────────────────────┘
+                                             │ všetko lokálne v telefóne
+                              ┌──────────────▼───────────────┐
+                              │ obsah trasy (JSON) + modely  │
+                              │ postavičiek (GLB) v aplikácii│
+                              │ zbierka (lokálna databáza)   │
+                              └──────────────────────────────┘
+```
 
-*Obrázok 1: Architektúra riešenia QR3D. Zdroj diagramu: `img/qr3d.drawio.png` (dá sa otvoriť v draw.io).*
+Aplikácia nepotrebuje server ani internet – trasa, postavičky aj zbierka sú v telefóne.
 
 ## 🧩 Komponenty
 
-| Komponent | Úloha | Technológia |
-|-----------|-------|-------------|
-| **Generátor** | 3D súbor → zjednodušený model → bajty → QR kód (PNG/SVG) | Python |
-| **Web viewer** | prečíta dáta z URL, dekóduje model, zobrazí ho, voliteľne načíta HD verziu | HTML + JavaScript, three.js |
-| **HD modely** | detailné verzie modelov (GLB) | statické súbory na GitHub Pages |
-| **Maketa** | fyzická ukážka s nalepeným QR kódom | kartón / 3D tlač |
+| Komponent | Úloha | Technológia (návrh) |
+|-----------|-------|---------------------|
+| **AR obrazovka** | zobrazuje kameru, hľadá QR kód, vykresľuje postavičku | ARCore + vykresľovanie 3D (napr. SceneView / Filament) |
+| **Čítačka QR** | z obrazu kamery prečíta kód a nájde jeho rohy | ML Kit Barcode Scanning alebo ZXing |
+| **Ukotvenie** | z polohy kódu vypočíta, kam postaviť postavičku | ARCore Anchor, hit test na rovinu |
+| **Obsah trasy** | zoznam zastávok, postavičiek a textov | JSON súbor v aplikácii (assets) |
+| **Zbierka** | ktoré postavičky už hráč má, kedy ich získal | lokálna databáza (Room) alebo DataStore |
+| **Postavičky** | 3D modely | GLB súbory v aplikácii |
 
-## 📦 Formát dát v QR kóde (návrh)
+## 🔳 Obsah QR kódu
 
-QR kód obsahuje bežnú webovú adresu, napr.:
+QR kód nesie **len identifikátor zastávky**, napr.:
 
 ```text
-https://xruzsik.github.io/PRJ-000-QR3D/viewer/#m=ÚDAJE_MODELU&hd=zobor
+https://xruzsik.github.io/PRJ-000-QR3D/t/zobor/3
 ```
 
-- Časť za znakom `#` (fragment) prehliadač **nikdy neposiela na server** – viewer ju prečíta priamo v telefóne, preto to funguje aj offline (ak je viewer uložený v cache) a so statickým webom.
-- `hd=zobor` je voliteľný identifikátor detailného modelu na webe.
+- Aplikácia z neho prečíta trasu (`zobor`) a zastávku (`3`) a postavičku nájde vo vlastných dátach.
+- Ak niekto naskenuje kód bežným fotoaparátom bez aplikácie, otvorí sa webová stránka s informáciou o hre a odkazom na stiahnutie *(bonus)*.
+- Krátky obsah = menší a ľahšie čitateľný QR kód aj z väčšej vzdialenosti.
 
-Štruktúra `ÚDAJE_MODELU` (pred kompresiou):
+## 📍 Umiestnenie postavičky vo vzťahu ku QR kódu
 
-| Časť | Obsah |
-|------|-------|
-| hlavička | verzia formátu, počet vrcholov, počet trojuholníkov, počet období |
-| ohraničenie | minimum a maximum súradníc (bounding box) |
-| vrcholy | súradnice x, y, z kvantizované na 10 bitov v rámci ohraničenia |
-| trojuholníky | indexy vrcholov, rozdielovo zakódované (delta) |
-| obdobia *(bonus)* | ku každému trojuholníku značka, v ktorom období stavba existovala |
+1. Čítačka nájde QR kód a jeho 4 rohy v obraze kamery.
+2. Cez ARCore (hit test) zistíme, kde sú tieto body v priestore → poloha a natočenie kódu.
+3. Vytvoríme kotvu (Anchor) v mieste kódu.
+4. Postavičku umiestnime s **posunom (offset)** voči kotve – napr. 1 m vpravo a 0,5 m pred kód – a „položíme“ ju na najbližšiu rovinu (zem).
+5. Posun a mierka sú uložené pri každej zastávke v dátach trasy – každá postavička môže stáť inak (pri strome, na skale…).
 
-Celé sa skomprimuje (deflate) a zakóduje do textu bezpečného pre URL (base64url).
+## 🗃️ Dátový model trasy (návrh)
 
-## 📱 Návrh rozhrania viewera
+| Objekt | Polia |
+|--------|-------|
+| **Trasa** | id, názov, popis, zoznam zastávok, odznak za dokončenie |
+| **Zastávka** | id, poradie, názov miesta, GPS súradnice *(pre bonus G9)*, postavička |
+| **Postavička** | id, meno, 3D model (GLB), posun voči kódu, mierka, krátky text o mieste |
+| **Zbierka** (v telefóne) | id postavičky, dátum a čas získania |
 
-- **Na celú obrazovku 3D model**, otáčanie prstom, priblíženie dvoma prstami.
-- Hore **názov lokality** a označenie *„ilustračná rekonštrukcia“*.
-- Dole **posuvník období** (bonus), napr. 12. stor. → 15. stor. → dnes.
-- Tlačidlo **„Načítať detailný model“** (zobrazí sa, len ak je pripojenie).
-- Tlačidlo **„ℹ️ O stavbe“** – krátky text a zdroje.
-- *(bonus)* tlačidlo **„Zobraziť v AR“**.
+## 📱 Obrazovky
+
+1. **Úvod / mapa trasy** – zoznam zastávok, koľko postavičiek už mám (napr. 2 / 5).
+2. **Skenovanie (AR)** – kamera, nápoveda „Namier na QR kód“; po nájdení sa zjaví postavička.
+3. **Detail postavičky** – meno, krátky príbeh miesta, tlačidlo „Pridať do zbierky“.
+4. **Zbierka** – získané postavičky farebne, chýbajúce ako tiene.
+5. **Cieľ** – gratulácia a odznak po nazbieraní všetkých postavičiek.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

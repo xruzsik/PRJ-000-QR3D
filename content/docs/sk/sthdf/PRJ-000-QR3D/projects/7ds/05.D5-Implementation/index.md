@@ -23,10 +23,10 @@ guid: "61360c03-5411-4509-9932-fa3db726ecac"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "D5 - Implementation"
+title: "D5 – Implementation"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Realizácia QR3D – štruktúra kódu, technológie a stav implementácie."
+description: "Realizácia QR3D – štruktúra Android projektu, technológie a stav implementácie."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -136,38 +136,49 @@ fm_reserved2: ""
 
 # D5 – Implementation
 
-*Stav: pripravuje sa – sekciu dopĺňame priebežne počas vývoja.*
+*Stav: rozpracované – sekciu dopĺňame priebežne počas vývoja.*
 
-## 📁 Štruktúra kódu
+## 📁 Štruktúra kódu (návrh)
 
 ```text
-app/
-├── generator/      # Python: 3D model → zjednodušenie → bajty → QR kód
-├── viewer/         # statická webová stránka (HTML + JS, three.js)
-├── models/         # HD modely (GLB) a zdrojové modely
-└── experiments/    # experiment s kapacitou QR (M4)
+app/                          # Android projekt (Android Studio, Gradle)
+└── src/main/
+    ├── java/.../ar/          # AR obrazovka, ukotvenie, vykresľovanie
+    ├── java/.../qr/          # čítanie QR kódov z obrazu kamery
+    ├── java/.../trail/       # načítanie trasy a zastávok (JSON)
+    ├── java/.../collection/  # zbierka, odznaky (lokálna databáza)
+    ├── java/.../ui/          # obrazovky
+    └── assets/
+        ├── trails/           # trasy (JSON)
+        └── models/           # 3D postavičky (GLB)
+qr-codes/                     # QR kódy testovacej trasy na tlač (PDF)
 ```
 
 ## 🛠️ Technológie
 
 | Oblasť | Technológia | Prečo |
 |--------|-------------|-------|
-| Generátor | Python, knižnica na tvorbu QR kódov | jednoduché spracovanie dát a súborov |
-| Viewer | JavaScript, three.js | zobrazí aj model, ktorý si sami dekódujeme |
-| Kompresia | deflate (v prehliadači cez `DecompressionStream`) | bez ďalších knižníc |
-| Hosting | GitHub Pages | zadarmo, bez servera |
-| 3D modely | Blender | zjednodušenie a export modelov |
+| Jazyk | Kotlin | odporúčaný jazyk pre Android |
+| AR | Google ARCore | sledovanie priestoru, roviny, kotvy |
+| Čítanie QR | [doplniť: ML Kit / ZXing / iné] | [doplniť] |
+| Vykresľovanie 3D | [doplniť: SceneView / Filament / OpenGL] | [doplniť] |
+| Dáta trasy | JSON v `assets` | jednoduché, offline |
+| Zbierka | [doplniť: Room / DataStore] | uloženie aj po reštarte |
+| 3D modely | Blender, formát GLB | štandardný formát pre mobilné 3D |
 
 ## ✅ Stav implementácie
 
 | Časť | Stav | Poznámka |
 |------|------|----------|
-| Experiment s kapacitou QR | ⏳ | míľnik M4 |
-| Dekódovanie a zobrazenie modelu z URL | ⏳ | míľnik M5 |
-| Generátor QR kódov | ⏳ | míľnik M6 |
-| HD model z webu | ⏳ | míľnik M6 |
-| Časová os | ⏳ | bonus |
-| AR | ⏳ | bonus |
+| AR kamera (ARCore) | ✅ | |
+| Nájdenie QR kódu v priestore | ✅ | |
+| Objekt (kocka) na QR kóde | ✅ | prvý prototyp |
+| Objekt vedľa QR kódu (offset, na zemi) | ⏳ | míľnik M5 |
+| 3D postavička namiesto kocky | ⏳ | míľnik M6 |
+| Rôzne postavičky podľa obsahu QR | ⏳ | míľnik M6 |
+| Zbierka (uloženie) | ⏳ | míľnik M6 |
+| Trasa, cieľ a odznak | ⏳ | míľnik M7 |
+| GPS overenie | ⏳ | bonus |
 
 ## 🧠 Dôležité implementačné rozhodnutia
 

@@ -136,17 +136,16 @@ fm_reserved2: ""
 
 # Principles
 
-# Principles
-
 | # | Princíp | Čo to znamená v praxi |
 |---|---------|------------------------|
-| P1 | **Bez inštalácie** | stačí fotoaparát v mobile a prehliadač; žiadna aplikácia ani registrácia |
-| P2 | **Offline-first** | základný (low-poly) model musí fungovať bez internetu; HD verzia je bonus |
-| P3 | **Bez servera** | všetko je statický web; prevádzkovateľ nič nespravuje a neplatí |
-| P4 | **Jednoduché pre prevádzkovateľa** | múzeum dostane QR kód na vytlačenie – nič viac nepotrebuje |
-| P5 | **Otvorenosť** | kód a dokumentácia sú verejné (MIT / CC-BY); žiadna závislosť od jednej platformy |
-| P6 | **Poctivosť k histórii** | rekonštrukcia je označená ako ilustračná; uvádzame zdroje, z ktorých vychádza |
-| P7 | **Súkromie** | nezbierame žiadne osobné údaje, žiadne sledovanie používateľov |
+| P1 | **Jednoducho: stiahni, choď, skenuj** | žiadna registrácia ani nastavovanie; hra začne prvým naskenovaným kódom |
+| P2 | **Offline-first** | postavičky, texty aj zbierka sú v aplikácii; internet nie je potrebný |
+| P3 | **Hra so zmyslom** | každá postavička nesie krátku informáciu o mieste, kde sa objavila |
+| P4 | **Jednoduché pre správcu trasy** | obec alebo klub len vytlačí a umiestni QR kódy |
+| P5 | **Rešpekt k prírode** | QR kódy umiestňujeme len s povolením správcu územia; zastávky sú na značenom chodníku, hra nikoho nevedie mimo neho |
+| P6 | **Bezpečnosť** | hra nenúti pozerať do mobilu počas chôdze – skenuje sa až pri zastávke |
+| P7 | **Súkromie** | poloha (GPS) sa používa len v telefóne na overenie zastávky, nikam sa neodosiela; nezbierame osobné údaje |
+| P8 | **Otvorenosť** | kód a dokumentácia sú verejné (MIT / CC-BY) |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

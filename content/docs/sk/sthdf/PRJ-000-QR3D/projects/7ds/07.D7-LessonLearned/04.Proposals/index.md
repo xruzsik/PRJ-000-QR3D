@@ -138,10 +138,13 @@ fm_reserved2: ""
 
 ## 🚀 Pre projekt
 
-- **Časová os stavby** – posuvník medzi obdobiami (bonus G7).
-- **AR režim** – umiestnenie modelu do priestoru cez kameru (bonus G8).
-- **Viac jazykov** – popis stavby v SK / EN / HU podľa jazyka telefónu.
-- **Webový generátor** – kurátor nahrá model v prehliadači a stiahne si QR kód, bez Pythonu.
+- **GPS overenie zastávky** – postavičku získa len ten, kto je naozaj na mieste.
+- **Body a rebríček** – súťaž medzi rodinami, triedami alebo oddielmi.
+- **Viac trás** – výber trasy v aplikácii, trasy podľa regiónov.
+- **Editor trás pre správcov** – obec alebo klub si sám pripraví zastávky a vytlačí QR kódy.
+- **Zvuky a animácie postavičiek** – postavička sa pohne alebo prehovorí.
+- **Viac jazykov** – SK / EN / HU podľa jazyka telefónu.
+- **Verzia pre iOS** – po overení na Androide.
 
 ## 🧰 Pre šablónu predmetu (spätná väzba vyučujúcemu)
 

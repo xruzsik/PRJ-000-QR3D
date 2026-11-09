@@ -23,7 +23,7 @@ guid: "c53acbef-c7e5-449b-8b61-eeac83c0878f"
 dao: "sthdf"
 
 # Názov zápisu – dopĺňa používateľ
-title: "D2 - Motivation"
+title: "D2 – Motivation"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
 description: "Prečo projekt QR3D vzniká – problém, vízia, persony a hodnota pre stakeholderov."
@@ -136,26 +136,29 @@ fm_reserved2: ""
 
 # D2 – Motivation
 
-## 🌅 Vízia
+## 🌄 Vízia
 
-> **Každá zrúcanina môže ukázať, aká bola – stačí kúsok papiera s QR kódom.**
+> **Každá turistická trasa môže byť hrou, na ktorej konci sa oplatí byť.**
 
 ## ❓ Problém
 
-Z mnohých hradov a kláštorov na Slovensku zostali len základy múrov. Návštevník číta tabuľu s textom, ale nevie si predstaviť, ako stavba vyzerala. Malé múzeá, obce a správcovia lokalít nemajú peniaze na vlastnú aplikáciu ani na AR sprievodcu. Na mnohých miestach navyše nie je dobrý signál.
+Ľudia, najmä deti a mladí, sa hýbu čoraz menej a turistika im často pripadá nudná – „ideme hore, pozrieme sa a ideme dole“. Zaujímavé miesta na trase (vyhliadka, prameň, skalné útvary, lesostep) majú síce informačné tabule, no tie si takmer nikto nečíta. Chýba **dôvod ísť von**, **dôvod dôjsť až do cieľa** a **dôvod zastaviť sa** a dozvedieť sa niečo o mieste.
 
 ## 💡 Naše riešenie v skratke
 
-Vytlačený QR kód pri zrúcanine alebo pri jej makete. Po naskenovaní sa v prehliadači zobrazí 3D model pôvodnej stavby – **bez aplikácie, bez registrácie a aj bez internetu**. Keď je signál, načíta sa detailnejší model.
+Na zaujímavých miestach trasy sú QR kódy. Po naskenovaní v aplikácii sa vedľa kódu v rozšírenej realite objaví 3D postavička viazaná na to miesto – napríklad zviera, ktoré tu žije, alebo postava z miestnej povesti – s krátkym príbehom. Postavička sa uloží do zbierky. Kto nazbiera všetky, získa v cieli odznak.
+
+Spájame tri overené princípy: **hľadanie** (ako geocaching), **zbieranie** (ako turistické známky) a **rozšírenú realitu**.
 
 ## 👥 Persony
 
-| Persona | Kto to je | Čo potrebuje | Čo jej prekáža dnes |
-|---------|-----------|--------------|---------------------|
-| **Ema (11)** | žiačka na školskom výlete | niečo zaujímavé, čo sa dá „chytiť“ v mobile | dlhé texty na tabuliach |
-| **Peter (45)** | turista na výlete s rodinou | rýchlo pochopiť, čo vidí | nemá signál, nechce inštalovať ďalšiu aplikáciu |
-| **Jana** | kurátorka malého regionálneho múzea | oživiť expozíciu lacno a bez IT oddelenia | komerčné AR riešenia sú drahé a na predplatné |
-| **Učiteľ / sprievodca** | vedie skupinu po lokalite | názornú pomôcku pri výklade | nemá čo ukázať okrem fotiek v knihe |
+| Persona | Kto to je | Čo potrebuje | Čo mu/jej prekáža dnes |
+|---------|-----------|--------------|------------------------|
+| **Ema (10)** | dieťa na rodinnom výlete | hru, niečo, čo sa dá „chytiť“ a ukázať kamarátom | „Kedy už tam budeme?“ – trasa ju nebaví |
+| **Rodičia Emy** | rodina, ktorá chce tráviť víkendy vonku | dôvod, prečo deti pôjdu na výlet rady | presviedčanie detí, aby išli von |
+| **Marek (24)** | „zberateľ“, hrá hry v mobile | výzvu, ktorú môže dokončiť, a niečo nové | bežné trasy už pozná, nič nové ho neláka |
+| **Vedúci oddielu** | vedie skupinu mládeže (skauti, turistický krúžok, škola) | program na výlet, ktorý deti zabaví aj naučí | musí všetko pripravovať sám |
+| **Správca trasy** | obec, turistický klub, regionálna organizácia cestovného ruchu | lacno oživiť trasu a pritiahnuť návštevníkov | tabule sú drahé a nikto ich nečíta |
 
 *Persony sú vymyslené – slúžia na tvorbu user stories a testovacích scenárov.*
 

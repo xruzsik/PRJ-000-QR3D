@@ -143,15 +143,17 @@ fm_reserved2: ""
 | Q1 | Aké je naše číslo projektu (`PRJ-0XX`)? Zatiaľ používame `PRJ-000`. | [doplniť] |
 | Q2 | Majú byť individuálne výstupy (About Me, Reflexia, KNIFE) v tímovom repozitári, alebo v osobných repozitároch `ST-0XX`? | [doplniť] |
 | Q3 | Má mať každý člen tímu vlastný KNIFE článok? | [doplniť] |
+| Q4 | Súhlasíte so zmenou zamerania projektu (múzeum → turistická hra)? | [doplniť] |
 
-## ⚙️ Technické
+## ⚙️ Technické a organizačné
 
 | # | Otázka | Ako ju zodpovieme |
 |---|--------|-------------------|
-| Q4 | Koľko trojuholníkov sa reálne zmestí do čitateľného QR kódu? | experiment M4 |
-| Q5 | Ktorú verziu QR a úroveň korekcie chýb zvoliť? | experiment M4, test T1 |
-| Q6 | Bude viewer fungovať offline aj pri prvom otvorení (bez cache)? | test T2; prípadne service worker |
-| Q7 | Kde získať vhodný 3D model zrúcaniny s voľnou licenciou? | prieskum, prípadne vlastný model |
+| Q5 | Ako spoľahlivo umiestniť postavičku vedľa QR kódu vonku? | experiment M5 |
+| Q6 | Aká veľkosť QR kódu stačí na čítanie z bežnej vzdialenosti? | experiment M5, test T1 |
+| Q7 | Kde môžeme umiestniť QR kódy na test a kto to musí povoliť? | konzultácia so správcom trasy / územia |
+| Q8 | Ako overiť, že hráč je naozaj pri zastávke? | GPS (bonus G9) |
+| Q9 | Kde získať 3D postavičky s voľnou licenciou? | prieskum, prípadne vlastné low-poly modely |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

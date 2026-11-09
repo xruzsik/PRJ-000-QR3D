@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "Publishing"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "Kde a ako projekt QR3D publikuje dokumentáciu, kód a demo."
+description: "Kde a ako projekt QR3D publikuje dokumentáciu, kód a aplikáciu."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -140,7 +140,8 @@ fm_reserved2: ""
 |--------|-----|--------------------|
 | Dokumentácia (tento web) | https://xruzsik.github.io/PRJ-000-QR3D/ | automaticky po zlúčení do vetvy `main` (GitHub Actions) |
 | Zdrojový kód a dokumentácia | https://github.com/xruzsik/PRJ-000-QR3D | push do `dev`, Pull Request do `main` |
-| Web viewer (demo) | [doplniť odkaz po nasadení] | rovnako ako dokumentácia |
+| Android aplikácia (APK) | GitHub Releases v tomto repozitári | pri každej demo verzii nová release s APK súborom |
+| QR kódy testovacej trasy | v repozitári (PDF na tlač) | pri zmene trasy |
 | KNIFE článok | v tomto repozitári, sekcia Knowledge Contribution | `make knifes-new`, potom PR do `main` |
 | Odovzdanie vyučujúcemu | odkaz na repozitár podľa pokynov vyučujúceho | jednorazovo pri odovzdaní |
 
@@ -148,7 +149,7 @@ fm_reserved2: ""
 
 - kód a skripty: MIT,
 - texty a dokumentácia: CC-BY 4.0,
-- 3D modely: podľa licencie autora (uvádzame pri každom modeli).
+- 3D postavičky: podľa licencie autora (uvádzame pri každom modeli).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

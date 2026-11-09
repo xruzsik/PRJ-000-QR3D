@@ -8,7 +8,7 @@ dao: "knife"
 title: "KNIFE – Hub"
 description: "Vstupná stránka: preklik na SK a EN dokumentáciu."
 author: "Roman Kazička"
-authors: ["Roman Kazička"]
+authors: ["Dániel Ruzsik", "Lukáš Šebök"]
 category: ""
 type: ""
 priority: "no"

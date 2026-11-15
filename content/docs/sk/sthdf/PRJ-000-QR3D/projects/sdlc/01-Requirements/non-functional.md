@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "non functional"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Nefunkčné požiadavky hry Postavičky na trase – výkon, presnosť AR, offline, súkromie, bezpečnosť."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,11 +131,26 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
+
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
+
 
 # 🔧 Non-Functional Requirements (NFR)
 
-Výkonnosť, bezpečnosť, dostupnosť, škálovanie.
+| ID | Oblasť | Požiadavka | Ako overíme |
+|----|--------|-----------|-------------|
+| NFR-01 | Výkon | postavička sa zobrazí do **3 s** od namierenia kamery na kód | stopky pri teste T-série v D6 |
+| NFR-02 | Čitateľnosť QR | kód 10 × 10 cm sa načíta zo vzdialenosti aspoň **1 m** (spresní experiment M5) | meranie pri experimente M5 |
+| NFR-03 | Presnosť AR | pri obchádzaní sa postavička neposunie o viac ako cca **10 cm** | značka na zemi + video z obchádzania |
+| NFR-04 | Offline | celá hra (trasa, modely, zbierka, odznak) funguje **bez internetu** | test v režime lietadlo |
+| NFR-05 | Kompatibilita | Android telefóny s podporou ARCore; overené aspoň na **2 rôznych** telefónoch | test na telefónoch tímu a testerov |
+| NFR-06 | Použiteľnosť | hra je zrozumiteľná pre deti od 8 rokov; aspoň **4 z 5** testerov dokončí trasu bez pomoci | test na trase (M8) |
+| NFR-07 | Batéria | QR sa číta len z každého 5.–10. snímku a po nájdení sa skenovanie vypne; AR kamera beží len pri zastávke | zmerať pokles batérie počas testovacej trasy |
+| NFR-08 | Súkromie | žiadne účty ani osobné údaje; obraz z kamery sa spracúva len v telefóne a nikam sa neodosiela | kontrola oprávnení a sieťovej komunikácie aplikácie |
+| NFR-09 | Bezpečnosť hráča | zastávky len na značenom chodníku; upozornenie na pozornosť pri chôdzi | kontrola trasy pred testom, review textov |
+| NFR-10 | Odolnosť v teréne | QR kódy zalaminované, čitateľné aj po daždi | kontrola kódov pred a po teste |
+| NFR-11 | Udržiavateľnosť | obsah trasy (zastávky, texty, posuny) v JSON oddelene od kódu; licencie 3D modelov evidované | review pri pridaní zastávky (US-11) |
 
 ---
 **Navigation:** [⬆️ Up](./index.md) · [🏠 Home](../index.md)

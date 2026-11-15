@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "03.Technologies"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Technológie údržby – GitHub, Google Play Console, odolné materiály pre QR kódy."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,15 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 03. Technologies
 
-Použité technológie, platformy, nástroje a ich verzie.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Tech 1
-- Tech 2
+- **GitHub** (Issues, Pull Requests) – správa chýb a zmien.
+- **Google Play Console** – správy o pádoch aplikácie a distribúcia aktualizácií.
+- **Laminovanie / UV odolné samolepiace fólie** – kódy vydržia dážď a slnko; materiál overíme pri teste (NFR-10).
+- **Montáž** – sťahovacie pásky alebo skrutky na existujúci stĺpik, nie na stromy *(podľa povolenia správcu)*.
 
 [↩️ Späť](../index.md)

@@ -131,9 +131,9 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
-# # 02 Analysis
+# 02 Analysis
 
 Analýza uskutočniteľnosti, rizík a alternatív riešenia.
 

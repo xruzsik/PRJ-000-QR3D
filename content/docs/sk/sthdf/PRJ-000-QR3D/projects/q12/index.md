@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "q12"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Q12 – dvanásť kvadrantov (4 fázy × procesy, systémy, technológie) pre hru Postavičky na trase."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,10 +131,25 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
-# Q12-Tvelwe quadrants for starting our business 
-- [Q12-Tvelwe quadrants for starting our business](./01.ProductServiceLifeCycle/index.md)
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
+
+
+# Q12 – Twelve quadrants for starting our business
+
+Q12 rozkladá „firmu“ okolo produktu na **4 fázy životného cyklu** (marketing, vývoj a dizajn, predaj, údržba) a v každej na **3 vrstvy**: *procesy* (čo robíme), *systémy* (v čom to vedieme) a *technológie* (čím). Spolu 12 kvadrantov.
+
+| Fáza | Procesy | Systémy | Technológie |
+|------|---------|---------|-------------|
+| **Marketing** | [osloviť obce a oddiely, pilotná trasa ako referencia](./01.ProductServiceLifeCycle/01.Marketing/01.Processes/index.md) | [web projektu, tabuľa na štarte trasy, Google Play](./01.ProductServiceLifeCycle/01.Marketing/02.Systems/index.md) | [GitHub Pages, Canva / Figma, generátor QR](./01.ProductServiceLifeCycle/01.Marketing/03.Technologies/index.md) |
+| **Vývoj a dizajn** | [7Ds + SDLC, 2-týždňové iterácie, experiment M5](./01.ProductServiceLifeCycle/02.DevelopmentDesign/01.Processes/index.md) | [Android aplikácia (AR, QR, trasa, zbierka)](./01.ProductServiceLifeCycle/02.DevelopmentDesign/02.Systems/index.md) | [Kotlin, ARCore, ML Kit, SceneView, Blender](./01.ProductServiceLifeCycle/02.DevelopmentDesign/03.Technologies/index.md) |
+| **Predaj** | [ponuka → príprava trasy → spustenie](./01.ProductServiceLifeCycle/03.Sales/01.Processes/index.md) | [zoznam kontaktov, cenová ponuka, objednávka](./01.ProductServiceLifeCycle/03.Sales/02.Systems/index.md) | [tabuľka, e-mail, Google Play (zadarmo)](./01.ProductServiceLifeCycle/03.Sales/03.Technologies/index.md) |
+| **Údržba** | [kontrola kódov, výmena, aktualizácie](./01.ProductServiceLifeCycle/04.Maintenance/01.Processes/index.md) | [GitHub Issues, verzie obsahu trasy](./01.ProductServiceLifeCycle/04.Maintenance/02.Systems/index.md) | [Play Console, laminácia, odolné nálepky](./01.ProductServiceLifeCycle/04.Maintenance/03.Technologies/index.md) |
+
+**Obchodný model (hypotéza):** aplikácia je pre turistov zadarmo, platí prevádzkovateľ trasy – jednorazovo za prípravu trasy a ročne za údržbu obsahu. Overíme rozhovorom aspoň s jednou obcou alebo OOCR.
+
+- [01. Product/Service Life Cycle](./01.ProductServiceLifeCycle/index.md)
 
 ## Navigácia
 - [↩️ Späť](../index.md)

@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "02.Systems"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Systémy pre predaj – evidencia kontaktov, ponuky a objednávky."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,17 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 02. Systems
 
-Prehľad systémov / nástrojov podporujúcich túto oblasť.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Systém X
-- Systém Y
+- **Zoznam kontaktov** – obce, OOCR, kluby, stav rozhovoru (oslovený / stretnutie / ponuka / dohodnuté).
+- **Šablóna cenovej ponuky** – rozsah trasy, počet zastávok, termín, cena prípravy a údržby.
+- **Objednávka / dohoda** – čo dodáme, kto zabezpečí povolenia a umiestnenie kódov, kto vlastní obsah.
+- **Balík na odovzdanie** – PDF s QR kódmi, návod na umiestnenie, texty zastávok.
+
+*V rámci predmetu predaj len simulujeme – cieľom je overiť, či by prevádzkovateľ o trasu mal záujem.*
 
 [↩️ Späť](../index.md)

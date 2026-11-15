@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "03.Technologies"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Technológie vývoja – Kotlin, ARCore, ML Kit, SceneView, Blender."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,20 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 03. Technologies
 
-Použité technológie, platformy, nástroje a ich verzie.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Tech 1
-- Tech 2
+| Oblasť | Technológia |
+|--------|-------------|
+| Jazyk a IDE | Kotlin, Android Studio |
+| AR | Google ARCore (kotvy, hit test, detekcia rovín) |
+| Čítanie QR | ML Kit Barcode Scanning (alternatíva ZXing) |
+| 3D zobrazenie | SceneView / Filament, modely vo formáte GLB |
+| Ukladanie | Room alebo DataStore (zbierka), JSON (obsah trasy) |
+| 3D modely | Blender (low-poly postavičky) |
+| Verzie a web | Git, GitHub, Docusaurus, GitHub Pages |
 
 [↩️ Späť](../index.md)

@@ -72,10 +72,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "inprogress"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -137,6 +137,13 @@ fm_reserved2: ""
 # Reportings
 
 Krátka správa o stave raz za 2 týždne – pre tím aj pre vyučujúceho. Formát: *čo je hotové, čo ďalej, čo nás blokuje*.
+
+## 📅 Správa č. 2 – 16.11.2026
+
+- **Hotové:** dokumentácia prepracovaná na nové zameranie *Postavičky na trase* (7Ds D1–D4); koncepty [Project Summary](../../../../students/project-summary/index.md), [KNIFE článku](../../../../students/knowledge-contribution/index.md) a [pitchu](../../../../students/pitch-presentation/index.md); [user stories](../../../sdlc/01-Requirements/user-stories.md) a [nefunkčné požiadavky](../../../sdlc/01-Requirements/non-functional.md); prvý návrh [Q12](../../../q12/index.md); opravené ID projektu a zjednotené kritériá úspechu s Measures.
+- **Ďalej:** schválenie zmeny zamerania a Project Summary, slajdy a demo na pitch, experiment s umiestnením postavičky vedľa QR kódu (M5), prvá 3D postavička namiesto kocky.
+- **Blokuje nás:** čakáme na schválenie zmeny zamerania a na pridelené číslo projektu; termíny pitchu a finálnej prezentácie (M3–M9) ešte nepoznáme.
+- **Stav voči plánu:** 🟡 dokumentácia dobehla zmenu zamerania, vývoj (M5) ešte nezačal
 
 ## 📅 Správa č. 1 – 02.11.2026
 

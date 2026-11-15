@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "01.Processes"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Predajný proces – od ponuky prevádzkovateľovi po spustenie trasy."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,17 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 01. Processes
 
-Zoznam procesov / postupov súvisiacich s touto oblasťou.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Proces A
-- Proces B
+1. **Prvý kontakt** – stretnutie s obcou, OOCR alebo klubom, ukážka pilotnej trasy.
+2. **Návrh trasy** – spolu vyberieme trasu a 3–5 zastávok na značenom chodníku, zistíme potrebné povolenia.
+3. **Cenová ponuka** – jednorazovo príprava trasy + ročná údržba obsahu *(výšku ceny overíme rozhovormi, zatiaľ neurčená)*.
+4. **Príprava obsahu** – postavičky a príbehy podľa miesta (zvieratá, povesti, história), schválenie textov prevádzkovateľom.
+5. **Odovzdanie** – QR kódy na tlač s návodom na umiestnenie, aktualizácia aplikácie s novou trasou.
+6. **Spustenie a spätná väzba** – po prvej sezóne vyhodnotenie s prevádzkovateľom.
 
 [↩️ Späť](../index.md)

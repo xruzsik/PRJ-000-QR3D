@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "01.Processes"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Procesy vývoja – iterácie, experiment, tvorba postavičiek, testovanie."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,20 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 01. Processes
 
-Zoznam procesov / postupov súvisiacich s touto oblasťou.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Proces A
-- Proces B
+| Proces | Popis | Kto |
+|--------|-------|-----|
+| **Iterácie** | dvojtýždňové cykly zakončené Správou o stave (D1 Reportings) | celý tím |
+| **Požiadavky** | user stories s prioritou MoSCoW → backlog | Dániel |
+| **Experiment M5** | overenie umiestnenia objektu vedľa QR kódu (vzdialenosť, uhol, posun, vnútri vs. vonku) | Dániel |
+| **Tvorba postavičky** | návrh → low-poly model v Blenderi → export GLB → kontrola veľkosti a licencie → pridanie do dát trasy | Lukáš |
+| **Príprava trasy** | výber zastávok na značenom chodníku → texty príbehov → QR kódy na tlač → laminácia | celý tím |
+| **Testovanie** | testy T1–T8 (D6), test na trase s 3–5 používateľmi (M8) | celý tím |
+| **Verzie** | práca vo vetve `dev`, zlúčenie do `main` cez Pull Request → nasadenie webu | Dániel |
 
 [↩️ Späť](../index.md)

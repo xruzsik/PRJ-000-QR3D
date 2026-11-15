@@ -171,12 +171,13 @@ fm_reserved2: ""
   - každá postavička patrí ku konkrétnemu miestu a nesie jeho príbeh – nie je to globálna hra bez väzby na trasu,
   - funguje **offline** – trasa, postavičky aj zbierka sú uložené v telefóne (v horách býva slabý signál),
   - nízke náklady pre prevádzkovateľa trasy – stačí vytlačiť QR kódy, netreba server ani nové tabule.
-- **Ako spoznáme úspech (merateľné kritériá):**
-  - [ ] QR kód veľkosti 10 cm aplikácia nájde vonku zo vzdialenosti aspoň 1,5 m *(spresníme experimentom M5)*,
-  - [ ] postavička stojí vedľa kódu na zemi a pri obchádzaní sa neposunie o viac ako cca 10 cm,
-  - [ ] postavička sa zobrazí do 3 s od namierenia na kód,
-  - [ ] celá hra funguje v režime lietadlo,
-  - [ ] aspoň 3 z 5 testovacích používateľov prejdú celú trasu a získajú odznak bez pomoci tímu.
+- **Ako spoznáme úspech (merateľné kritériá, podľa [Measures](../../projects/7ds/01.D1-Management/04.Decisions/05.Measures/index.md)):**
+  - [ ] QR kód s rozmerom 10 × 10 cm sa načíta zo vzdialenosti aspoň 1 m *(spresníme experimentom M5)*,
+  - [ ] postavička sa zobrazí do 3 s od namierenia kamery na kód,
+  - [ ] pri obchádzaní sa postavička neposunie o viac ako cca 10 cm,
+  - [ ] aplikácia funguje aspoň na 2 rôznych telefónoch s Androidom, aj v režime lietadlo,
+  - [ ] aspoň 4 z 5 testerov nazbierajú všetky postavičky a získajú odznak,
+  - [ ] priemer aspoň 4 z 5 na otázku „Šiel by si na ďalšiu trasu s touto hrou?“.
 
 ## 5️⃣ Popis riešenia
 

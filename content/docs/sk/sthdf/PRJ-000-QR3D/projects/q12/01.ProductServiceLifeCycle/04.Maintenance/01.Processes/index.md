@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "01.Processes"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Procesy údržby – kontrola QR kódov v teréne, oprava chýb, aktualizácia obsahu."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,18 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 01. Processes
 
-Zoznam procesov / postupov súvisiacich s touto oblasťou.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Proces A
-- Proces B
+| Proces | Ako často | Kto |
+|--------|-----------|-----|
+| **Kontrola QR kódov na trase** – čitateľnosť, poškodenie, chýbajúce kódy | pred sezónou a po hlásení | prevádzkovateľ trasy (podľa návodu od nás) |
+| **Výmena poškodeného kódu** – vytlačiť a zalaminovať nový z balíka | podľa potreby | prevádzkovateľ |
+| **Oprava chýb aplikácie** – hlásenie → issue → oprava → nová verzia | priebežne | tím |
+| **Aktualizácia obsahu trasy** – nová postavička, oprava textu, nová zastávka | podľa dohody | tím |
+| **Kompatibilita** – overenie s novými verziami Androidu a ARCore | 1× ročne | tím |
 
 [↩️ Späť](../index.md)

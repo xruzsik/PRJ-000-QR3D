@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "02.Systems"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Systémy vývoja – moduly Android aplikácie a dokumentácia."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,22 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 02. Systems
 
-Prehľad systémov / nástrojov podporujúcich túto oblasť.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Systém X
-- Systém Y
+**Android aplikácia – moduly:**
+1. **AR obrazovka** – kamera cez ARCore, detekcia rovín.
+2. **Čítanie QR** – nájdenie kódu v obraze, prevod na súradnice obrazovky.
+3. **Umiestnenie** – kotva v mieste kódu, posun, položenie postavičky na zem.
+4. **Obsah trasy** – zastávky, postavičky, texty a posuny v JSON; 3D modely GLB v aplikácii.
+5. **Zbierka a odznak** – lokálne uloženie nájdených postavičiek, odznak pri kompletnej trase.
+
+**Podporné systémy:**
+- repozitár na GitHube (kód aj dokumentácia),
+- dokumentácia podľa 7Ds, SDLC a Q12 (tento web),
+- backlog úloh (user stories → GitHub Issues).
 
 [↩️ Späť](../index.md)

@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "02.Systems"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Systémy údržby – evidencia chýb a verzie obsahu trás."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,15 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 02. Systems
 
-Prehľad systémov / nástrojov podporujúcich túto oblasť.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Systém X
-- Systém Y
+- **GitHub Issues** – hlásenia chýb a požiadavky na zmenu obsahu.
+- **Verzie obsahu trasy** – každá trasa má vlastný JSON s číslom verzie; zmeny zapisujeme do Change Logu (SDLC 09).
+- **Balík kódov** – archív všetkých QR kódov trasy na opätovnú tlač.
+- **Hlásenie poškodeného kódu** z aplikácie *(rozšírenie, nie v MVP)*.
 
 [↩️ Späť](../index.md)

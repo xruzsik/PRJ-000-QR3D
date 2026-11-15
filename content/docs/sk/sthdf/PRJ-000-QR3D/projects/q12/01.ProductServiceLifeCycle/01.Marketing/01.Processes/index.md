@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "01.Processes"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Marketingové procesy – oslovenie prevádzkovateľov trás a turistov."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,18 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 01. Processes
 
-Zoznam procesov / postupov súvisiacich s touto oblasťou.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Proces A
-- Proces B
+| Proces | Pre koho | Výstup |
+|--------|----------|--------|
+| **Pilotná trasa** – spustiť 1 testovaciu trasu a zdokumentovať ju (fotky, video, spätná väzba) | všetci | referencia, ktorú ukážeme ďalším záujemcom |
+| **Oslovenie prevádzkovateľov** – e-mail a stretnutie s obcou, OOCR alebo turistickým klubom | prevádzkovatelia | záujem o trasu, kontakt do zoznamu |
+| **Oslovenie oddielov a škôl** – skauti, turistické krúžky, triedy na výlete | vedúci, učitelia | testeri, prví hráči, spätná väzba |
+| **Propagácia na trase** – tabuľa so štartovacím QR kódom a krátkym „ako hrať“ | turisti | stiahnutia aplikácie priamo na mieste |
+| **Zber spätnej väzby** – krátky dotazník po teste (motivácia, zrozumiteľnosť) | hráči, rodičia | podklad pre Measures a ďalšie úpravy |
 
 [↩️ Späť](../index.md)

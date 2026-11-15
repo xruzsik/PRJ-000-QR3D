@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "01.Marketing"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Marketing má dve cieľové skupiny: prevádzkovateľov trás (obce, OOCR, turistické kluby), ktorí platia, a turistov – rodiny, deti, oddiely –, ktorí hrajú."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,12 +131,11 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 01. Marketing
 
-Krátky opis účelu kapitoly (1–3 vety).
-
+Marketing má dve cieľové skupiny: prevádzkovateľov trás (obce, OOCR, turistické kluby), ktorí platia, a turistov – rodiny, deti, oddiely –, ktorí hrajú. Najsilnejším argumentom je fungujúca pilotná trasa.
 
 ## Vrstvy
 - [01. Processes](./01.Processes/index.md)

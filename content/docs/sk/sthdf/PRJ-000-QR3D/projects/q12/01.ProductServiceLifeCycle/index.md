@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "01.ProductServiceLifeCycle"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Životný cyklus hry Postavičky na trase – marketing, vývoj, predaj, údržba."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,18 +131,17 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 01. Product/Service Life Cycle
 
-Krátky opis účelu kapitoly (1–3 vety).
-
+Produkt má dve časti: **aplikáciu** (rovnaká pre všetky trasy) a **trasu** (QR kódy, postavičky a príbehy pre konkrétne miesto). Aplikáciu vyvíjame raz, trasu pripravujeme pre každého prevádzkovateľa zvlášť – preto sa predaj aj údržba točia okolo trás.
 
 ## Vrstvy
-- [01. Marketing](./01.Marketing/index.md)
-- [02. Development & Design](./02.DevelopmentDesign/index.md)
-- [03. Sales](./03.Sales/index.md)
-- [04. Maintenance](./04.Maintenance/index.md)
+- [01. Marketing](./01.Marketing/index.md) – ako sa o hre dozvedia prevádzkovatelia trás a turisti
+- [02. Development & Design](./02.DevelopmentDesign/index.md) – ako vyvíjame aplikáciu a pripravujeme obsah trás
+- [03. Sales](./03.Sales/index.md) – ako trasu predáme a spustíme
+- [04. Maintenance](./04.Maintenance/index.md) – ako sa staráme o kódy v teréne a o aplikáciu
 
 ## Navigácia
 - [↩️ Späť](../index.md)

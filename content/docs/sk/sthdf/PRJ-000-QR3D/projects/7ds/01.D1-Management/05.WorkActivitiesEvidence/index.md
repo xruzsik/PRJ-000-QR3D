@@ -140,6 +140,8 @@ Denník práce tímu. Nový záznam pridávame **hore**. Podrobnosti o zmenách 
 
 | Dátum | Kto | Čo sme urobili | Výstup / odkaz |
 |-------|-----|----------------|----------------|
+| 15.11.2026 | Dániel Ruzsik | koncepty deliverables: Project Summary (nové zameranie), KNIFE článok o umiestnení AR objektu ku QR kódu, obsah pitchu; kontrola a opravy dokumentácie | commit `d528ec0`, [Project Summary](../../../../students/project-summary/index.md) |
+| 09.11.2026 | Dániel Ruzsik | 7Ds prepísané na „Postavičky na trase“ (ciele, plán, rozhodnutia, riziká, stakeholderi, analýza, návrh) | commit `76490fc` |
 | 02.11.2026 | tím | **zmena zamerania projektu** na turistickú hru so zbieraním AR postavičiek; prepis 7Ds | [Decisions – R-07](../04.Decisions/index.md) |
 | 02.11.2026 | tím | Android aplikácia (Kotlin, ARCore): nájde QR kód a položí naň kocku | [D5 – Implementation](../../05.D5-Implementation/index.md) |
 | 02.11.2026 | tím | prieskum existujúcich riešení (AR QR platformy, Munzee, QR na náučných chodníkoch) | [D3 – Analysis](../../03.D3-Analysis/index.md) |

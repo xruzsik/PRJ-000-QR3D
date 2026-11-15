@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "01 Requirements"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Požiadavky na hru Postavičky na trase – user stories a nefunkčné požiadavky."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,11 +131,14 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
-# # 01 Requirements
+# 01 Requirements
 
-Zachytenie potrieb, cieľov a očakávaní používateľov. Pridaj user stories a nefunkčné požiadavky.
+Zachytenie potrieb, cieľov a očakávaní používateľov hry **Postavičky na trase**. Vychádza zo [Stakeholder Analysis](../../7ds/02.D2-Motivation/01.StakeholderAnalysis/index.md) a z kritérií úspechu v [Measures](../../7ds/01.D1-Management/04.Decisions/05.Measures/index.md).
+
+- [🧑‍🤝‍🧑 User Stories](./user-stories.md) – čo chcú hráči, rodičia, vedúci oddielov a prevádzkovateľ trasy
+- [🔧 Nefunkčné požiadavky](./non-functional.md) – rýchlosť, presnosť AR, offline, súkromie, bezpečnosť
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

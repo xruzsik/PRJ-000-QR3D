@@ -131,9 +131,9 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
-# # 06 Deployment
+# 06 Deployment
 
 Nasadenie do prostredia / prezentácia MVP.
 

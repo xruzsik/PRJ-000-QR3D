@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "02.Systems"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Systémy pre marketing – web, tabuľa na trase, obchod s aplikáciami."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 23:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "draft"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -131,13 +131,16 @@ fm_reserved1: ""
 fm_reserved2: ""
 ---
 
-<!-- SDLC_INSTANCE_ID: PRJ-0XX-QR3D -->
+<!-- SDLC_INSTANCE_ID: PRJ-000-QR3D -->
 
 # 02. Systems
 
-Prehľad systémov / nástrojov podporujúcich túto oblasť.
+> 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
-- Systém X
-- Systém Y
+- **Web projektu** (táto dokumentácia na GitHub Pages; neskôr jednoduchá stránka pre verejnosť) – čo je hra, kde sú trasy, odkaz na aplikáciu.
+- **Štartová tabuľa na trase** – QR kód na stiahnutie aplikácie, mapa zastávok, pravidlá a bezpečnostné upozornenie.
+- **Záznam v Google Play** – popis, snímky obrazovky, krátke video *(až po MVP)*.
+- **Prezentačné materiály** – pitch, jednostránkový leták pre obce a OOCR.
+- **Kanály oddielov a škôl** – existujúce skupiny vedúcich a rodičov (nie vlastné sociálne siete v MVP).
 
 [↩️ Späť](../index.md)

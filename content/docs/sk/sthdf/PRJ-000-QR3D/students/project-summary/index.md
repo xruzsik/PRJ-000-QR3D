@@ -26,7 +26,7 @@ dao: "sthdf"
 title: "project summary"
 
 # Krátky popis – dopĺňa používateľ (voliteľné)
-description: "{{DESCRIPTION}}"
+description: "Zhrnutie projektu Postavičky na trase – turistická hra s AR a QR kódmi."
 
 
 # 👥 AUTHORSHIP ------------------------------------------------------
@@ -71,10 +71,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-15 12:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "inprogress"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -135,6 +135,8 @@ fm_reserved2: ""
 
 # 📝 Project Summary
 
+> ℹ️ **Zmena zamerania:** pôvodný návrh „Okno do minulosti“ (3D model zrúcaniny zakódovaný v QR kóde, web viewer) sme nahradili hrou **„Postavičky na trase“**. Technický základ – nájdenie QR kódu v priestore a zobrazenie 3D objektu v AR – zostáva, mení sa využitie. Zmena čaká na schválenie vyučujúcim.
+
 ## 🔖 Identifikácia
 
 - **Projekt:** PRJ-000-QR3D
@@ -143,54 +145,66 @@ fm_reserved2: ""
 
 ## 1️⃣ Názov projektu
 
-- **Názov projektu:** `PRJ_000_QR3D_<ST_042>_<ST_045>`
-- **Pracovný názov:** *QR3D – 3D model ukrytý v QR kóde*
-- **Stručný popis:** Navrhujeme systém, ktorý do QR kódu zakóduje údaje o 3D modeli (napr. budova, zviera, artefakt). Po naskenovaní mobilom sa model zobrazí priamo v prehliadači – bez inštalácie aplikácie. Typické využitie je v múzeu: pri makete zrúcaniny návštevník naskenuje kód a uvidí, ako stavba vyzerala v pôvodnej podobe.
+- **Názov projektu:** `PRJ_000_QR3D_ST043_ST045`
+- **Pracovný názov:** *Postavičky na trase – turistická hra s AR a QR kódmi*
+- **Stručný popis:** Android aplikácia, ktorá premení turistickú trasu na hru. Na zaujímavých miestach trasy sú QR kódy. Po naskenovaní sa vedľa kódu v rozšírenej realite (AR) objaví 3D postavička viazaná na dané miesto – napríklad zviera, ktoré tu žije, alebo postava z miestnej povesti – s krátkym príbehom. Postavička sa uloží do zbierky a kto nazbiera všetky, získa v cieli odznak.
 
 ## 2️⃣ Členovia tímu
 
 | ST ID | Meno | Rola v tíme | Kompetencie |
 |-------|------|-------------|-------------|
-| ST043 | Dániel Ruzsik | Project Lead | koordinácia, dokumentácia (7Ds, SDLC) |
-| ST043 | Dániel Ruzsik | Developer | web viewer (three.js), QR generátor |
-| ST045 | Lukáš Šebök | 3D / Designer | príprava a optimalizácia 3D modelov, UI |
+| ST043 | Dániel Ruzsik | Project Lead, Developer | koordinácia, dokumentácia (7Ds, SDLC, Q12), Android aplikácia (Kotlin, ARCore) |
+| ST045 | Lukáš Šebök | 3D / Designer | 3D postavičky (Blender, GLB), UI aplikácie, príprava QR kódov na tlač |
 
 ## 3️⃣ Motivácia tímu
 
-- **Prečo tento projekt:** spája softvér s fyzickým svetom (tlač QR kódu, maketa, 3D model) – presne v duchu digitálnej fabrikácie.
-- **Aký problém rieši:** fyzické exponáty (makety, zrúcaniny, preparáty) ukazujú len to, čo sa zachovalo. Návštevník si chýbajúce časti musí predstaviť z textu na tabuľke.
-- **Prečo je to dôležité:** interaktívny 3D pohľad zvyšuje záujem a pochopenie, najmä u detí a mladých návštevníkov. Riešenie v prehliadači znižuje bariéru – netreba sťahovať aplikáciu.
+- **Prečo tento projekt:** spája softvér s fyzickým svetom – vytlačený QR kód v teréne, 3D postavička a reálny pohyb v prírode – presne v duchu digitálnej fabrikácie.
+- **Aký problém rieši:** ľudia, najmä deti a mladí, sa hýbu čoraz menej a turistika im pripadá nudná. Zaujímavé miesta na trase majú informačné tabule, ktoré si takmer nikto nečíta. Chýba dôvod ísť von, dôvod dôjsť až do cieľa a dôvod zastaviť sa a dozvedieť sa niečo o mieste.
+- **Prečo je to dôležité:** hra s hľadaním a zbieraním motivuje deti aj dospelých a nenápadne im odovzdá informácie o prírode a mieste. Pre obce a turistické regióny je to lacný spôsob, ako oživiť existujúce trasy.
 - **Osobný význam:** _(doplňte: čo vás na téme baví, čo sa chcete naučiť)_
 
 ## 4️⃣ Cieľ a pridaná hodnota projektu
 
-- **Finálny cieľ:** funkčný prototyp „QR kód → 3D model v prehliadači“ a fyzická ukážka (maketa s nalepeným QR kódom).
+- **Finálny cieľ:** funkčná Android aplikácia (MVP) a testovacia trasa s 3–5 QR kódmi, otestovaná s používateľmi.
 - **Pridaná hodnota:**
-  - žiadna inštalácia – stačí fotoaparát mobilu a prehliadač,
-  - hybridný režim: základný (low-poly) model je uložený priamo v QR kóde a funguje aj offline, detailný model sa dotiahne z webu,
-  - nízke náklady pre prevádzkovateľa (statický web, napr. GitHub Pages).
+  - spája tri overené princípy: **hľadanie** (geocaching), **zbieranie** (turistické známky) a **rozšírenú realitu**,
+  - každá postavička patrí ku konkrétnemu miestu a nesie jeho príbeh – nie je to globálna hra bez väzby na trasu,
+  - funguje **offline** – trasa, postavičky aj zbierka sú uložené v telefóne (v horách býva slabý signál),
+  - nízke náklady pre prevádzkovateľa trasy – stačí vytlačiť QR kódy, netreba server ani nové tabule.
 - **Ako spoznáme úspech (merateľné kritériá):**
-  - [ ] QR kód sa dá naskenovať bežným mobilom zo vzdialenosti aspoň x cm pri veľkosti Y cm,
-  - [ ] model sa zobrazí do Z s od naskenovania,
-  - [ ] offline režim zobrazí aspoň zjednodušený model,
-  - [ ] min. N testovacích používateľov úspešne prejde scenár „naskenuj → prezri si model“.
+  - [ ] QR kód veľkosti 10 cm aplikácia nájde vonku zo vzdialenosti aspoň 1,5 m *(spresníme experimentom M5)*,
+  - [ ] postavička stojí vedľa kódu na zemi a pri obchádzaní sa neposunie o viac ako cca 10 cm,
+  - [ ] postavička sa zobrazí do 3 s od namierenia na kód,
+  - [ ] celá hra funguje v režime lietadlo,
+  - [ ] aspoň 3 z 5 testovacích používateľov prejdú celú trasu a získajú odznak bez pomoci tímu.
 
 ## 5️⃣ Popis riešenia
 
 - **Komponenty:**
-  1. **Generátor** – zo 3D modelu (OBJ/GLB) vytvorí zjednodušenú verziu, skomprimuje ju a vygeneruje QR kód (URL + dáta v časti za `#`).
-  2. **Web viewer** – statická stránka, ktorá dekóduje dáta z URL a zobrazí model (three.js / `<model-viewer>`), voliteľne načíta HD verziu.
-  3. **Fyzická ukážka** – vytlačená alebo kartónová maketa zrúcaniny s QR kódom.
-- **Technológie (predbežne):** JavaScript, three.js alebo `<model-viewer>`, Python (generátor), knižnica na QR, GitHub Pages.
-- **Rozšírenia (ak zostane čas):** AR – model sa zobrazí priamo nad maketou v kamere; časová os (rôzne obdobia stavby); viac jazykov.
+  1. **AR obrazovka** – kamera cez ARCore, nájdenie QR kódu v obraze a výpočet jeho polohy v priestore.
+  2. **Umiestnenie postavičky** – kotva (Anchor) v mieste kódu, postavička s posunom (napr. 1 m vedľa) položená na zem.
+  3. **Obsah trasy** – zastávky, postavičky a texty v JSON súbore priamo v aplikácii; QR kód nesie len identifikátor zastávky.
+  4. **Zbierka a odznak** – lokálne uloženie získaných postavičiek, odznak po dokončení trasy.
+  5. **Fyzická časť** – vytlačené a zalaminované QR kódy na testovacej trase.
+- **Technológie:** Kotlin, Google ARCore, ML Kit Barcode Scanning alebo ZXing (čítanie QR), SceneView / Filament (3D), Room alebo DataStore (zbierka), Blender a formát GLB (postavičky).
+- **Mimo rozsahu MVP:** iOS, používateľské účty a online rebríček, editor trás pre správcov, trvalé rozmiestnenie QR kódov v teréne.
+- **Rozšírenia (ak zostane čas):** overenie polohy cez GPS (proti „zbieraniu“ z fotiek kódov), body a viac trás, webová stránka pre tých, čo naskenujú kód bez aplikácie.
 
 ## 6️⃣ Projektový plán
 
-- **Odhadovaný čas na prácu:** _x hodín / týždeň_ na člena
-- **Predpokladaný stav v čase prezentácie:** _funkčný prototyp (MVP) + fyzická ukážka_
+- **Odhadovaný čas na prácu:** 4–6 hodín týždenne na člena
+- **Predpokladaný stav v čase prezentácie:** funkčná aplikácia (MVP) s 3–5 postavičkami a testovacia trasa
 - **Hlavné míľniky:**
-  - [ ] Príprava – zadanie, Project Summary, 7Ds D1–D2, výber technológií
+  - [x] Repozitár, dokumentácia a základ AR aplikácie (kocka na QR kóde)
+  - [ ] Zadanie – Project Summary (nové zameranie) schválené, About Me, 7Ds D1–D2
   - [ ] Pitch – problém, riešenie, hodnota (Q12), user stories
-  - [ ] Implementácia – generátor, viewer, prvý QR kód s modelom
-  - [ ] Testovanie – čitateľnosť QR, rýchlosť, test s používateľmi
-  - [ ] Finálna prezentácia – demo, výsledky, reflexia
+  - [ ] Experiment – spoľahlivé umiestnenie objektu vedľa QR kódu, aj vonku
+  - [ ] Postavičky a zbierka – rôzne postavičky pre rôzne kódy, uloženie zbierky
+  - [ ] Trasa a cieľ – 3–5 zastávok, odznak, offline režim
+  - [ ] Testovanie na trase s 3–5 používateľmi
+  - [ ] Finálna prezentácia – demo, výsledky, KNIFE článok, reflexia
+
+Podrobnosti: [Goals & Expectations](../../projects/7ds/01.D1-Management/01.Goals-Expectation/index.md) · [Plans & Milestones](../../projects/7ds/01.D1-Management/02.Plans-Milestones/index.md) · [Riziká](../../projects/7ds/01.D1-Management/04.Decisions/04.Risks/index.md)
+
+## Navigácia
+- [↩️ Späť](../index.md)

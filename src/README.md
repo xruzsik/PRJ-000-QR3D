@@ -41,7 +41,8 @@ the character follows you.
 
 | Path | What |
 |---|---|
-| `app/src/main/java/com/smvit/ar/Catalog.kt` | **Trail content**: each code's character, model, sizes, placement, animations and story; which characters make up the trail. |
+| `app/src/main/assets/route.json` | **Trail content**: each code's character, model, sizes, placement, animations and story; the stops in walking order. No code changes needed to edit it. |
+| `app/src/main/java/com/smvit/ar/Catalog.kt` | Reads and checks `route.json`. |
 | `app/src/main/java/com/smvit/ar/ArScreen.kt` | AR screen: scanning, tracking, placing and releasing characters. |
 | `app/src/main/java/com/smvit/ar/TrailUi.kt` | Story card, collection, badge; all UI texts (Slovak). |
 | `app/src/main/java/com/smvit/ar/qr/` | QR pose maths: corners → 3D pose, orientation from finder patterns, smoothing. |
@@ -57,14 +58,61 @@ the character follows you.
 1. Export or convert the model to **GLB** (`content/tools/gltf_to_glb.py` packs a
    `.gltf` with embedded buffers). Keep it light: a few thousand triangles.
 2. Put it in `app/src/main/assets/models/`.
-3. Add a `CatalogEntry` in `Catalog.kt` (and its id to `Catalog.trail` if it's to
-   be collected). Animation names must match the clips in the GLB; the unit
-   tests check that.
-4. Render its marker. Codes carry `smvit-ar:<id>`:
+3. Add it to `app/src/main/assets/route.json` under `"characters"`, and its id
+   to `"stops"` if it's to be collected (see below).
+4. Run `./gradlew :app:testDebugUnitTest`. The tests read the real route file
+   and check that every model exists and every animation name is in its GLB.
+5. Render its marker. Codes carry `smvit-ar:<id>`:
 
    ```bash
    ./gradlew :qrsheet:run --args="content/markers/new.pdf 100 smvit-ar:<id>"
    ```
+
+## The route file
+
+`app/src/main/assets/route.json`:
+
+```json
+{
+  "name": "Postavičky na trase",
+  "lengthKm": 3.5,
+  "minutes": 90,
+  "stops": ["fox", "wolf"],
+  "aliases": { "test_cube": "fox" },
+  "characters": [
+    {
+      "id": "fox",
+      "name": "Líška",
+      "model": "models/fox.glb",
+      "qrSizeMeters": 0.10,
+      "modelSizeMeters": 0.35,
+      "roamSizeMeters": 0.8,
+      "offset": { "x": 0.20, "y": 0, "z": 0, "yawDegrees": 0 },
+      "animations": { "idle": "Idle", "walk": "Walk", "run": "Gallop" },
+      "story": ["First sentence.", "Second sentence."]
+    }
+  ]
+}
+```
+
+| Field | Meaning |
+|---|---|
+| `name`, `lengthKm`, `minutes` | Optional route info for the start screen. |
+| `stops` | Character ids to collect, in walking order. Finding them all earns the badge. |
+| `aliases` | Optional. Extra printed code ids that show an existing character. |
+| `id` | Lowercase `a-z`, `0-9`, `_`. The code printed for it reads `smvit-ar:<id>`. |
+| `name` | Shown on screen and in the collection. |
+| `model` | GLB path under `app/src/main/assets/`. |
+| `qrSizeMeters` | Printed edge of the QR symbol, without its white margin (0.10 for a 10 cm code). It must be right, or the character is placed at the wrong distance. |
+| `modelSizeMeters` | Length of the model's longest side at the code. |
+| `roamSizeMeters` | Optional. Size once it walks with the player; leave it out to keep the character on its code. |
+| `offset` | Optional. Where it stands relative to the code, in metres: `x` to the code's right, `y` up, `z` towards the reader; `yawDegrees` turns it. |
+| `animations` | Optional. Clip names in the GLB for standing (`idle`), walking and running. |
+| `story` | Optional. One string, or a list of sentences joined with spaces. |
+
+Plain JSON: no comments and no trailing commas. A mistake stops the app at
+start with a message such as `route.json: character "fox": unknown field
+"modelSize"`; the unit tests report the same message.
 
 ## Optional: self-contained toolchain
 

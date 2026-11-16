@@ -55,10 +55,10 @@ class TrailProgressTest {
 
     @Test
     fun catalogTrailIsValid() {
-        assertTrue(Catalog.trail.isNotEmpty())
-        assertEquals(Catalog.trail.size, Catalog.trail.toSet().size)
-        for (id in Catalog.trail) {
-            val entry = Catalog.byId(id)
+        assertTrue(routeCatalog.trail.isNotEmpty())
+        assertEquals(routeCatalog.trail.size, routeCatalog.trail.toSet().size)
+        for (id in routeCatalog.trail) {
+            val entry = routeCatalog.byId(id)
             assertTrue("trail character $id missing from catalog", entry != null)
             assertTrue("trail character $id has no story", !entry!!.story.isNullOrBlank())
         }

@@ -1,0 +1,80 @@
+{
+  "name": "Postavičky na trase",
+
+  "stops": ["fox", "wolf", "deer", "stag"],
+
+  "aliases": {
+    "test_cube": "fox",
+    "test_cube_2": "deer"
+  },
+
+  "characters": [
+    {
+      "id": "axis_cube",
+      "name": "Testovacia kocka",
+      "model": "models/placeholder_cube.glb",
+      "qrSizeMeters": 0.10,
+      "modelSizeMeters": 0.05
+    },
+    {
+      "id": "fox",
+      "name": "Líška",
+      "model": "models/fox.glb",
+      "qrSizeMeters": 0.10,
+      "modelSizeMeters": 0.35,
+      "roamSizeMeters": 0.8,
+      "offset": { "x": 0.20 },
+      "animations": { "idle": "Idle", "walk": "Walk", "run": "Gallop" },
+      "story": [
+        "Líška hrdzavá žije na okrajoch lesov po celom Slovensku.",
+        "Má výborný sluch – počuje aj myš, ktorá zašuchoce pod snehom.",
+        "Svoj huňatý chvost používa v zime ako prikrývku."
+      ]
+    },
+    {
+      "id": "wolf",
+      "name": "Vlk",
+      "model": "models/wolf.glb",
+      "qrSizeMeters": 0.10,
+      "modelSizeMeters": 0.40,
+      "roamSizeMeters": 1.1,
+      "offset": { "x": 0.22 },
+      "animations": { "idle": "Idle", "walk": "Walk", "run": "Gallop" },
+      "story": [
+        "Vlk dravý žije v horských lesoch Karpát, napríklad na Poľane či v Tatrách.",
+        "Žije vo svorke, ktorá spolu loví aj vychováva mláďatá.",
+        "Človeku sa zvyčajne vyhne skôr, než ho vôbec zbadáš."
+      ]
+    },
+    {
+      "id": "deer",
+      "name": "Srna",
+      "model": "models/deer.glb",
+      "qrSizeMeters": 0.10,
+      "modelSizeMeters": 0.50,
+      "roamSizeMeters": 1.1,
+      "offset": { "x": 0.25 },
+      "animations": { "idle": "Idle", "walk": "Walk", "run": "Gallop" },
+      "story": [
+        "Srnec hôrny je náš najmenší jeleňovitý druh.",
+        "Srny vychádzajú ráno a večer z lesa pásť sa na lúky.",
+        "Mláďatá majú na srsti biele škvrny, vďaka ktorým sú v tráve takmer neviditeľné."
+      ]
+    },
+    {
+      "id": "stag",
+      "name": "Jeleň",
+      "model": "models/stag.glb",
+      "qrSizeMeters": 0.10,
+      "modelSizeMeters": 0.55,
+      "roamSizeMeters": 1.4,
+      "offset": { "x": 0.30 },
+      "animations": { "idle": "Idle", "walk": "Walk", "run": "Gallop" },
+      "story": [
+        "Jeleň lesný je jedným z našich najväčších lesných zvierat.",
+        "Parohy každú jar zhodí a do leta mu narastú nové.",
+        "Na jeseň sa lesom nesie jeho hlasné ručanie."
+      ]
+    }
+  ]
+}

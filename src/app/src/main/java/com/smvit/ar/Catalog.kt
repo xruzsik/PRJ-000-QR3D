@@ -1,12 +1,14 @@
 package com.smvit.ar
 
+import android.content.res.AssetManager
 import com.smvit.ar.qr.Mat3
 import com.smvit.ar.qr.RigidPose
 import com.smvit.ar.qr.Vec3
 
 /**
  * What appears on one QR code. Codes carry only "smvit-ar:<id>"; everything else
- * is here, so changing a model or its placement needs no new print.
+ * comes from the route file (assets/route.json), so changing a model or its
+ * placement needs no new print.
  */
 data class CatalogEntry(
     val id: String,
@@ -41,83 +43,168 @@ data class CatalogEntry(
     val payload get() = Catalog.PAYLOAD_PREFIX + id
 }
 
-object Catalog {
-    const val PAYLOAD_PREFIX = "smvit-ar:"
+/**
+ * The route: its characters, the order of its stops, and extra printed codes
+ * that stand in for characters. Read from assets/route.json; the format is
+ * described in the README.
+ */
+class Catalog(
+    val entries: List<CatalogEntry>,
+    /** The characters to collect, in walking order; finding all earns the badge. */
+    val trail: List<String>,
+    /** Extra code ids (without the prefix) that show an existing character. */
+    aliases: Map<String, String> = emptyMap(),
+    /** Name of the route, for the start screen. */
+    val routeName: String? = null,
+    val lengthKm: Double? = null,
+    val minutes: Int? = null,
+) {
+    private val byId = entries.associateBy { it.id }
+    private val byPayload = byId.mapKeys { PAYLOAD_PREFIX + it.key } +
+        aliases.map { (code, id) -> PAYLOAD_PREFIX + code to byId.getValue(id) }
 
-    val entries = listOf(
-        CatalogEntry(
-            id = "axis_cube",
-            name = "Testovacia kocka",
-            model = "models/placeholder_cube.glb",
-            qrSizeMeters = 0.10,
-            modelSizeMeters = 0.05f,
-        ),
-        // Quaternius "Ultimate Animated Animals" (CC0), converted with
-        // content/tools/gltf_to_glb.py. Sized and placed for testing beside a
-        // printed code on a table; on the trail they'd be closer to life size
-        // (fox ~0.9 m, wolf ~1.3 m, deer ~1.5 m, stag ~1.8 m long) and lower,
-        // standing on the ground beside the post.
-        // Stories are drafts for the team to review.
-        animal(
-            "fox", "Líška", sizeMeters = 0.35f, besideMeters = 0.20, roamMeters = 0.8,
-            story = "Líška hrdzavá žije na okrajoch lesov po celom Slovensku. Má výborný sluch – " +
-                "počuje aj myš, ktorá zašuchoce pod snehom. Svoj huňatý chvost používa v zime ako prikrývku.",
-        ),
-        animal(
-            "wolf", "Vlk", sizeMeters = 0.40f, besideMeters = 0.22, roamMeters = 1.1,
-            story = "Vlk dravý žije v horských lesoch Karpát, napríklad na Poľane či v Tatrách. " +
-                "Žije vo svorke, ktorá spolu loví aj vychováva mláďatá. Človeku sa zvyčajne vyhne " +
-                "skôr, než ho vôbec zbadáš.",
-        ),
-        animal(
-            "deer", "Srna", sizeMeters = 0.50f, besideMeters = 0.25, roamMeters = 1.1,
-            story = "Srnec hôrny je náš najmenší jeleňovitý druh. Srny vychádzajú ráno a večer z lesa " +
-                "pásť sa na lúky. Mláďatá majú na srsti biele škvrny, vďaka ktorým sú v tráve takmer neviditeľné.",
-        ),
-        animal(
-            "stag", "Jeleň", sizeMeters = 0.55f, besideMeters = 0.30, roamMeters = 1.4,
-            story = "Jeleň lesný je jedným z našich najväčších lesných zvierat. Parohy každú jar zhodí " +
-                "a do leta mu narastú nové. Na jeseň sa lesom nesie jeho hlasné ručanie.",
-        ),
-    )
+    init {
+        require(entries.size == byId.size) { "duplicate character ids" }
+        require(trail.all { it in byId }) { "unknown character in stops" }
+        require(aliases.values.all { it in byId }) { "unknown character in aliases" }
+    }
 
-    /** The characters to collect on the trail, in walking order; finding all earns the badge. */
-    val trail = listOf("fox", "wolf", "deer", "stag")
-
-    private fun animal(id: String, name: String, sizeMeters: Float, besideMeters: Double, roamMeters: Double, story: String) =
-        CatalogEntry(
-            id = id,
-            name = name,
-            model = "models/$id.glb",
-            qrSizeMeters = 0.10,
-            modelSizeMeters = sizeMeters,
-            offset = offset(x = besideMeters),
-            animation = "Idle",
-            story = story,
-            // Smaller than life (fox ~0.9 m, stag ~1.8 m) so they fit on screen nearby.
-            roamSizeMeters = roamMeters,
-            walkAnimation = "Walk",
-            runAnimation = "Gallop",
-        )
-
-    fun byId(id: String): CatalogEntry? = entries.firstOrNull { it.id == id }
-
-    /**
-     * TEMPORARY: the only codes printed so far are the two on
-     * content/markers/qr-test-sheet.pdf, and no new prints are possible for a
-     * while, so they stand in for animals. Remove once animals.pdf is printed.
-     */
-    private val printedStandIns = mapOf(
-        "test_cube" to "fox",
-        "test_cube_2" to "deer",
-    )
-
-    private val byPayload = entries.associateBy { it.payload } +
-        printedStandIns.map { (printed, id) -> PAYLOAD_PREFIX + printed to entries.single { it.id == id } }
+    fun byId(id: String): CatalogEntry? = byId[id]
 
     fun forPayload(payload: String): CatalogEntry? = byPayload[payload]
 
-    /** Offset helper: [x], [y], [z] in metres in the anchor frame, turned [yawDegrees] about its +Y. */
-    fun offset(x: Double = 0.0, y: Double = 0.0, z: Double = 0.0, yawDegrees: Double = 0.0) =
-        RigidPose(Mat3.rotation(Vec3(0.0, 1.0, 0.0), Math.toRadians(yawDegrees)), Vec3(x, y, z))
+    class FormatException(message: String) : IllegalArgumentException(message)
+
+    companion object {
+        const val PAYLOAD_PREFIX = "smvit-ar:"
+        const val ASSET = "route.json"
+
+        fun load(assets: AssetManager): Catalog {
+            val catalog = assets.open(ASSET).use { fromJson(it.readBytes().decodeToString(), ASSET) }
+            for (entry in catalog.entries) {
+                try {
+                    assets.open(entry.model).close()
+                } catch (e: java.io.IOException) {
+                    throw FormatException("$ASSET: character \"${entry.id}\": no model file assets/${entry.model}")
+                }
+            }
+            return catalog
+        }
+
+        /** Parses and checks a route file; errors name the file, the character and the field. */
+        fun fromJson(text: String, source: String = ASSET): Catalog {
+            val root = try {
+                Json.parse(text)
+            } catch (e: Json.ParseException) {
+                throw FormatException("$source: ${e.message}")
+            }
+            return Fields(root, source).run {
+                allowOnly("name", "lengthKm", "minutes", "stops", "aliases", "characters")
+                val entries = list("characters").mapIndexed { i, it ->
+                    val where = (it as? Map<*, *>)?.get("id") as? String ?: "#${i + 1}"
+                    entry(Fields(it, "$source: character \"$where\""))
+                }
+                val ids = entries.map { it.id }.toSet()
+                for (id in entries.groupingBy { it.id }.eachCount().filterValues { it > 1 }.keys) {
+                    fail("character \"$id\" is defined twice")
+                }
+                val stops = list("stops").mapIndexed { i, it -> it as? String ?: fail("stops[$i] must be a character id in quotes") }
+                if (stops.isEmpty()) fail("\"stops\" is empty")
+                for (id in stops) if (id !in ids) fail("stop \"$id\" is not one of the characters")
+                for (id in stops.groupingBy { it }.eachCount().filterValues { it > 1 }.keys) fail("stop \"$id\" is listed twice")
+                val aliases = optionalMap("aliases").mapValues { (code, id) ->
+                    val target = id as? String ?: fail("alias \"$code\" must be a character id in quotes")
+                    if (target !in ids) fail("alias \"$code\" points to unknown character \"$target\"")
+                    if (code in ids) fail("alias \"$code\" has the same id as a character")
+                    target
+                }
+                Catalog(
+                    entries = entries,
+                    trail = stops,
+                    aliases = aliases,
+                    routeName = optionalString("name"),
+                    lengthKm = optionalNumber("lengthKm", 0.0..100.0),
+                    minutes = optionalNumber("minutes", 1.0..1440.0)?.toInt(),
+                )
+            }
+        }
+
+        private fun entry(f: Fields): CatalogEntry = f.run {
+            allowOnly("id", "name", "model", "qrSizeMeters", "modelSizeMeters", "offset", "story", "roamSizeMeters", "animations")
+            val id = string("id")
+            if (!id.matches(Regex("[a-z0-9_]+"))) fail("\"id\" may only use a-z, 0-9 and _")
+            val animations = optionalObject("animations")?.apply { allowOnly("idle", "walk", "run") }
+            val offset = optionalObject("offset")?.run {
+                allowOnly("x", "y", "z", "yawDegrees")
+                offset(
+                    x = optionalNumber("x", -10.0..10.0) ?: 0.0,
+                    y = optionalNumber("y", -10.0..10.0) ?: 0.0,
+                    z = optionalNumber("z", -10.0..10.0) ?: 0.0,
+                    yawDegrees = optionalNumber("yawDegrees", -360.0..360.0) ?: 0.0,
+                )
+            }
+            CatalogEntry(
+                id = id,
+                name = string("name"),
+                model = string("model"),
+                qrSizeMeters = number("qrSizeMeters", 0.02..0.5),
+                modelSizeMeters = number("modelSizeMeters", 0.01..5.0).toFloat(),
+                offset = offset ?: RigidPose.IDENTITY,
+                animation = animations?.optionalString("idle"),
+                story = optionalText("story"),
+                roamSizeMeters = optionalNumber("roamSizeMeters", 0.05..5.0),
+                walkAnimation = animations?.optionalString("walk"),
+                runAnimation = animations?.optionalString("run"),
+            )
+        }
+
+        /** Offset helper: [x], [y], [z] in metres in the anchor frame, turned [yawDegrees] about its +Y. */
+        fun offset(x: Double = 0.0, y: Double = 0.0, z: Double = 0.0, yawDegrees: Double = 0.0) =
+            RigidPose(Mat3.rotation(Vec3(0.0, 1.0, 0.0), Math.toRadians(yawDegrees)), Vec3(x, y, z))
+    }
+
+    /** Typed access to one JSON object, with errors that say where. */
+    private class Fields(value: Any?, val where: String) {
+        val map: Map<*, *> = value as? Map<*, *> ?: throw FormatException("$where: must be an object { ... }")
+
+        fun fail(message: String): Nothing = throw FormatException("$where: $message")
+
+        fun allowOnly(vararg keys: String) {
+            for (key in map.keys) if (key !in keys) fail("unknown field \"$key\" (allowed: ${keys.joinToString()})")
+        }
+
+        fun string(key: String) = optionalString(key) ?: fail("\"$key\" is missing")
+
+        fun optionalString(key: String): String? = when (val v = map[key]) {
+            null -> null
+            is String -> v.ifBlank { fail("\"$key\" is empty") }
+            else -> fail("\"$key\" must be text in quotes")
+        }
+
+        /** Text given either as one string or as a list of strings (joined with spaces). */
+        fun optionalText(key: String): String? = when (val v = map[key]) {
+            is List<*> -> v.joinToString(" ") { it as? String ?: fail("\"$key\" must be a list of texts in quotes") }
+                .ifBlank { fail("\"$key\" is empty") }
+            else -> optionalString(key)
+        }
+
+        fun number(key: String, range: ClosedFloatingPointRange<Double>) =
+            optionalNumber(key, range) ?: fail("\"$key\" is missing")
+
+        fun optionalNumber(key: String, range: ClosedFloatingPointRange<Double>): Double? = when (val v = map[key]) {
+            null -> null
+            is Double -> v.takeIf { it in range } ?: fail("\"$key\" is $v, expected ${range.start}..${range.endInclusive}")
+            else -> fail("\"$key\" must be a number (no quotes)")
+        }
+
+        fun list(key: String): List<*> = map[key] as? List<*> ?: fail("\"$key\" must be a list [ ... ]")
+
+        fun optionalMap(key: String): Map<String, Any?> = when (val v = map[key]) {
+            null -> emptyMap()
+            is Map<*, *> -> v.entries.associate { (k, value) -> k as String to value }
+            else -> fail("\"$key\" must be an object { ... }")
+        }
+
+        fun optionalObject(key: String): Fields? = map[key]?.let { Fields(it, "$where, \"$key\"") }
+    }
 }

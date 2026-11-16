@@ -106,7 +106,7 @@ private class TrackedCode(val entry: CatalogEntry, var target: RigidPose, var la
  * its right edge (the axis test cube shows them as green, blue and red).
  */
 @Composable
-fun ArScreen() {
+fun ArScreen(catalog: Catalog) {
     val engine = rememberEngine()
     val modelLoader = rememberModelLoader(engine)
 
@@ -115,7 +115,7 @@ fun ArScreen() {
 
     val context = LocalContext.current
     val store = remember { CollectionStore(context) }
-    var progress by remember { mutableStateOf(TrailProgress(Catalog.trail, store.load())) }
+    var progress by remember { mutableStateOf(TrailProgress(catalog.trail, store.load())) }
     // The story card on screen: the character and whether it was just collected.
     var story by remember { mutableStateOf<Pair<CatalogEntry, Boolean>?>(null) }
     var showCollection by remember { mutableStateOf(false) }
@@ -134,7 +134,7 @@ fun ArScreen() {
 
     val scanner = remember {
         QrScanner(
-            sizeFor = { payload -> Catalog.forPayload(payload)?.qrSizeMeters },
+            sizeFor = { payload -> catalog.forPayload(payload)?.qrSizeMeters },
             intervalNanos = SCAN_INTERVAL_NANOS,
             onUnknown = { payload -> if (codes.isEmpty()) status = Texts.unknownCode(payload) },
             expectedRotation = { payload -> codes[payload]?.target?.rotation },
@@ -153,7 +153,7 @@ fun ArScreen() {
                 return@QrScanner
             }
             // A new code: wait for a few agreeing sightings before showing anything.
-            val entry = Catalog.forPayload(payload) ?: return@QrScanner
+            val entry = catalog.forPayload(payload) ?: return@QrScanner
             when (val result = filter.add(payload, sighting.worldFromAnchor, sighting.reprojectionErrorPx, sighting.timestampNanos)) {
                 QrPoseFilter.Result.Rejected ->
                     Log.d(TAG, "rejected \"$payload\": reprojection ${sighting.reprojectionErrorPx} px")
@@ -297,6 +297,7 @@ fun ArScreen() {
 
         if (showCollection) {
             CollectionScreen(
+                catalog = catalog,
                 progress = progress,
                 onClose = { showCollection = false },
                 onClear = {

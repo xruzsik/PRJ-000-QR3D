@@ -14,9 +14,11 @@ class MainActivity : ComponentActivity() {
         // only takes CPU/GPU time away from ARCore's tracker (which kept falling
         // behind) and adds heat.
         window.attributes = window.attributes.apply { preferredRefreshRate = 60f }
+        // A broken route file stops here with a message naming the character and field.
+        val catalog = Catalog.load(assets)
         setContent {
             MaterialTheme {
-                ArScreen()
+                ArScreen(catalog)
             }
         }
     }

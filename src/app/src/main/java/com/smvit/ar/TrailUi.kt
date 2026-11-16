@@ -64,7 +64,7 @@ fun StoryCard(entry: CatalogEntry, collectedLine: String, onClose: () -> Unit, m
 
 /** Every trail character, found ones with their story, plus the badge once all are found. */
 @Composable
-fun CollectionScreen(progress: TrailProgress, onClose: () -> Unit, onClear: () -> Unit) {
+fun CollectionScreen(catalog: Catalog, progress: TrailProgress, onClose: () -> Unit, onClear: () -> Unit) {
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Column(
             Modifier
@@ -84,7 +84,7 @@ fun CollectionScreen(progress: TrailProgress, onClose: () -> Unit, onClear: () -
                 }
             }
             for (id in progress.trail) {
-                val entry = Catalog.byId(id) ?: continue
+                val entry = catalog.byId(id) ?: continue
                 Card(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         if (id in progress.found) {

@@ -71,7 +71,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-11-15 23:00"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "draft"
@@ -164,11 +164,18 @@ Priorita podľa MoSCoW: **M** = must (MVP), **S** = should, **C** = could, **W**
 | US-08 | rodič | pri štarte vidieť zoznam zastávok a dĺžku trasy | vedel, či to deti zvládnu | obrazovka trasy so zastávkami, dĺžkou a odhadovaným časom | S | M7 |
 | US-09 | hráč | upozornenie, aby som pri chôdzi nepozeral do mobilu | sa mi nič nestalo | upozornenie pri štarte trasy; AR kamera sa zapína až pri zastávke | S | M7 |
 | US-10 | vedúci oddielu | aby hru hralo viac detí naraz, každé na svojom telefóne | celá skupina bola zapojená | každý telefón má vlastnú zbierku; funguje aspoň na 2 rôznych telefónoch | S | M8 |
-| US-11 | správca obsahu | pridať zastávku úpravou dátového súboru trasy | netreba meniť kód aplikácie | nová zastávka v JSON + GLB model sa po novom builde zobrazí bez zmeny kódu | S | M6 |
+| US-11 | správca obsahu | pridať postavičku na jednom mieste | netreba meniť logiku aplikácie | nový záznam v `Catalog.kt` + GLB model; po novom builde sa zobrazí; testy overia názvy animácií | S | M6 |
 | US-12 | prevádzkovateľ trasy | dostať QR kódy pripravené na tlač aj s krátkym návodom | ich vieme sami vytlačiť a umiestniť | PDF s kódmi (10 × 10 cm), číslom zastávky a návodom „ako hrať“ | C | M7 |
 | US-13 | turista bez aplikácie | po naskenovaní kódu bežnou kamerou vidieť stránku s odkazom na hru | vedel, čo to je a kde ju získam | QR obsahuje URL; stránka vysvetlí hru a odkáže na aplikáciu | C | rozšírenie |
 | US-14 | hráč | aby postavičku nešlo „nazbierať“ z fotky kódu doma | hra bola férová | zastávka sa uzná len v okolí jej GPS polohy | C | rozšírenie |
 | US-15 | prevádzkovateľ trasy | vidieť, koľko ľudí trasu prešlo | vedel, či sa investícia oplatila | – (vyžaduje server a súhlas používateľov) | W | – |
+| US-16 | hráč | aby ma nájdená postavička sprevádzala | mal som pocit, že ide so mnou na výlet | po odchode od kódu (1,5 m alebo 2 s mimo záberu) ide postavička za hráčom, pri väčšej vzdialenosti cvalom | S | M6 |
+
+## ✅ Stav v aplikácii (16.11.2026)
+
+| Hotové | Čiastočne | Zatiaľ nie |
+|--------|-----------|------------|
+| US-01, US-02, US-03, US-04, US-06, US-11, US-16 | US-05 (offline z podstaty, netestované), US-07 (nápoveda pri štarte sledovania a skenovaní, nie po 5 s bez nájdenia) | US-08, US-09, US-10 (overiť na 2 telefónoch), US-12, US-13, US-14 |
 
 ## 🔗 Súvislosti
 - Nefunkčné požiadavky: [non-functional](./non-functional.md)

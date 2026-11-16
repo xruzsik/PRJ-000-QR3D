@@ -71,7 +71,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-11-15 12:00"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "inprogress"
@@ -166,7 +166,7 @@ fm_reserved2: ""
 ## 5. Tím *(cca 0,5 min)*
 - **Dániel Ruzsik (ST043)** – Project Lead, Android vývoj (Kotlin, ARCore), dokumentácia. Skaut a turista – cieľovú skupinu pozná z praxe.
 - **Lukáš Šebök (ST045)** – 3D postavičky (Blender), UI, QR kódy na tlač.
-- **Čo už máme:** aplikácia nájde QR kód v priestore a položí naň 3D objekt.
+- **Čo už máme:** funkčnú aplikáciu – 4 animované zvieratá pri QR kódoch, zbierku, odznak; zviera po nájdení ide s hráčom.
 
 ## 6. Call to action *(cca 0,5 min)*
 - **Spätná väzba:** bavila by vás takáto hra? Ktoré miesto by ste chceli vidieť ako prvú trasu?

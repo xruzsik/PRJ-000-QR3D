@@ -162,8 +162,6 @@ Príprava jedla (na internáte, alebo aj doma)
 Turistika, pohyb v prírode
 - Skauting (Zväz slovenských skautov maďarskej národnosti):
 Aktívna účasť a práca v miestnej družine, ale aj v rámci zväzu
-- Šach:
-Amatérský hráč, 1-2x denne na chess.com
 
 ## 🚀 Očakávania od predmetu
 Čo chcem dosiahnuť v rámci kurzu
@@ -180,7 +178,7 @@ Amatérský hráč, 1-2x denne na chess.com
 Čo chcem ponúknuť v rámci kurzu
 - skúsenosti s vývojom webových a desktopových aplikácií (rád poradím tímom, ktoré robia web)
 - spätnú väzbu na nápady a prezentáacie ostatných tímov
-- orzganizáciu a vedenie skupiny
+- organizáciu a vedenie skupiny
 
 ## Navigácia
 - [↩️ Späť](../index.md)

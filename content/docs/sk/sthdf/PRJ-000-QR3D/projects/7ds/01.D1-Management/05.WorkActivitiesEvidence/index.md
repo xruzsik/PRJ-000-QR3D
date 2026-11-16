@@ -72,7 +72,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "backlog"
@@ -140,6 +140,8 @@ Denník práce tímu. Nový záznam pridávame **hore**. Podrobnosti o zmenách 
 
 | Dátum | Kto | Čo sme urobili | Výstup / odkaz |
 |-------|-----|----------------|----------------|
+| 16.11.2026 | Lukáš Šebök | Android aplikácia v `src/`: 4 animované zvieratá, vlastný výpočet polohy QR kódu, zbierka, odznak, sprevádzanie hráča, 38 unit testov (commit `4685821`) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
+| 16.11.2026 | Dániel Ruzsik | dokumentácia zosúladená s kódom (D3–D6, KNIFE, Summary, požiadavky, Q12) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
 | 15.11.2026 | Dániel Ruzsik | koncepty deliverables: Project Summary (nové zameranie), KNIFE článok o umiestnení AR objektu ku QR kódu, obsah pitchu; kontrola a opravy dokumentácie | commit `d528ec0`, [Project Summary](../../../../students/project-summary/index.md) |
 | 09.11.2026 | Dániel Ruzsik | 7Ds prepísané na „Postavičky na trase“ (ciele, plán, rozhodnutia, riziká, stakeholderi, analýza, návrh) | commit `76490fc` |
 | 02.11.2026 | tím | **zmena zamerania projektu** na turistickú hru so zbieraním AR postavičiek; prepis 7Ds | [Decisions – R-07](../04.Decisions/index.md) |

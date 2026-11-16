@@ -71,7 +71,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-11-15 23:00"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "draft"
@@ -138,10 +138,10 @@ fm_reserved2: ""
 > 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
 **Android aplikácia – moduly:**
-1. **AR obrazovka** – kamera cez ARCore, detekcia rovín.
-2. **Čítanie QR** – nájdenie kódu v obraze, prevod na súradnice obrazovky.
-3. **Umiestnenie** – kotva v mieste kódu, posun, položenie postavičky na zem.
-4. **Obsah trasy** – zastávky, postavičky, texty a posuny v JSON; 3D modely GLB v aplikácii.
+1. **AR obrazovka** – kamera cez ARCore (bez detekcie rovín a hĺbky).
+2. **Čítanie QR a poloha kódu** – ML Kit nájde kód a jeho rohy, vlastný výpočet určí polohu kódu v priestore.
+3. **Umiestnenie a sprevádzanie** – postavička vedľa kódu, potom ide s hráčom.
+4. **Obsah trasy** – katalóg postavičiek (`Catalog.kt`) a 3D modely GLB v aplikácii.
 5. **Zbierka a odznak** – lokálne uloženie nájdených postavičiek, odznak pri kompletnej trase.
 
 **Podporné systémy:**

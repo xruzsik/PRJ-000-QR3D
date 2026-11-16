@@ -71,7 +71,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-11-15 23:00"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "draft"
@@ -138,7 +138,7 @@ fm_reserved2: ""
 > 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
 - **GitHub Issues** – hlásenia chýb a požiadavky na zmenu obsahu.
-- **Verzie obsahu trasy** – každá trasa má vlastný JSON s číslom verzie; zmeny zapisujeme do Change Logu (SDLC 09).
+- **Verzie obsahu trasy** – obsah trasy je v katalógu aplikácie (`Catalog.kt`), mení sa novou verziou aplikácie; zmeny zapisujeme do Change Logu (SDLC 09).
 - **Balík kódov** – archív všetkých QR kódov trasy na opätovnú tlač.
 - **Hlásenie poškodeného kódu** z aplikácie *(rozšírenie, nie v MVP)*.
 

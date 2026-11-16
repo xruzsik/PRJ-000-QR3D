@@ -72,10 +72,10 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
-status: "backlog"
+status: "inprogress"
 
 # Viditeľnosť – default "public"
 privacy: "public"
@@ -136,24 +136,25 @@ fm_reserved2: ""
 
 # D4 – Design
 
-*Stav: návrh – spresníme po experimente s umiestnením v AR (M5). Diagram architektúry v draw.io treba prekresliť podľa tohto návrhu.*
+*Stav: návrh aktualizovaný podľa implementácie (16.11.2026). Ako je to naozaj spravené, opisuje [D5 – Implementation](../05.D5-Implementation/index.md). Diagram architektúry v draw.io treba prekresliť podľa tohto návrhu.*
 
 ## 🏗️ Architektúra
 
 ```text
  TERÉN                         ANDROID APLIKÁCIA (Kotlin + ARCore)
- ┌──────────────┐   kamera    ┌──────────────────────────────────────────────┐
- │  QR kód na   │ ──────────▶ │ 1. AR kamera (ARCore)                         │
- │  zastávke    │             │ 2. čítačka QR (ML Kit / ZXing) → ID zastávky  │
- │  „zastavka-3“│             │ 3. výpočet polohy kódu → kotva (Anchor)       │
- └──────────────┘             │ 4. postavička vedľa kódu (offset, na zem)     │
-                              │ 5. uloženie do zbierky → odznak v cieli       │
-                              └──────────────┬───────────────────────────────┘
+ ┌──────────────┐   kamera    ┌───────────────────────────────────────────────┐
+ │  QR kód na   │ ──────────▶ │ 1. AR kamera (ARCore, bez rovín a hĺbky)       │
+ │  zastávke    │             │ 2. ML Kit → obsah kódu + 4 rohy                │
+ │„smvit-ar:fox“│             │ 3. vlastný výpočet polohy kódu (rohy+veľkosť)  │
+ └──────────────┘             │ 4. postavička vedľa kódu (posun), potom ide    │
+                              │    s hráčom                                    │
+                              │ 5. uloženie do zbierky → odznak                │
+                              └──────────────┬────────────────────────────────┘
                                              │ všetko lokálne v telefóne
                               ┌──────────────▼───────────────┐
-                              │ obsah trasy (JSON) + modely  │
-                              │ postavičiek (GLB) v aplikácii│
-                              │ zbierka (lokálna databáza)   │
+                              │ katalóg trasy (Catalog.kt) + │
+                              │ modely postavičiek (GLB)     │
+                              │ zbierka (SharedPreferences)  │
                               └──────────────────────────────┘
 ```
 
@@ -161,51 +162,57 @@ Aplikácia nepotrebuje server ani internet – trasa, postavičky aj zbierka sú
 
 ## 🧩 Komponenty
 
-| Komponent | Úloha | Technológia (návrh) |
+| Komponent | Úloha | Technológia |
 |-----------|-------|---------------------|
-| **AR obrazovka** | zobrazuje kameru, hľadá QR kód, vykresľuje postavičku | ARCore + vykresľovanie 3D (napr. SceneView / Filament) |
-| **Čítačka QR** | z obrazu kamery prečíta kód a nájde jeho rohy | ML Kit Barcode Scanning alebo ZXing |
-| **Ukotvenie** | z polohy kódu vypočíta, kam postaviť postavičku | ARCore Anchor, hit test na rovinu |
-| **Obsah trasy** | zoznam zastávok, postavičiek a textov | JSON súbor v aplikácii (assets) |
-| **Zbierka** | ktoré postavičky už hráč má, kedy ich získal | lokálna databáza (Room) alebo DataStore |
+| **AR obrazovka** | zobrazuje kameru, hľadá QR kód, vykresľuje postavičku | ARCore + SceneView (Filament), Jetpack Compose |
+| **Čítačka QR** | z obrazu kamery prečíta kód a nájde jeho rohy | ML Kit Barcode Scanning |
+| **Poloha kódu** | zo 4 rohov a tlačenej veľkosti vypočíta polohu a natočenie kódu | vlastný výpočet (`qr/`); kotva ARCore, keď je kód mimo záberu |
+| **Sprevádzanie** | postavička po odchode hráča ide s ním, stojí na odhadnutej podlahe | vlastná logika (`companion/`) |
+| **Obsah trasy** | postavičky, modely, veľkosti, posuny, animácie, príbehy, poradie | `Catalog.kt` v aplikácii |
+| **Zbierka** | ktoré postavičky už hráč má | SharedPreferences |
 | **Postavičky** | 3D modely | GLB súbory v aplikácii |
 
 ## 🔳 Obsah QR kódu
 
-QR kód nesie **len identifikátor zastávky**, napr.:
+QR kód nesie **len identifikátor postavičky**:
 
 ```text
-https://xruzsik.github.io/PRJ-000-QR3D/t/zobor/3
+smvit-ar:fox
 ```
 
-- Aplikácia z neho prečíta trasu (`zobor`) a zastávku (`3`) a postavičku nájde vo vlastných dátach.
-- Ak niekto naskenuje kód bežným fotoaparátom bez aplikácie, otvorí sa webová stránka s informáciou o hre a odkazom na stiahnutie *(bonus)*.
+- Aplikácia podľa neho nájde postavičku v katalógu (`Catalog.kt`) – model, veľkosť, umiestnenie, príbeh. Zmena modelu či umiestnenia teda nevyžaduje nové tlačenie kódov.
 - Krátky obsah = menší a ľahšie čitateľný QR kód aj z väčšej vzdialenosti.
+- Kódy sa tlačia v presnej veľkosti **10 × 10 cm** (PDF s kontrolným pravítkom), lebo z nej aplikácia počíta vzdialenosť.
+- *Rozšírenie:* kód s URL, ktorý bežný fotoaparát otvorí ako webovú stránku o hre (US-13).
+
 
 ## 📍 Umiestnenie postavičky vo vzťahu ku QR kódu
 
-1. Čítačka nájde QR kód a jeho 4 rohy v obraze kamery.
-2. Cez ARCore (hit test) zistíme, kde sú tieto body v priestore → poloha a natočenie kódu.
-3. Vytvoríme kotvu (Anchor) v mieste kódu.
-4. Postavičku umiestnime s **posunom (offset)** voči kotve – napr. 1 m vpravo a 0,5 m pred kód – a „položíme“ ju na najbližšiu rovinu (zem).
-5. Posun a mierka sú uložené pri každej zastávke v dátach trasy – každá postavička môže stáť inak (pri strome, na skale…).
+1. ML Kit nájde QR kód a jeho 4 rohy v obraze kamery.
+2. Zo 4 rohov a známej tlačenej veľkosti (10 cm) vypočítame polohu a natočenie kódu voči kamere a cez polohu kamery z ARCore aj vo svete. Ktorý roh je ktorý, určíme podľa rohových štvorcov QR kódu.
+3. Postavičku umiestnime v **„zvislom“ rámci kódu** (+Y hore, +Z k čitateľovi, +X vpravo od kódu) – stojí rovno, aj keď kód visí na stĺpiku alebo leží na zemi.
+4. Postavička má **posun (offset)** voči kódu, napr. `offset(x = 0.8, y = -1.2)` = na zemi 0,8 m vpravo od kódu, ktorý visí 1,2 m vysoko.
+5. Kým je kód v zábere, postavička sleduje priamo meranie kódu; keď zmizne zo záberu, drží ju kotva ARCore.
+6. Keď hráč odíde, postavička kód opustí a sprevádza ho po podlahe.
+7. Posun, mierka a animácie sú pri každej postavičke v katalógu – každá môže stáť inak (pri strome, na skale…).
 
 ## 🗃️ Dátový model trasy (návrh)
 
 | Objekt | Polia |
 |--------|-------|
-| **Trasa** | id, názov, popis, zoznam zastávok, odznak za dokončenie |
-| **Zastávka** | id, poradie, názov miesta, GPS súradnice *(pre bonus G9)*, postavička |
-| **Postavička** | id, meno, 3D model (GLB), posun voči kódu, mierka, krátky text o mieste |
-| **Zbierka** (v telefóne) | id postavičky, dátum a čas získania |
+| **CatalogEntry** (postavička) | id, meno, model (GLB), tlačená veľkosť kódu, veľkosť modelu, posun voči kódu, animácia, príbeh, veľkosť pri sprevádzaní, animácie chôdze a cvalu |
+| **Catalog.trail** (trasa) | zoznam id postavičiek v poradí na trase; všetky = odznak |
+| **TrailProgress** | trasa + množina nájdených id; počet, celkovo, dokončené |
+| **Zbierka** (v telefóne) | množina id nájdených postavičiek |
+| *Zastávka s GPS* | *rozšírenie (bonus G9), zatiaľ nie je* |
 
 ## 📱 Obrazovky
 
-1. **Úvod / mapa trasy** – zoznam zastávok, koľko postavičiek už mám (napr. 2 / 5).
-2. **Skenovanie (AR)** – kamera, nápoveda „Namier na QR kód“; po nájdení sa zjaví postavička.
-3. **Detail postavičky** – meno, krátky príbeh miesta, tlačidlo „Pridať do zbierky“.
-4. **Zbierka** – získané postavičky farebne, chýbajúce ako tiene.
-5. **Cieľ** – gratulácia a odznak po nazbieraní všetkých postavičiek.
+1. **Skenovanie (AR)** ✅ – kamera, stavový riadok (*„Namier kameru na QR kód“*), tlačidlá *Zbierka 2/4* a *Znova skenovať*; po nájdení sa zjaví postavička.
+2. **Karta postavičky** ✅ – meno, *„Nové! Pridané do zbierky (2/4)“* alebo *„Už v zbierke“*, príbeh. Postavička sa do zbierky pridá automaticky.
+3. **Zbierka** ✅ – nájdené postavičky s príbehom, chýbajúce ako *„???“*, vymazanie zbierky.
+4. **Odznak** ✅ – dialóg *„Odznak získaný!“* po nájdení všetkých postavičiek.
+5. **Úvod trasy** ⏳ – zoznam zastávok, dĺžka trasy, upozornenie na bezpečnosť (US-08, US-09).
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

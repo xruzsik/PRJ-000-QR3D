@@ -72,7 +72,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "backlog"
@@ -155,6 +155,8 @@ fm_reserved2: ""
 - **Umiestnenie postavičky:** postavičku postavíme vo vzťahu ku kotve – napr. 1 m vpravo od kódu a na najbližšiu rovinu (zem). Takto stojí vedľa stĺpika či stromu, nie „vo vzduchu“.
 - **Alternatíva:** ARCore *Augmented Images* – sleduje vopred známe obrázky. QR kódy však majú málo charakteristických bodov, preto ho len vyskúšame ako porovnanie.
 - **Obsah QR kódu:** len identifikátor zastávky (napr. odkaz `…/trasa/zastavka-3`) – kód je malý a ľahko čitateľný aj z diaľky.
+
+> ✅ **Ako sme sa rozhodli (prototyp, 16.11.2026):** čítanie QR cez **ML Kit**; polohu kódu počítame **sami zo 4 rohov a tlačenej veľkosti** – hit test, roviny ani hĺbku nepoužívame, lebo na Galaxy A53 zastavovali sledovanie. Kód nesie `smvit-ar:<id>`. Podrobnosti v [D5 – Implementation](../05.D5-Implementation/index.md).
 
 ## 🧪 Plánovaný experiment (míľnik M5)
 

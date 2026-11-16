@@ -72,7 +72,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "backlog"
@@ -138,7 +138,7 @@ fm_reserved2: ""
 
 | # | Riziko | Pravdepodobnosť | Dopad | Opatrenie |
 |---|--------|-----------------|-------|-----------|
-| R1 | AR vonku funguje nespoľahlivo (ostré slnko, tieň, málo textúr, pohyb) | stredná | vysoký | experiment hneď na začiatku (M5); postavičku ukotviť k zemi (detekcia roviny), nie len ku kódu |
+| R1 | AR vonku funguje nespoľahlivo (ostré slnko, tieň, málo textúr, pohyb) | stredná | vysoký | experiment hneď na začiatku (M5); postavička sleduje priamo QR kód, kým je v zábere (ARCore na A53 uteká až o ~20 cm); podlaha z bodov ARCore |
 | R2 | QR kód sa v teréne zle číta (vzdialenosť, uhol, zašpinený) | stredná | vysoký | dostatočná veľkosť kódu, vyššia úroveň korekcie chýb, test T1 |
 | R3 | QR kódy poškodí počasie alebo vandal | vysoká | stredný | laminácia / odolné nálepky; v MVP testovacia trasa len na čas testu |
 | R4 | Telefón testera nepodporuje ARCore | stredná | stredný | overiť zoznam podporovaných zariadení vopred; náhradný režim bez AR (postavička na obrazovke) |

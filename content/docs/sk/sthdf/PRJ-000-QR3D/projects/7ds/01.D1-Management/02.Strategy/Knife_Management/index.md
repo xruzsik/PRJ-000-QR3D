@@ -72,7 +72,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "backlog"
@@ -142,7 +142,7 @@ KNIFE (*Knowledge In Friendly Examples*) je krátky článok, ktorý zdieľa poz
 
 | # | Téma | Autor | Stav |
 |---|------|-------|------|
-| 1 | **Ako umiestniť AR objekt vo vzťahu ku QR kódu (ARCore, Kotlin)** – nájdenie QR v obraze kamery, poloha a natočenie kódu v priestore, posun objektu (hlavný KNIFE – deliverable A2) – [koncept](../../../../../students/knowledge-contribution/index.md) | [meno] | 🔄 |
+| 1 | **Ako postaviť AR objekt vedľa vytlačeného QR kódu (ARCore, ML Kit, Kotlin)** – poloha a natočenie kódu zo 4 rohov a tlačenej veľkosti, posun objektu, výkon na telefóne strednej triedy (hlavný KNIFE – deliverable A2) – [koncept](../../../../../students/knowledge-contribution/index.md) | [meno] | 🔄 |
 | 2 | **Docusaurus na Windows v Git Bash** – prečo `BASE_URL=/` skončí ako `C:/Program Files/Git/` a ako to opraviť (`MSYS_NO_PATHCONV`) | [meno] | ⏳ |
 | 3 | **MDX nástrahy v KNIFE šablóne** – znaky `<` a `{` v texte, veľké/malé písmená v cestách (`7Ds` vs `7ds`) | [meno] | ⏳ |
 

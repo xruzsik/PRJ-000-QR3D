@@ -71,7 +71,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-11-15 23:00"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "draft"
@@ -139,12 +139,13 @@ fm_reserved2: ""
 
 | Oblasť | Technológia |
 |--------|-------------|
-| Jazyk a IDE | Kotlin, Android Studio |
-| AR | Google ARCore (kotvy, hit test, detekcia rovín) |
-| Čítanie QR | ML Kit Barcode Scanning (alternatíva ZXing) |
-| 3D zobrazenie | SceneView / Filament, modely vo formáte GLB |
-| Ukladanie | Room alebo DataStore (zbierka), JSON (obsah trasy) |
-| 3D modely | Blender (low-poly postavičky) |
+| Jazyk, UI a IDE | Kotlin, Jetpack Compose, Android Studio, Gradle |
+| AR | Google ARCore (sledovanie, kotvy, body prostredia) |
+| Čítanie QR | ML Kit Barcode Scanning + vlastný výpočet polohy kódu |
+| 3D zobrazenie | SceneView (Filament), animované modely GLB |
+| Ukladanie | SharedPreferences (zbierka), `Catalog.kt` (obsah trasy) |
+| 3D modely | Quaternius *Ultimate Animated Animals* (CC0), Blender, Python skript glTF → GLB |
+| Testy | JUnit (38 unit testov) |
 | Verzie a web | Git, GitHub, Docusaurus, GitHub Pages |
 
 [↩️ Späť](../index.md)

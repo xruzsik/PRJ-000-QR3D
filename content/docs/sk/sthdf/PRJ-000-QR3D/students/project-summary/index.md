@@ -71,7 +71,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-11-15 12:00"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "inprogress"
@@ -182,12 +182,12 @@ fm_reserved2: ""
 ## 5️⃣ Popis riešenia
 
 - **Komponenty:**
-  1. **AR obrazovka** – kamera cez ARCore, nájdenie QR kódu v obraze a výpočet jeho polohy v priestore.
-  2. **Umiestnenie postavičky** – kotva (Anchor) v mieste kódu, postavička s posunom (napr. 1 m vedľa) položená na zem.
-  3. **Obsah trasy** – zastávky, postavičky a texty v JSON súbore priamo v aplikácii; QR kód nesie len identifikátor zastávky.
-  4. **Zbierka a odznak** – lokálne uloženie získaných postavičiek, odznak po dokončení trasy.
-  5. **Fyzická časť** – vytlačené a zalaminované QR kódy na testovacej trase.
-- **Technológie:** Kotlin, Google ARCore, ML Kit Barcode Scanning alebo ZXing (čítanie QR), SceneView / Filament (3D), Room alebo DataStore (zbierka), Blender a formát GLB (postavičky).
+  1. **AR obrazovka** – kamera cez ARCore, nájdenie QR kódu v obraze (ML Kit) a vlastný výpočet jeho polohy v priestore zo 4 rohov a tlačenej veľkosti.
+  2. **Umiestnenie postavičky** – postavička s posunom vedľa kódu, stojí zvislo aj pri kóde na stĺpiku; keď hráč odíde, sprevádza ho.
+  3. **Obsah trasy** – katalóg postavičiek, modelov, umiestnení a príbehov priamo v aplikácii; QR kód nesie len `smvit-ar:<id>`.
+  4. **Zbierka a odznak** – lokálne uloženie získaných postavičiek, odznak po nájdení všetkých.
+  5. **Fyzická časť** – vytlačené (10 × 10 cm) a zalaminované QR kódy na testovacej trase.
+- **Technológie:** Kotlin, Jetpack Compose, Google ARCore, ML Kit Barcode Scanning (čítanie QR), SceneView / Filament (3D), SharedPreferences (zbierka), GLB modely (Quaternius, CC0; vlastné v Blenderi). Kód: [`src/`](https://github.com/xruzsik/PRJ-000-QR3D/tree/main/src).
 - **Mimo rozsahu MVP:** iOS, používateľské účty a online rebríček, editor trás pre správcov, trvalé rozmiestnenie QR kódov v teréne.
 - **Rozšírenia (ak zostane čas):** overenie polohy cez GPS (proti „zbieraniu“ z fotiek kódov), body a viac trás, webová stránka pre tých, čo naskenujú kód bez aplikácie.
 
@@ -200,7 +200,7 @@ fm_reserved2: ""
   - [ ] Zadanie – Project Summary (nové zameranie) schválené, About Me, 7Ds D1–D2
   - [ ] Pitch – problém, riešenie, hodnota (Q12), user stories
   - [ ] Experiment – spoľahlivé umiestnenie objektu vedľa QR kódu, aj vonku
-  - [ ] Postavičky a zbierka – rôzne postavičky pre rôzne kódy, uloženie zbierky
+  - [x] Postavičky a zbierka – rôzne postavičky pre rôzne kódy, uloženie zbierky *(4 zvieratá, 16.11.2026)*
   - [ ] Trasa a cieľ – 3–5 zastávok, odznak, offline režim
   - [ ] Testovanie na trase s 3–5 používateľmi
   - [ ] Finálna prezentácia – demo, výsledky, KNIFE článok, reflexia

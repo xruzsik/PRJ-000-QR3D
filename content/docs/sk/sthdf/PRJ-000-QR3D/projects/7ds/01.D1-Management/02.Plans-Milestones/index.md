@@ -72,7 +72,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "backlog"
@@ -142,9 +142,9 @@ fm_reserved2: ""
 | M2 | Základ AR aplikácie | aplikácia nájde QR kód a položí naň kocku | 02.11.2026 | ✅ |
 | M3 | Zadanie projektu | Project Summary (nové zameranie) schválené, About Me, 7Ds D1–D2 | [termín] | 🔄 |
 | M4 | Pitch | prezentácia 5–7 min, Q12, user stories | [termín pitchu] | ⏳ |
-| M5 | Experiment s umiestnením v AR | vieme spoľahlivo postaviť objekt vedľa QR kódu (offset), aj vonku | [termín] | ⏳ |
-| M6 | Postavičky a zbierka | 3D postavička namiesto kocky, rôzne postavičky pre rôzne kódy, zbierka sa ukladá | [termín] | ⏳ |
-| M7 | Trasa a cieľ | 3–5 zastávok, odznak v cieli, offline režim | [termín] | ⏳ |
+| M5 | Experiment s umiestnením v AR | vieme spoľahlivo postaviť objekt vedľa QR kódu (offset), aj vonku | [termín] | 🔄 vedľa kódu funguje pri stole, test vonku chýba |
+| M6 | Postavičky a zbierka | 3D postavička namiesto kocky, rôzne postavičky pre rôzne kódy, zbierka sa ukladá | 16.11.2026 | ✅ 4 zvieratá, zbierka, sprevádzanie hráča |
+| M7 | Trasa a cieľ | 3–5 zastávok, odznak v cieli, offline režim | [termín] | 🔄 odznak hotový, chýba trasa v teréne a test offline |
 | M8 | Testovanie na trase | test s 3–5 používateľmi, výsledky v D6 | [termín] | ⏳ |
 | M9 | Finálna prezentácia | demo, Project Outcomes, Reflexia, KNIFE článok | [termín finálnej prezentácie] | ⏳ |
 

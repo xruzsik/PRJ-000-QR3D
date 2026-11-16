@@ -72,7 +72,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "backlog"
@@ -146,8 +146,24 @@ fm_reserved2: ""
 | T4 | Stabilita postavičky | obísť postavičku dookola, pohnúť mobilom | postavička zostane na mieste (K3) | [doplniť] |
 | T5 | Zariadenia | aspoň 2 rôzne telefóny s Androidom | funguje na oboch (K4) | [doplniť] |
 | T6 | Zbierka | získať 2 postavičky, zatvoriť a znova otvoriť aplikáciu | postavičky zostanú v zbierke | [doplniť] |
-| T7 | Cudzí / poškodený QR | naskenovať iný QR kód alebo čiastočne zakrytý kód | aplikácia oznámi „toto nie je zastávka“, nespadne | [doplniť] |
+| T7 | Cudzí / poškodený QR | naskenovať iný QR kód alebo čiastočne zakrytý kód | aplikácia oznámi *„Neznámy kód: …“*, nespadne | [doplniť] |
 | T8 | Svetelné podmienky | test na priamom slnku, v tieni, pri zamračenom počasí | QR sa načíta a postavička sa zobrazí | [doplniť] |
+
+## 🤖 Automatické testy (unit testy)
+
+V projekte je **38 unit testov**, ktoré bežia na PC bez telefónu (`./gradlew :app:testDebugUnitTest` v priečinku `src/`):
+
+| Testy | Počet | Čo overujú |
+|-------|-------|------------|
+| `QrPoseSolverTest` | 2 | výpočet polohy kódu zo 4 rohov |
+| `QrOrientationTest` | 7 | určenie natočenia podľa rohových štvorcov QR |
+| `FramesAndFilterTest` | 9 | prevody súradníc, filter zhodných záchytov |
+| `PoseSmootherTest` | 3 | plynulý pohyb modelu |
+| `CompanionTest` | 7 | sprevádzanie hráča (chôdza, cval, túlanie) |
+| `CatalogTest` | 5 | katalóg postavičiek (napr. animácie existujú v GLB) |
+| `TrailProgressTest` | 5 | zbierka a odznak |
+
+*Výsledok posledného behu: [doplniť po spustení].*
 
 ## 👥 Test na trase s používateľmi
 

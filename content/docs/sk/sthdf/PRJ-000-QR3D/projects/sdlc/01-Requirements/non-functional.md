@@ -71,7 +71,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-11-15 23:00"
+modified: "2026-11-16 18:00"
 
 # Stav dokumentu – default "backlog"
 status: "draft"
@@ -146,11 +146,11 @@ fm_reserved2: ""
 | NFR-04 | Offline | celá hra (trasa, modely, zbierka, odznak) funguje **bez internetu** | test v režime lietadlo |
 | NFR-05 | Kompatibilita | Android telefóny s podporou ARCore; overené aspoň na **2 rôznych** telefónoch | test na telefónoch tímu a testerov |
 | NFR-06 | Použiteľnosť | hra je zrozumiteľná pre deti od 8 rokov; aspoň **4 z 5** testerov dokončí trasu bez pomoci | test na trase (M8) |
-| NFR-07 | Batéria | QR sa číta len z každého 5.–10. snímku a po nájdení sa skenovanie vypne; AR kamera beží len pri zastávke | zmerať pokles batérie počas testovacej trasy |
+| NFR-07 | Batéria a teplo | QR sa číta najviac 8× za sekundu, displej obmedzený na 60 Hz, lacnejší odhad svetla, bez detekcie rovín a hĺbky | zmerať pokles batérie a prehrievanie počas testovacej trasy |
 | NFR-08 | Súkromie | žiadne účty ani osobné údaje; obraz z kamery sa spracúva len v telefóne a nikam sa neodosiela | kontrola oprávnení a sieťovej komunikácie aplikácie |
 | NFR-09 | Bezpečnosť hráča | zastávky len na značenom chodníku; upozornenie na pozornosť pri chôdzi | kontrola trasy pred testom, review textov |
 | NFR-10 | Odolnosť v teréne | QR kódy zalaminované, čitateľné aj po daždi | kontrola kódov pred a po teste |
-| NFR-11 | Udržiavateľnosť | obsah trasy (zastávky, texty, posuny) v JSON oddelene od kódu; licencie 3D modelov evidované | review pri pridaní zastávky (US-11) |
+| NFR-11 | Udržiavateľnosť | obsah trasy (postavičky, texty, posuny) na jednom mieste (`Catalog.kt`) oddelene od logiky; výpočty bez závislosti na Androide pokryté unit testami; licencie 3D modelov evidované | unit testy, review pri pridaní postavičky (US-11) |
 
 ---
 **Navigation:** [⬆️ Up](./index.md) · [🏠 Home](../index.md)

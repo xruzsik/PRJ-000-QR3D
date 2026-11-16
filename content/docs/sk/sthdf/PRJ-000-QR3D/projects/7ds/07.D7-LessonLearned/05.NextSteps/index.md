@@ -143,8 +143,8 @@ fm_reserved2: ""
 - [ ] Experiment: postaviť objekt vedľa QR kódu (offset) a otestovať vonku (M5)
 - [ ] Prekresliť diagram architektúry v D4 (draw.io)
 - [ ] Vybrať trasu a 3–5 zastávok; zistiť, kto povoľuje umiestnenie QR kódov
-- [ ] Nájsť alebo vytvoriť prvé 3D postavičky
-- [x] Začať KNIFE článok „Ako umiestniť AR objekt vo vzťahu ku QR kódu“
+- [x] Nájsť alebo vytvoriť prvé 3D postavičky *(4 zvieratá Quaternius, CC0)*
+- [x] Začať KNIFE článok „Ako postaviť AR objekt vedľa vytlačeného QR kódu“
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

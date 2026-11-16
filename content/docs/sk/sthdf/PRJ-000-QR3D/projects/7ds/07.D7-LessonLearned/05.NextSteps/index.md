@@ -72,7 +72,7 @@ locale: "sk"
 created: "2026-10-26 09:24"
 
 # Dátum poslednej úpravy – dopĺňa človek
-modified: "2026-10-26 09:24"
+modified: "2026-11-16 09:00"
 
 # Stav dokumentu – default "backlog"
 status: "backlog"
@@ -137,14 +137,14 @@ fm_reserved2: ""
 # Next Steps
 
 - [ ] Oznámiť vyučujúcemu zmenu zamerania a dať schváliť nový Project Summary
-- [ ] Aktualizovať Project Summary podľa nového nápadu
-- [ ] Doplniť Q12 (biznis pohľad) a user stories v SDLC 01-Requirements
-- [ ] Pripraviť pitch (5–7 min)
+- [x] Aktualizovať Project Summary podľa nového nápadu *(15.11.)*
+- [x] Doplniť Q12 (biznis pohľad) a user stories v SDLC 01-Requirements *(koncept 15.11.)*
+- [ ] Pripraviť pitch (5–7 min) – *obsah hotový, chýbajú slajdy a demo*
 - [ ] Experiment: postaviť objekt vedľa QR kódu (offset) a otestovať vonku (M5)
 - [ ] Prekresliť diagram architektúry v D4 (draw.io)
 - [ ] Vybrať trasu a 3–5 zastávok; zistiť, kto povoľuje umiestnenie QR kódov
 - [ ] Nájsť alebo vytvoriť prvé 3D postavičky
-- [ ] Začať KNIFE článok „Ako umiestniť AR objekt vo vzťahu ku QR kódu“
+- [x] Začať KNIFE článok „Ako umiestniť AR objekt vo vzťahu ku QR kódu“
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

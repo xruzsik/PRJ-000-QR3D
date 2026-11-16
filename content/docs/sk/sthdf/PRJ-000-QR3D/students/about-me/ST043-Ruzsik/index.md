@@ -137,17 +137,20 @@ fm_reserved2: ""
 
 ## 🔖 Základné informácie
 - Dániel Ruzsik
-- [Študentský GitHub profil (link)](https://github.com/xruzsik)
+- [Študentský GitHub profil (xruzsik)](https://github.com/xruzsik)
 - Kontaktný e-mail: daniruzsik@gmail.com
+
 
 ## 🎯 Profesijné záujmy
 Oblasti, ktoré ma bavia:
-- IT, IT architektúra
-- Webové aplikácie => Full-stack vývoj
+- informatika, IT architektúra, projektovanie
+- Webové aplikácie => Full-stack vývoj (TypeScript, )
 - Desktopové aplikácie
 
 Aké skúsenosti by som chcel získať:
-- 
+- práca s Git, GitHub, Docusaurus
+- spúšťanie webstránky cez GitHub Pages
+- kreatívne vyjadrenie
 
 
 ## 💡 Moje hobby / záujmy
@@ -158,17 +161,26 @@ Príprava jedla (na internáte, alebo aj doma)
 - Šport:
 Turistika, pohyb v prírode
 - Skauting (Zväz slovenských skautov maďarskej národnosti):
-Aktívna účasť a práca v miestnej skupine, ale aj v rámci zväzu
-- Šachy:
+Aktívna účasť a práca v miestnej družine, ale aj v rámci zväzu
+- Šach:
 Amatérský hráč, 1-2x denne na chess.com
 
 ## 🚀 Očakávania od predmetu
-- Čo chcem dosiahnuť v rámci kurzu
+Čo chcem dosiahnuť v rámci kurzu
+- naučiť sa nové zručnosti ohľadom projektovania
+- dotiahnuť vlastný nápad od myšlienky po funkčný prototyp
+- získať znalosti o písaní dokumentácie a o frameworku KNIFE
 
-- Čo očakávam od spolupráce s tímom a komunitou
+Čo očakávam od spolupráce s tímom a komunitou
+- efektívnu komunikáciu
+- hladkú a spoľahlivú prácu
+- čerstvé nápady
 
 ## 🚀 Čo viem ponúknuť
-- Čo chcem ponúknuť v rámci kurzu
+Čo chcem ponúknuť v rámci kurzu
+- skúsenosti s vývojom webových a desktopových aplikácií (rád poradím tímom, ktoré robia web)
+- spätnú väzbu na nápady a prezentáacie ostatných tímov
+- orzganizáciu a vedenie skupiny
 
 ## Navigácia
 - [↩️ Späť](../index.md)

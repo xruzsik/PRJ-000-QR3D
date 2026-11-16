@@ -1,6 +1,7 @@
 package com.smvit.ar
 
 import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -106,12 +107,15 @@ private class TrackedCode(val entry: CatalogEntry, var target: RigidPose, var la
  * its right edge (the axis test cube shows them as green, blue and red).
  */
 @Composable
-fun ArScreen(catalog: Catalog) {
+fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
+    BackHandler(onBack = onBack)
     val engine = rememberEngine()
     val modelLoader = rememberModelLoader(engine)
 
     val codes = remember { mutableStateMapOf<String, TrackedCode>() }
     var status by remember { mutableStateOf(Texts.SCAN_PROMPT) }
+    val searchHint = remember { SearchHint() }
+    var hint by remember { mutableStateOf<SearchHint.Hint?>(null) }
 
     val context = LocalContext.current
     val store = remember { CollectionStore(context) }
@@ -157,8 +161,10 @@ fun ArScreen(catalog: Catalog) {
             when (val result = filter.add(payload, sighting.worldFromAnchor, sighting.reprojectionErrorPx, sighting.timestampNanos)) {
                 QrPoseFilter.Result.Rejected ->
                     Log.d(TAG, "rejected \"$payload\": reprojection ${sighting.reprojectionErrorPx} px")
-                is QrPoseFilter.Result.Collecting ->
+                is QrPoseFilter.Result.Collecting -> {
                     status = Texts.holdSteady(entry.name, result.count, result.required)
+                    searchHint.reset()
+                }
                 is QrPoseFilter.Result.Stable -> {
                     codes[payload] = TrackedCode(entry, result.worldFromAnchor, sighting.timestampNanos)
                     status = entry.name
@@ -208,6 +214,7 @@ fun ArScreen(catalog: Catalog) {
                 } else if (codes.isEmpty()) {
                     status = Texts.TRACKING_PROMPT
                 }
+                hint = searchHint.update(frame.timestamp, searching = codes.isEmpty(), readyToScan = warmedUp)
                 val camera = frame.camera.pose.toRigidPose()
                 if (tracking && codes.values.any { it.entry.roamSizeMeters != null } &&
                     frame.timestamp - lastFloorCheckNanos.get() > FLOOR_CHECK_NANOS
@@ -279,6 +286,7 @@ fun ArScreen(catalog: Catalog) {
                 )
             }
             StatusText(status)
+            hint?.let { StatusText(Texts.hint(it)) }
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = { showCollection = true }) { Text(Texts.collectionButton(progress)) }
                 if (codes.isNotEmpty()) {
@@ -288,6 +296,7 @@ fun ArScreen(catalog: Catalog) {
                         filter.reset()
                         story = null
                         status = Texts.SCAN_PROMPT
+                        searchHint.reset()
                     }) {
                         Text(Texts.RESCAN)
                     }

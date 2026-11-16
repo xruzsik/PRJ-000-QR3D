@@ -1,0 +1,11 @@
+# Local toolchain and downloads (multi-GB, machine-specific state)
+/tools/
+/downloads/
+
+# Gradle / Android build output
+.gradle/
+.kotlin/
+build/
+local.properties
+*.apk
+*.aab

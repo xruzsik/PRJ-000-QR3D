@@ -1,0 +1,2 @@
+# Windows scripts need CRLF (the repository default is eol=lf).
+*.bat text eol=crlf

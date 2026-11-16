@@ -137,9 +137,9 @@ fm_reserved2: ""
 # 🙋 About Me
 
 ## 🔖 Základné informácie
-- Meno a priezvisko
-- Študentský GitHub profil (link)
-- Kontaktný e-mail
+- Lukáš Šebök
+- [Študentský GitHub profil (link)](https://github.com/xsebok)
+- Kontaktný e-mail: lukas.sebok1@gmail.com
 
 ## 🎯 Profesijné záujmy
 - Oblasti, ktoré ma bavia (IT, dizajn, podnikanie, …)

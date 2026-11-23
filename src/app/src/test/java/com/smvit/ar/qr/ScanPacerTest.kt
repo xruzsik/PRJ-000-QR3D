@@ -16,6 +16,13 @@ class ScanPacerTest {
     }
 
     @Test
+    fun halfAsOftenWhenHot() {
+        val p = ScanPacer()
+        assertEquals(2 * p.slowNanos, p.intervalNanos(10 * s, followingACode = false, hot = true))
+        assertEquals(2 * p.fastNanos, p.intervalNanos(10 * s, followingACode = true, hot = true))
+    }
+
+    @Test
     fun alwaysFastWhileACharacterStandsOnItsCode() {
         val p = ScanPacer()
         assertEquals(p.fastNanos, p.intervalNanos(100 * s, followingACode = true))

@@ -57,6 +57,8 @@ object Texts {
         SearchHint.Hint.GET_CLOSER -> "Tip: priblíž sa ku kódu, aby bol celý v zábere, a chvíľu drž telefón pokojne."
     }
 
+    const val PHONE_HOT = "Telefón je horúci. Medzi zastávkami ho nechaj odpočívať vo vrecku, aby vychladol."
+
     // Start screen
     const val HOW_TO_PLAY = "Na každej zastávke nájdi QR kód a namier naň kameru. Objaví sa postavička, " +
         "povie ti svoj príbeh a pridá sa do tvojej zbierky. Keď nájdeš všetky, získaš odznak."

@@ -1,5 +1,7 @@
 package com.smvit.ar
 
+import android.os.Build
+import android.os.PowerManager
 import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
@@ -149,6 +151,19 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
     val lastFloorCheckNanos = remember { AtomicLong(0) }
 
     val pacer = remember { ScanPacer() }
+    // Phone overheating (the A53 does after ~30 min of AR, worse while charging):
+    // warn the player and scan less often.
+    var hot by remember { mutableStateOf(false) }
+    DisposableEffect(Unit) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) return@DisposableEffect onDispose {}
+        val power = context.getSystemService(PowerManager::class.java)
+        val listener = PowerManager.OnThermalStatusChangedListener { status ->
+            Log.d(TAG, "thermal status: $status")
+            hot = status >= PowerManager.THERMAL_STATUS_SEVERE
+        }
+        power.addThermalStatusListener(listener) // also reports the current status
+        onDispose { power.removeThermalStatusListener(listener) }
+    }
     val scanner = remember {
         QrScanner(
             sizeFor = { payload -> catalog.forPayload(payload)?.qrSizeMeters },
@@ -230,7 +245,7 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
                 val warmedUp = tracking && frame.timestamp - trackingSinceNanos.get() >= TRACKING_WARMUP_NANOS
 
                 if (warmedUp) {
-                    scanner.intervalNanos = pacer.intervalNanos(frame.timestamp, followingACode = codes.values.any { it.companion == null })
+                    scanner.intervalNanos = pacer.intervalNanos(frame.timestamp, followingACode = codes.values.any { it.companion == null }, hot = hot)
                     scanner.onFrame(frame)
                     if (status == Texts.TRACKING_PROMPT) status = Texts.SCAN_PROMPT
                 } else if (codes.isEmpty()) {
@@ -318,6 +333,7 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
             }
             StatusText(status)
             hint?.let { StatusText(Texts.hint(it)) }
+            if (hot) StatusText(Texts.PHONE_HOT)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = { showCollection = true }) { Text(Texts.collectionButton(progress)) }
                 if (codes.isNotEmpty()) {

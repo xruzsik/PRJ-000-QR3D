@@ -48,8 +48,19 @@ class Companion(
         // Hop down from the code and stay on the (re-estimated) floor.
         position = Vec3(position.x, position.y + (groundY - position.y) * (1 - exp(-dt / SETTLE_SECONDS)), position.z)
 
-        val playerOnFloor = Vec3(player.x, position.y, player.z)
-        val distanceToPlayer = (playerOnFloor - position).norm()
+        var playerOnFloor = Vec3(player.x, position.y, player.z)
+        var distanceToPlayer = (playerOnFloor - position).norm()
+
+        // Far beyond any walk: ARCore's world frame jumped (seen up to 2.5 m on
+        // the A53) or the player outran it. Reappear just out of view beside the
+        // player and run into view, rather than galloping back across the map.
+        if (distanceToPlayer > LOST_METERS) {
+            position = besidePlayer(Vec3(player.x, groundY, player.z), playerForward)
+            playerOnFloor = Vec3(player.x, groundY, player.z)
+            distanceToPlayer = (playerOnFloor - position).norm()
+            yaw = atan2(playerOnFloor.x - position.x, playerOnFloor.z - position.z)
+            target = pickSpot(playerOnFloor, playerForward)
+        }
 
         // Re-plan if the player walked off and the old spot is no longer near them.
         target?.let { if ((it - playerOnFloor).norm() > FAR_METERS) target = null }
@@ -90,6 +101,14 @@ class Companion(
         return playerOnFloor + Mat3.rotation(UP, angle) * forward.normalized() * radius
     }
 
+    /** Just outside the camera's view: 2 m out, 100 degrees to the player's side ([sideBias] picks which). */
+    private fun besidePlayer(playerOnFloor: Vec3, playerForward: Vec3): Vec3 {
+        var forward = Vec3(playerForward.x, 0.0, playerForward.z)
+        if (forward.norm() < 0.2) forward = Vec3(0.0, 0.0, -1.0)
+        val side = if (sideBias < 0) -1.0 else 1.0
+        return playerOnFloor + Mat3.rotation(UP, side * REAPPEAR_ANGLE) * forward.normalized() * REAPPEAR_METERS
+    }
+
     private fun turnTowards(direction: Vec3, dt: Double) {
         val desired = atan2(direction.x, direction.z)
         var diff = desired - yaw
@@ -106,6 +125,10 @@ class Companion(
 
         /** Beyond this the companion comes after the player. */
         const val FAR_METERS = 3.0
+        /** Beyond this it is moved next to the player instead of walking back. */
+        const val LOST_METERS = 6.0
+        private const val REAPPEAR_METERS = 2.0
+        private const val REAPPEAR_ANGLE = 100 * PI / 180
         /** Further than this from its goal it gallops, else it walks. */
         const val RUN_BEYOND_METERS = 1.5
         const val ARRIVE_METERS = 0.15

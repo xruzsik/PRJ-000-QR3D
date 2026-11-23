@@ -48,6 +48,23 @@ class CompanionTest {
     }
 
     @Test
+    fun afterAWorldJumpReappearsBesideThePlayerOutOfViewAndRunsIntoView() {
+        val c = companionAt(0.0, 0.0, -1.0)
+        val player = Vec3(0.0, 1.3, 0.0)
+        c.step(dt, player, lookingAhead, ground)
+        // ARCore shifts the world by 2.5 m and more: the player now seems 9 m away.
+        val jumped = Vec3(9.0, 1.3, 0.0)
+        c.step(dt, jumped, lookingAhead, ground)
+        assertEquals(2.0, horizontalDistance(c.position, jumped), 0.2)
+        val toCompanion = Vec3(c.position.x - jumped.x, 0.0, c.position.z - jumped.z)
+        val angle = Math.toDegrees(kotlin.math.acos((toCompanion dot lookingAhead) / toCompanion.norm()))
+        assertTrue("should start out of view, at $angle deg", angle > 60)
+        // ...then comes into view in front of the player.
+        repeat(90) { c.step(dt, jumped, lookingAhead, ground) } // 3 s
+        assertTrue("still behind the player", c.position.z < jumped.z)
+    }
+
+    @Test
     fun idleCompanionTurnsToFaceThePlayer() {
         val c = companionAt(2.0, 0.0, 0.0) // facing +Z; player is at -X
         repeat(45) { c.step(dt, Vec3(0.0, 1.3, 0.0), lookingAhead, ground) } // 1.5 s, before wandering

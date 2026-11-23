@@ -7,6 +7,12 @@
          delivered them at 6.25 Hz and tracking never stabilised. -->
     <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS" />
 
+    <!-- No network (NFR-08: nothing leaves the phone). The app works fully
+         offline; these come from libraries, e.g. ML Kit's anonymous usage
+         reporting, and are stripped from the merged manifest. -->
+    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
+
     <!-- AR Required: only installable on ARCore-certified devices. -->
     <uses-feature android:name="android.hardware.camera.ar" android:required="true" />
 

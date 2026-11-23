@@ -144,7 +144,7 @@ fm_reserved2: ""
 | M4 | Pitch | prezentácia 5–7 min, Q12, user stories | [termín pitchu] | ⏳ |
 | M5 | Experiment s umiestnením v AR | vieme spoľahlivo postaviť objekt vedľa QR kódu (offset), aj vonku | [termín] | 🔄 vedľa kódu funguje pri stole, test vonku chýba |
 | M6 | Postavičky a zbierka | 3D postavička namiesto kocky, rôzne postavičky pre rôzne kódy, zbierka sa ukladá | 16.11.2026 | ✅ 4 zvieratá, zbierka, sprevádzanie hráča |
-| M7 | Trasa a cieľ | 3–5 zastávok, odznak v cieli, offline režim | [termín] | 🔄 odznak hotový, chýba trasa v teréne a test offline |
+| M7 | Trasa a cieľ | 3–5 zastávok, odznak v cieli, offline režim | [termín] | 🔄 odznak a úvodná obrazovka trasy hotové; chýba trasa v teréne (aj jej dĺžka a čas v `route.json`) a test offline |
 | M8 | Testovanie na trase | test s 3–5 používateľmi, výsledky v D6 | [termín] | ⏳ |
 | M9 | Finálna prezentácia | demo, Project Outcomes, Reflexia, KNIFE článok | [termín finálnej prezentácie] | ⏳ |
 

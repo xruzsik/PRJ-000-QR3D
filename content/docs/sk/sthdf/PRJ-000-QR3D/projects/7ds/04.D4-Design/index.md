@@ -143,6 +143,7 @@ fm_reserved2: ""
 ```text
  TERÉN                         ANDROID APLIKÁCIA (Kotlin + ARCore)
  ┌──────────────┐   kamera    ┌───────────────────────────────────────────────┐
+ │              │             │ 0. úvodná obrazovka → Začať (kamera až potom)  │
  │  QR kód na   │ ──────────▶ │ 1. AR kamera (ARCore, bez rovín a hĺbky)       │
  │  zastávke    │             │ 2. ML Kit → obsah kódu + 4 rohy                │
  │„smvit-ar:fox“│             │ 3. vlastný výpočet polohy kódu (rohy+veľkosť)  │
@@ -152,7 +153,7 @@ fm_reserved2: ""
                               └──────────────┬────────────────────────────────┘
                                              │ všetko lokálne v telefóne
                               ┌──────────────▼───────────────┐
-                              │ katalóg trasy (Catalog.kt) + │
+                              │ trasa (assets/route.json) +  │
                               │ modely postavičiek (GLB)     │
                               │ zbierka (SharedPreferences)  │
                               └──────────────────────────────┘
@@ -168,7 +169,9 @@ Aplikácia nepotrebuje server ani internet – trasa, postavičky aj zbierka sú
 | **Čítačka QR** | z obrazu kamery prečíta kód a nájde jeho rohy | ML Kit Barcode Scanning |
 | **Poloha kódu** | zo 4 rohov a tlačenej veľkosti vypočíta polohu a natočenie kódu | vlastný výpočet (`qr/`); kotva ARCore, keď je kód mimo záberu |
 | **Sprevádzanie** | postavička po odchode hráča ide s ním, stojí na odhadnutej podlahe | vlastná logika (`companion/`) |
-| **Obsah trasy** | postavičky, modely, veľkosti, posuny, animácie, príbehy, poradie | `Catalog.kt` v aplikácii |
+| **Obsah trasy** | postavičky, modely, veľkosti, posuny, animácie, príbehy, poradie zastávok | súbor `assets/route.json` v aplikácii, načíta a skontroluje ho `Catalog.kt` |
+| **Úvodná obrazovka** | trasa, zastávky, postup, bezpečnostné upozornenie, štart kamery | Jetpack Compose (`StartScreen`) |
+| **Nápoveda** | tip, keď sa 5 s nenájde žiadny kód | `SearchHint.kt` |
 | **Zbierka** | ktoré postavičky už hráč má | SharedPreferences |
 | **Postavičky** | 3D modely | GLB súbory v aplikácii |
 
@@ -180,7 +183,7 @@ QR kód nesie **len identifikátor postavičky**:
 smvit-ar:fox
 ```
 
-- Aplikácia podľa neho nájde postavičku v katalógu (`Catalog.kt`) – model, veľkosť, umiestnenie, príbeh. Zmena modelu či umiestnenia teda nevyžaduje nové tlačenie kódov.
+- Aplikácia podľa neho nájde postavičku v súbore trasy (`route.json`) – model, veľkosť, umiestnenie, príbeh. Zmena modelu či umiestnenia teda nevyžaduje nové tlačenie kódov.
 - Krátky obsah = menší a ľahšie čitateľný QR kód aj z väčšej vzdialenosti.
 - Kódy sa tlačia v presnej veľkosti **10 × 10 cm** (PDF s kontrolným pravítkom), lebo z nej aplikácia počíta vzdialenosť.
 - *Rozšírenie:* kód s URL, ktorý bežný fotoaparát otvorí ako webovú stránku o hre (US-13).
@@ -191,28 +194,30 @@ smvit-ar:fox
 1. ML Kit nájde QR kód a jeho 4 rohy v obraze kamery.
 2. Zo 4 rohov a známej tlačenej veľkosti (10 cm) vypočítame polohu a natočenie kódu voči kamere a cez polohu kamery z ARCore aj vo svete. Ktorý roh je ktorý, určíme podľa rohových štvorcov QR kódu.
 3. Postavičku umiestnime v **„zvislom“ rámci kódu** (+Y hore, +Z k čitateľovi, +X vpravo od kódu) – stojí rovno, aj keď kód visí na stĺpiku alebo leží na zemi.
-4. Postavička má **posun (offset)** voči kódu, napr. `offset(x = 0.8, y = -1.2)` = na zemi 0,8 m vpravo od kódu, ktorý visí 1,2 m vysoko.
+4. Postavička má **posun (offset)** voči kódu, v `route.json` napr. `"offset": { "x": 0.8, "y": -1.2 }` = na zemi 0,8 m vpravo od kódu, ktorý visí 1,2 m vysoko (`z` k čitateľovi, `yawDegrees` otočenie).
 5. Kým je kód v zábere, postavička sleduje priamo meranie kódu; keď zmizne zo záberu, drží ju kotva ARCore.
 6. Keď hráč odíde, postavička kód opustí a sprevádza ho po podlahe.
-7. Posun, mierka a animácie sú pri každej postavičke v katalógu – každá môže stáť inak (pri strome, na skale…).
+7. Posun, mierka a animácie sú pri každej postavičke v `route.json` – každá môže stáť inak (pri strome, na skale…).
 
 ## 🗃️ Dátový model trasy (návrh)
 
 | Objekt | Polia |
 |--------|-------|
-| **CatalogEntry** (postavička) | id, meno, model (GLB), tlačená veľkosť kódu, veľkosť modelu, posun voči kódu, animácia, príbeh, veľkosť pri sprevádzaní, animácie chôdze a cvalu |
-| **Catalog.trail** (trasa) | zoznam id postavičiek v poradí na trase; všetky = odznak |
+| **route.json** (súbor trasy) | `name`, `lengthKm`, `minutes` (voliteľné, pre úvodnú obrazovku), `stops`, `aliases`, `characters` |
+| **CatalogEntry** (postavička, položka v `characters`) | id, meno, model (GLB), tlačená veľkosť kódu, veľkosť modelu, posun voči kódu, animácia, príbeh, veľkosť pri sprevádzaní, animácie chôdze a cvalu |
+| **stops** → `Catalog.trail` (trasa) | zoznam id postavičiek v poradí na trase; všetky = odznak |
+| **aliases** | ďalšie vytlačené kódy, ktoré ukážu existujúcu postavičku (napr. `test_cube` → líška) |
 | **TrailProgress** | trasa + množina nájdených id; počet, celkovo, dokončené |
 | **Zbierka** (v telefóne) | množina id nájdených postavičiek |
 | *Zastávka s GPS* | *rozšírenie (bonus G9), zatiaľ nie je* |
 
 ## 📱 Obrazovky
 
-1. **Skenovanie (AR)** ✅ – kamera, stavový riadok (*„Namier kameru na QR kód“*), tlačidlá *Zbierka 2/4* a *Znova skenovať*; po nájdení sa zjaví postavička.
-2. **Karta postavičky** ✅ – meno, *„Nové! Pridané do zbierky (2/4)“* alebo *„Už v zbierke“*, príbeh. Postavička sa do zbierky pridá automaticky.
-3. **Zbierka** ✅ – nájdené postavičky s príbehom, chýbajúce ako *„???“*, vymazanie zbierky.
-4. **Odznak** ✅ – dialóg *„Odznak získaný!“* po nájdení všetkých postavičiek.
-5. **Úvod trasy** ⏳ – zoznam zastávok, dĺžka trasy, upozornenie na bezpečnosť (US-08, US-09).
+1. **Úvod trasy** ✅ – názov trasy, „ako hrať“, zastávky v poradí (meno až po nájdení, ✓), *Zbierka 1/4*, upozornenie *„Bezpečne na trase“*, tlačidlo *Začať* / *Pokračovať* (US-08, US-09). Dĺžka a čas trasy sa ukážu po doplnení do `route.json`.
+2. **Skenovanie (AR)** ✅ – kamera, stavový riadok (*„Namier kameru na QR kód“*), po 5 s bez kódu tip (US-07), tlačidlá *Zbierka 2/4* a *Znova skenovať*; po nájdení sa zjaví postavička. Späť → úvod trasy.
+3. **Karta postavičky** ✅ – meno, *„Nové! Pridané do zbierky (2/4)“* alebo *„Už v zbierke“*, príbeh. Postavička sa do zbierky pridá automaticky.
+4. **Zbierka** ✅ – nájdené postavičky s príbehom, chýbajúce ako *„???“*, vymazanie zbierky.
+5. **Odznak** ✅ – dialóg *„Odznak získaný!“* po nájdení všetkých postavičiek.
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../index.md)

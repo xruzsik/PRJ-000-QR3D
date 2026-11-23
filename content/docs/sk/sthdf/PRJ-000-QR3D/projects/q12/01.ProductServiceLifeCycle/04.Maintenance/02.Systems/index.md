@@ -138,7 +138,7 @@ fm_reserved2: ""
 > 🚧 **Koncept** – pripravený z 7Ds dokumentácie, tím ho ešte prejde a upraví.
 
 - **GitHub Issues** – hlásenia chýb a požiadavky na zmenu obsahu.
-- **Verzie obsahu trasy** – obsah trasy je v katalógu aplikácie (`Catalog.kt`), mení sa novou verziou aplikácie; zmeny zapisujeme do Change Logu (SDLC 09).
+- **Verzie obsahu trasy** – obsah trasy je v súbore `route.json` v aplikácii – mení sa bez zásahu do kódu, ale vyžaduje nový build (novú verziu aplikácie); zmeny zapisujeme do Change Logu (SDLC 09).
 - **Balík kódov** – archív všetkých QR kódov trasy na opätovnú tlač.
 - **Hlásenie poškodeného kódu** z aplikácie *(rozšírenie, nie v MVP)*.
 

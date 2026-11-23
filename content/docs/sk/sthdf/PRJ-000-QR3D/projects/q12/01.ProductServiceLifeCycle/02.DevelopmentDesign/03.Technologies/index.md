@@ -143,9 +143,9 @@ fm_reserved2: ""
 | AR | Google ARCore (sledovanie, kotvy, body prostredia) |
 | Čítanie QR | ML Kit Barcode Scanning + vlastný výpočet polohy kódu |
 | 3D zobrazenie | SceneView (Filament), animované modely GLB |
-| Ukladanie | SharedPreferences (zbierka), `Catalog.kt` (obsah trasy) |
+| Ukladanie | SharedPreferences (zbierka), `route.json` v assets aplikácie (obsah trasy, vlastná čítačka JSON) |
 | 3D modely | Quaternius *Ultimate Animated Animals* (CC0), Blender, Python skript glTF → GLB |
-| Testy | JUnit (38 unit testov) |
+| Testy | JUnit (48 unit testov) |
 | Verzie a web | Git, GitHub, Docusaurus, GitHub Pages |
 
 [↩️ Späť](../index.md)

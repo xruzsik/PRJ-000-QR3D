@@ -140,6 +140,8 @@ Denník práce tímu. Nový záznam pridávame **hore**. Podrobnosti o zmenách 
 
 | Dátum | Kto | Čo sme urobili | Výstup / odkaz |
 |-------|-----|----------------|----------------|
+| 23.11.2026 | Dániel Ruzsik | dokumentácia zosúladená s kódom po commite `277b3ca` (route.json, úvodná obrazovka, nápoveda, 48 testov) v D4–D7, SDLC, Q12, KNIFE a Summary | [D5 – Implementation](../../05.D5-Implementation/index.md) |
+| 16.11.2026 | Lukáš Šebök | obsah trasy presunutý z `Catalog.kt` do `assets/route.json` s kontrolou chýb; úvodná obrazovka trasy (zastávky, bezpečnostné upozornenie, *Začať*); tip po 5 s bez nájdeného kódu; 48 unit testov (commity `c691613`, `277b3ca`) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
 | 16.11.2026 | Lukáš Šebök | Android aplikácia v `src/`: 4 animované zvieratá, vlastný výpočet polohy QR kódu, zbierka, odznak, sprevádzanie hráča, 38 unit testov (commit `4685821`) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
 | 16.11.2026 | Dániel Ruzsik | dokumentácia zosúladená s kódom (D3–D6, KNIFE, Summary, požiadavky, Q12) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
 | 15.11.2026 | Dániel Ruzsik | koncepty deliverables: Project Summary (nové zameranie), KNIFE článok o umiestnení AR objektu ku QR kódu, obsah pitchu; kontrola a opravy dokumentácie | commit `d528ec0`, [Project Summary](../../../../students/project-summary/index.md) |

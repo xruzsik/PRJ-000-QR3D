@@ -158,7 +158,7 @@ detailný článok, tipy, hodnota).
 5. **Posun v „zvislom“ rámci kódu.** Posun nepočítame v rámci samotného kódu (kód na stĺpiku by položil objekt na bok), ale v rámci s osou Y hore, Z k čitateľovi a X vpravo od kódu.
 
 ## 🧪 Ako to použiť (aplikácia)
-V hre *Postavičky na trase* nesie každý QR kód len `smvit-ar:<id>` (napr. `smvit-ar:fox`). Aplikácia podľa toho nájde v katalógu model, veľkosť a posun a postaví líšku vedľa kódu. Keď hráč odíde, líška kód opustí a ide s ním. Rovnaký postup sa hodí všade, kde chceme AR obsah viazať na fyzické miesto: náučné chodníky, múzeá, hry v teréne, navigácia v budove.
+V hre *Postavičky na trase* nesie každý QR kód len `smvit-ar:<id>` (napr. `smvit-ar:fox`). Aplikácia podľa toho nájde v súbore trasy (`route.json`) model, veľkosť a posun a postaví líšku vedľa kódu. Keď hráč odíde, líška kód opustí a ide s ním. Rovnaký postup sa hodí všade, kde chceme AR obsah viazať na fyzické miesto: náučné chodníky, múzeá, hry v teréne, navigácia v budove.
 
 ## ⚡ Rýchly návod (Top)
 1. Vytlač kód v **presne známej veľkosti** (napr. 10 cm bez bieleho okraja) a pridaj na papier kontrolné pravítko.
@@ -205,9 +205,14 @@ Na Galaxy A53 sa poloha z ARCore postupne posúvala až o **~20 cm**. Kotva ARCo
 ### 6. Posun vedľa kódu, zvislo
 Posun definujeme v „zvislom“ rámci kódu: +Y rovno hore (svet ARCore je zarovnaný s gravitáciou), +Z vodorovne k tomu, kto kód číta, +X vpravo od kódu. Pre kód na stĺpiku je „k čitateľovi“ normála kódu, pre kód ležiaci na zemi jeho spodná hrana.
 
+Posun sa zapisuje do súboru trasy `route.json` – kód visí 1,2 m vysoko na stĺpiku, postavička stojí na zemi 0,8 m vpravo od neho:
+
+```json
+"offset": { "x": 0.8, "y": -1.2 }
+```
+
 ```kotlin
-// kód visí 1,2 m vysoko na stĺpiku → postavička na zemi 0,8 m vpravo od neho
-offset = Catalog.offset(x = 0.8, y = -1.2)
+// Catalog.kt z neho spraví RigidPose; poloha postavičky vo svete:
 val world = Frames.upright(codePose) compose entry.offset
 ```
 
@@ -231,7 +236,7 @@ _(doplniť po M5: z akej vzdialenosti a uhla sa 10 cm kód nájde vonku, o koľk
 ## 💡 Tipy a poznámky
 - **Tlač na 100 %.** Ak tlačiareň kód zmenší na 9,5 cm, aplikácia ho postaví o 5 % ďalej. Na papier daj pravítko a skontroluj ho.
 - **Kód skenuj mierne zboku.** Pohľad presne kolmo je pre výpočet natočenia najmenej presný.
-- **Logiku drž mimo Androidu.** Výpočty polohy v čistom Kotline (vlastné `Vec3`, `Mat3`) sa dajú testovať na PC – v projekte ich overuje 38 unit testov.
+- **Logiku drž mimo Androidu.** Výpočty polohy v čistom Kotline (vlastné `Vec3`, `Mat3`) sa dajú testovať na PC – v projekte ich overuje 48 unit testov.
 - **Model nenačítavaj znova pri každom pohybe** – jeden uzol na kód, ktorý sa len posúva.
 - **Animácie prepínaj ručne.** Automatické prehrávanie spustí všetky klipy v GLB naraz.
 

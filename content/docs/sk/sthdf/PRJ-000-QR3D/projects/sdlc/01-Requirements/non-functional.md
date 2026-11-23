@@ -150,7 +150,7 @@ fm_reserved2: ""
 | NFR-08 | Súkromie | žiadne účty ani osobné údaje; obraz z kamery sa spracúva len v telefóne a nikam sa neodosiela | kontrola oprávnení a sieťovej komunikácie aplikácie |
 | NFR-09 | Bezpečnosť hráča | zastávky len na značenom chodníku; upozornenie na pozornosť pri chôdzi | kontrola trasy pred testom, review textov |
 | NFR-10 | Odolnosť v teréne | QR kódy zalaminované, čitateľné aj po daždi | kontrola kódov pred a po teste |
-| NFR-11 | Udržiavateľnosť | obsah trasy (postavičky, texty, posuny) na jednom mieste (`Catalog.kt`) oddelene od logiky; výpočty bez závislosti na Androide pokryté unit testami; licencie 3D modelov evidované | unit testy, review pri pridaní postavičky (US-11) |
+| NFR-11 | Udržiavateľnosť | obsah trasy (postavičky, texty, posuny, zastávky) na jednom mieste (`app/src/main/assets/route.json`) oddelene od logiky, chyby v ňom hlási aplikácia aj unit testy; výpočty bez závislosti na Androide pokryté unit testami; licencie 3D modelov evidované | unit testy, review pri pridaní postavičky (US-11) |
 
 ---
 **Navigation:** [⬆️ Up](./index.md) · [🏠 Home](../index.md)

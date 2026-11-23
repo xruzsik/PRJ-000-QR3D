@@ -153,8 +153,8 @@ fm_reserved2: ""
 
 | ST ID | Meno | Rola v tíme | Kompetencie |
 |-------|------|-------------|-------------|
-| ST043 | Dániel Ruzsik | Project Lead, Developer | koordinácia, dokumentácia (7Ds, SDLC, Q12), Android aplikácia (Kotlin, ARCore) |
-| ST045 | Lukáš Šebök | 3D / Designer | 3D postavičky (Blender, GLB), UI aplikácie, príprava QR kódov na tlač |
+| ST043 | Dániel Ruzsik | Project Lead, Architect | koordinácia, dokumentácia (7Ds, SDLC, Q12) |
+| ST045 | Lukáš Šebök | Designer, Developer | 3D postavičky (Blender, GLB), UI aplikácie, príprava QR kódov na tlač |
 
 ## 3️⃣ Motivácia tímu
 
@@ -184,9 +184,10 @@ fm_reserved2: ""
 - **Komponenty:**
   1. **AR obrazovka** – kamera cez ARCore, nájdenie QR kódu v obraze (ML Kit) a vlastný výpočet jeho polohy v priestore zo 4 rohov a tlačenej veľkosti.
   2. **Umiestnenie postavičky** – postavička s posunom vedľa kódu, stojí zvislo aj pri kóde na stĺpiku; keď hráč odíde, sprevádza ho.
-  3. **Obsah trasy** – katalóg postavičiek, modelov, umiestnení a príbehov priamo v aplikácii; QR kód nesie len `smvit-ar:<id>`.
-  4. **Zbierka a odznak** – lokálne uloženie získaných postavičiek, odznak po nájdení všetkých.
-  5. **Fyzická časť** – vytlačené (10 × 10 cm) a zalaminované QR kódy na testovacej trase.
+  3. **Obsah trasy** – postavičky, modely, umiestnenia, príbehy a poradie zastávok v súbore `route.json` v aplikácii (mení sa bez zásahu do kódu); QR kód nesie len `smvit-ar:<id>`.
+  4. **Úvodná obrazovka** – zastávky trasy, postup v zbierke a bezpečnostné upozornenie; kamera sa zapne až po *Začať*.
+  5. **Zbierka a odznak** – lokálne uloženie získaných postavičiek, odznak po nájdení všetkých.
+  6. **Fyzická časť** – vytlačené (10 × 10 cm) a zalaminované QR kódy na testovacej trase.
 - **Technológie:** Kotlin, Jetpack Compose, Google ARCore, ML Kit Barcode Scanning (čítanie QR), SceneView / Filament (3D), SharedPreferences (zbierka), GLB modely (Quaternius, CC0; vlastné v Blenderi). Kód: [`src/`](https://github.com/xruzsik/PRJ-000-QR3D/tree/main/src).
 - **Mimo rozsahu MVP:** iOS, používateľské účty a online rebríček, editor trás pre správcov, trvalé rozmiestnenie QR kódov v teréne.
 - **Rozšírenia (ak zostane čas):** overenie polohy cez GPS (proti „zbieraniu“ z fotiek kódov), body a viac trás, webová stránka pre tých, čo naskenujú kód bez aplikácie.

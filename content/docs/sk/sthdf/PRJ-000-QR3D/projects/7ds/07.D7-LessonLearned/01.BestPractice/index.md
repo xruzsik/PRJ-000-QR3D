@@ -137,7 +137,8 @@ fm_reserved2: ""
 # Best Practice
 
 - **Merať na skutočnom telefóne, nie len veriť dokumentácii.** Na Galaxy A53 detekcia rovín a hĺbka zastavovali sledovanie, ARCore „utekal“ až o ~20 cm a bez oprávnenia na rýchle senzory sa sledovanie vôbec neustálilo. Riešenie (vlastný výpočet polohy z QR, 60 Hz, menej skenov) sme našli len testovaním na zariadení.
-- **Logika oddelená od Androidu = testovateľná.** Výpočty polohy a správanie postavičiek sú v čistom Kotline bez závislosti na Androide, takže ich overuje 38 unit testov na PC.
+- **Logika oddelená od Androidu = testovateľná.** Výpočty polohy a správanie postavičiek sú v čistom Kotline bez závislosti na Androide, takže ich overuje 48 unit testov na PC.
+- **Obsah oddelený od kódu.** Postavičky, príbehy a zastávky sú v `route.json`; chybu v ňom aplikácia aj testy nahlásia presne (postavička + pole), takže obsah môže upravovať aj ten, kto Kotlin nepozná.
 - **Skorý funkčný prototyp.** Jednoduchá aplikácia „QR kód → kocka v AR“ nám ukázala, čo je na nápade naozaj silné, a viedla k lepšiemu zameraniu projektu (rozhodnutie R-07). Zmena smeru na začiatku je lacná, na konci drahá.
 - **Zmenu zapísať ako rozhodnutie.** Pôvodné rozhodnutia sme nezmazali, ale označili ako zrušené a doplnili nové s dôvodom – je vidieť, prečo sa projekt zmenil.
 - **Overiť najväčšie riziko ako prvé.** Experiment s umiestnením v AR vonku robíme pred ďalším vývojom.

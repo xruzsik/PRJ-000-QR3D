@@ -141,8 +141,9 @@ fm_reserved2: ""
 1. **AR obrazovka** – kamera cez ARCore (bez detekcie rovín a hĺbky).
 2. **Čítanie QR a poloha kódu** – ML Kit nájde kód a jeho rohy, vlastný výpočet určí polohu kódu v priestore.
 3. **Umiestnenie a sprevádzanie** – postavička vedľa kódu, potom ide s hráčom.
-4. **Obsah trasy** – katalóg postavičiek (`Catalog.kt`) a 3D modely GLB v aplikácii.
-5. **Zbierka a odznak** – lokálne uloženie nájdených postavičiek, odznak pri kompletnej trase.
+4. **Obsah trasy** – súbor trasy `route.json` (postavičky, príbehy, zastávky; číta ho `Catalog.kt`) a 3D modely GLB v aplikácii.
+5. **Úvodná obrazovka** – zastávky, postup v zbierke, bezpečnostné upozornenie; kamera sa zapne až po *Začať*.
+6. **Zbierka a odznak** – lokálne uloženie nájdených postavičiek, odznak pri kompletnej trase.
 
 **Podporné systémy:**
 - repozitár na GitHube (kód aj dokumentácia),

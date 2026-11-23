@@ -148,10 +148,12 @@ fm_reserved2: ""
 | T6 | Zbierka | získať 2 postavičky, zatvoriť a znova otvoriť aplikáciu | postavičky zostanú v zbierke | [doplniť] |
 | T7 | Cudzí / poškodený QR | naskenovať iný QR kód alebo čiastočne zakrytý kód | aplikácia oznámi *„Neznámy kód: …“*, nespadne | [doplniť] |
 | T8 | Svetelné podmienky | test na priamom slnku, v tieni, pri zamračenom počasí | QR sa načíta a postavička sa zobrazí | [doplniť] |
+| T9 | Úvodná obrazovka | spustiť aplikáciu, nájsť 1 postavičku, vrátiť sa tlačidlom Späť | zastávky v poradí, nájdená s menom a ✓, ostatné „???“; tlačidlo *Pokračovať*; kamera beží až po ťuknutí (US-08, US-09) | [doplniť] |
+| T10 | Nápoveda | po *Začať* mieriť 5 s mimo kódu; potom zakryť objektív | zobrazí sa tip „priblíž sa ku kódu…“, resp. „pomaly pohni telefónom…“; po nájdení kódu zmizne (US-07) | [doplniť] |
 
 ## 🤖 Automatické testy (unit testy)
 
-V projekte je **38 unit testov**, ktoré bežia na PC bez telefónu (`./gradlew :app:testDebugUnitTest` v priečinku `src/`):
+V projekte je **48 unit testov**, ktoré bežia na PC bez telefónu (`./gradlew :app:testDebugUnitTest` v priečinku `src/`):
 
 | Testy | Počet | Čo overujú |
 |-------|-------|------------|
@@ -160,7 +162,9 @@ V projekte je **38 unit testov**, ktoré bežia na PC bez telefónu (`./gradlew 
 | `FramesAndFilterTest` | 9 | prevody súradníc, filter zhodných záchytov |
 | `PoseSmootherTest` | 3 | plynulý pohyb modelu |
 | `CompanionTest` | 7 | sprevádzanie hráča (chôdza, cval, túlanie) |
-| `CatalogTest` | 5 | katalóg postavičiek (napr. animácie existujú v GLB) |
+| `CatalogTest` | 10 | skutočný `route.json`: modely a animácie existujú v GLB, unikátne id, rozumné veľkosti, aliasy; chybné súbory hlásia riadok, postavičku a pole |
+| `JsonTest` | 3 | čítačka JSON (`Json.kt`) |
+| `SearchHintTest` | 2 | kedy sa ukáže tip po 5 s (US-07) |
 | `TrailProgressTest` | 5 | zbierka a odznak |
 
 *Výsledok posledného behu: [doplniť po spustení].*

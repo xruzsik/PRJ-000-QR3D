@@ -145,6 +145,11 @@ fm_reserved2: ""
 - [ ] Vybrať trasu a 3–5 zastávok; zistiť, kto povoľuje umiestnenie QR kódov
 - [x] Nájsť alebo vytvoriť prvé 3D postavičky *(4 zvieratá Quaternius, CC0)*
 - [x] Začať KNIFE článok „Ako postaviť AR objekt vedľa vytlačeného QR kódu“
+- [x] Úvodná obrazovka trasy, bezpečnostné upozornenie a tip po 5 s (US-07, US-08, US-09) *(16.11.)*
+- [ ] Po výbere trasy doplniť do `route.json` `lengthKm` a `minutes` (US-08) a nastaviť `offset` / veľkosti postavičiek pre stĺpiky na trase
+- [ ] Vytlačiť `animals.pdf` a po teste odstrániť dočasné aliasy `test_cube`, `test_cube_2` z `route.json`
+- [ ] Spustiť unit testy a zapísať výsledok do D6; vyplniť manuálne testy T1–T10
+- [ ] Zlúčiť vetvu `dev` do `main` (odkazy na `src/` v dokumentácii vedú na `main`)
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../index.md)

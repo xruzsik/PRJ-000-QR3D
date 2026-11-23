@@ -144,11 +144,12 @@ fm_reserved2: ""
 ## 🎯 Profesijné záujmy
 Oblasti, ktoré ma bavia:
 - informatika, IT architektúra, projektovanie
-- Webové aplikácie => Full-stack vývoj (TypeScript, )
+- Webové aplikácie (TypeScript, Vue.js - Quasar)
+- Full-stack vývoj
 - Desktopové aplikácie
 
 Aké skúsenosti by som chcel získať:
-- práca s Git, GitHub, Docusaurus
+- práca s Git, GitHub, Docusaurus, KNIFE framework
 - spúšťanie webstránky cez GitHub Pages
 - kreatívne vyjadrenie
 

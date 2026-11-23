@@ -40,7 +40,7 @@ the character follows you.
 ### 3D-printed markers
 
 `content/markers/3d/` has the four animal codes from `animals.pdf` as printable
-plates (138 × 138 × 2.8 mm, QR symbol exactly 100 mm, white margin 4 modules):
+plates (132 × 132 × 2.8 mm, QR symbol exactly 100 mm, white margin 4 modules):
 
 - `qr-<id>.stl`: one piece, white 2 mm base with dark modules raised 0.8 mm.
   On a single-nozzle printer, add a filament change (white → black) at 2.0 mm in

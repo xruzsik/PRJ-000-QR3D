@@ -149,11 +149,13 @@ fm_reserved2: ""
 | T7 | Cudzí / poškodený QR | naskenovať iný QR kód alebo čiastočne zakrytý kód | aplikácia oznámi *„Neznámy kód: …“*, nespadne | [doplniť] |
 | T8 | Svetelné podmienky | test na priamom slnku, v tieni, pri zamračenom počasí | QR sa načíta a postavička sa zobrazí | [doplniť] |
 | T9 | Úvodná obrazovka | spustiť aplikáciu, nájsť 1 postavičku, vrátiť sa tlačidlom Späť | zastávky v poradí, nájdená s menom a ✓, ostatné „???“; tlačidlo *Pokračovať*; kamera beží až po ťuknutí (US-08, US-09) | [doplniť] |
-| T10 | Nápoveda | po *Začať* mieriť 5 s mimo kódu; potom zakryť objektív | zobrazí sa tip „priblíž sa ku kódu…“, resp. „pomaly pohni telefónom…“; po nájdení kódu zmizne (US-07) | [doplniť] |
+| T10 | Nápoveda | po *Začať* mieriť 5 s mimo kódu; potom zakryť objektív | zobrazí sa tip „priblíž sa ku kódu…“; so zakrytým objektívom po 2 s „je tu príliš tma…“; po nájdení kódu zmizne (US-07) | [doplniť] |
+| T11 | 3D tlačená QR doska | skontrolovať rozmer (QR 100 mm) a rovinnosť; naskenovať z 0,5 / 1 / 2 m, pod uhlom, na slnku aj v tieni; porovnať s papierom | kód sa načíta ako papierový (K1), postavička stojí na zemi pod kódom na stĺpiku | [doplniť] |
+| T12 | Prehriatie a batéria | 30 min hry vonku, raz aj pri nabíjaní; sledovať pokles batérie | pri prehriatí upozornenie „Telefón je horúci…“, aplikácia nespadne (NFR-07) | [doplniť] |
 
 ## 🤖 Automatické testy (unit testy)
 
-V projekte je **48 unit testov**, ktoré bežia na PC bez telefónu (`./gradlew :app:testDebugUnitTest` v priečinku `src/`):
+V projekte je **57 unit testov**, ktoré bežia na PC bez telefónu (`./gradlew :app:testDebugUnitTest` v priečinku `src/`):
 
 | Testy | Počet | Čo overujú |
 |-------|-------|------------|
@@ -161,10 +163,12 @@ V projekte je **48 unit testov**, ktoré bežia na PC bez telefónu (`./gradlew 
 | `QrOrientationTest` | 7 | určenie natočenia podľa rohových štvorcov QR |
 | `FramesAndFilterTest` | 9 | prevody súradníc, filter zhodných záchytov |
 | `PoseSmootherTest` | 3 | plynulý pohyb modelu |
-| `CompanionTest` | 7 | sprevádzanie hráča (chôdza, cval, túlanie) |
-| `CatalogTest` | 10 | skutočný `route.json`: modely a animácie existujú v GLB, unikátne id, rozumné veľkosti, aliasy; chybné súbory hlásia riadok, postavičku a pole |
+| `CompanionTest` | 8 | sprevádzanie hráča (chôdza, cval, túlanie, návrat po skoku súradníc) |
+| `OnGroundTest` | 2 | postavička na zemi pod kódom na stĺpiku; kód pri zemi ostane |
+| `ScanPacerTest` | 3 | ako často čítať QR (pri kóde, cestou, pri prehriatí) |
+| `CatalogTest` | 11 | skutočný `route.json`: modely a animácie existujú v GLB, unikátne id, rozumné veľkosti, aliasy; chybné súbory hlásia riadok, postavičku a pole |
 | `JsonTest` | 3 | čítačka JSON (`Json.kt`) |
-| `SearchHintTest` | 2 | kedy sa ukáže tip po 5 s (US-07) |
+| `SearchHintTest` | 4 | kedy a aký tip sa ukáže (po 5 s bez kódu, po 2 s bez sledovania s príčinou; US-07) |
 | `TrailProgressTest` | 5 | zbierka a odznak |
 
 *Výsledok posledného behu: [doplniť po spustení].*

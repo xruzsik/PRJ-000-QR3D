@@ -140,7 +140,7 @@ fm_reserved2: ""
 | Proces | Ako často | Kto |
 |--------|-----------|-----|
 | **Kontrola QR kódov na trase** – čitateľnosť, poškodenie, chýbajúce kódy | pred sezónou a po hlásení | prevádzkovateľ trasy (podľa návodu od nás) |
-| **Výmena poškodeného kódu** – vytlačiť a zalaminovať nový z balíka | podľa potreby | prevádzkovateľ |
+| **Výmena poškodeného kódu** – vytlačiť novú dosku na 3D tlačiarni zo súboru STL v balíku | podľa potreby | prevádzkovateľ |
 | **Oprava chýb aplikácie** – hlásenie → issue → oprava → nová verzia | priebežne | tím |
 | **Aktualizácia obsahu trasy** – nová postavička, oprava textu, nová zastávka | podľa dohody | tím |
 | **Kompatibilita** – overenie s novými verziami Androidu a ARCore | 1× ročne | tím |

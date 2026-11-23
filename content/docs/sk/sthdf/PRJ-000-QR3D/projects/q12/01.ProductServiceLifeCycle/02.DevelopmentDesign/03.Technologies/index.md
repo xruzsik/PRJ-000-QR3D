@@ -145,7 +145,8 @@ fm_reserved2: ""
 | 3D zobrazenie | SceneView (Filament), animované modely GLB |
 | Ukladanie | SharedPreferences (zbierka), `route.json` v assets aplikácie (obsah trasy, vlastná čítačka JSON) |
 | 3D modely | Quaternius *Ultimate Animated Animals* (CC0), Blender, Python skript glTF → GLB |
-| Testy | JUnit (48 unit testov) |
+| Testy | JUnit (57 unit testov) |
+| QR kódy na trase | 3D tlač v laboratóriu (PrusaSlicer), STL z PDF skriptom `qr_pdf_to_stl.py` |
 | Verzie a web | Git, GitHub, Docusaurus, GitHub Pages |
 
 [↩️ Späť](../index.md)

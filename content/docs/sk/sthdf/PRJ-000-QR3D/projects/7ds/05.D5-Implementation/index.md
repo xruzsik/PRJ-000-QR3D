@@ -136,7 +136,7 @@ fm_reserved2: ""
 
 # D5 – Implementation
 
-*Stav k 16.11.2026 (commit `277b3ca`): hracia slučka funguje (úvodná obrazovka → skenovanie → postavička → zbierka → odznak), otestovaná na Samsung Galaxy A53 pri stole. Test vonku a na trase ešte nebol.*
+*Stav k 23.11.2026 (commit `fc3223b`): hracia slučka funguje (úvodná obrazovka → skenovanie → postavička → zbierka → odznak), otestovaná na Samsung Galaxy A53 pri stole. Test vonku a na trase ešte nebol.*
 
 Zdrojový kód: [`src/` v repozitári](https://github.com/xruzsik/PRJ-000-QR3D/tree/main/src) · návod na build a spustenie: [`src/README.md`](https://github.com/xruzsik/PRJ-000-QR3D/tree/main/src/README.md)
 
@@ -146,7 +146,7 @@ Zdrojový kód: [`src/` v repozitári](https://github.com/xruzsik/PRJ-000-QR3D/t
 |---|---|
 | **Názov / balík** | Postavičky na trase · `com.smvit.ar` · verzia 0.1 |
 | **Platforma** | Android 9+ (minSdk 28, targetSdk 37), len telefóny s podporou ARCore (AR je povinné) |
-| **Oprávnenia** | kamera; rýchle snímanie pohybových senzorov (bez neho A53 posielal dáta len 6× za sekundu a sledovanie sa neustálilo) |
+| **Oprávnenia** | kamera; rýchle snímanie pohybových senzorov (bez neho A53 posielal dáta len 6× za sekundu a sledovanie sa neustálilo). **Žiadny prístup na internet** – sieťové oprávnenia, ktoré pridávajú knižnice (napr. anonymné štatistiky ML Kit), sú z aplikácie odstránené (NFR-08) |
 | **Testované na** | Samsung Galaxy A53 |
 | **Postavičky** | Líška, Vlk, Srna, Jeleň (+ testovacia kocka) – animované modely Quaternius *Ultimate Animated Animals*, licencia CC0 |
 | **Texty** | slovenské; príbehy postavičiek sú koncept na kontrolu tímom |
@@ -156,13 +156,14 @@ Zdrojový kód: [`src/` v repozitári](https://github.com/xruzsik/PRJ-000-QR3D/t
 1. **Úvodná obrazovka trasy:** názov trasy, krátke „ako hrať“, zoznam zastávok v poradí (meno postavičky až po jej nájdení, s ✓), počítadlo *Zbierka 1/4*, upozornenie ⚠️ *„Bezpečne na trase“* a tlačidlo **Začať** (po prvom náleze **Pokračovať**). Kamera sa zapne až po ťuknutí; systémové tlačidlo Späť vráti hráča na úvodnú obrazovku. Dĺžka a čas trasy sa zobrazia, len ak sú vyplnené v `route.json`.
 2. Po štarte čaká, kým ARCore začne sledovať priestor (*„Pomaly pohybuj telefónom…“*), a ešte 1,5 s, kým sa poloha ustáli.
 3. Hráč namieri kameru na QR kód. Kód nesie len `smvit-ar:<id>` (napr. `smvit-ar:fox`), všetko ostatné je v súbore trasy `route.json` v aplikácii.
-4. Ak sa **5 s** nenájde žiadny známy kód, zobrazí sa tip: kým sledovanie nebeží *„pomaly pohni telefónom do strán…“*, inak *„priblíž sa ku kódu, aby bol celý v zábere…“*.
+4. **Tipy:** ak sa **5 s** nenájde žiadny známy kód, zobrazí sa *„priblíž sa ku kódu, aby bol celý v zábere…“* (kým sledovanie nebeží, *„pomaly pohni telefónom do strán…“*). Ak ARCore **2 s** nesleduje priestor, tip povie prečo – *„je tu príliš tma…“*, *„hýbeš sa príliš rýchlo…“* alebo *„kamera nevidí dosť detailov…“* – aj keď už je postavička vonku.
 5. Postavička sa ukáže až po **3 zhodných záchytoch** kódu (*„Nájdené: Líška – podrž telefón (2/3)“*), takže jedna chybná detekcia ju nepostaví zle.
-6. Vedľa kódu sa objaví animovaná postavička a karta s jej menom a príbehom.
+6. Vedľa kódu sa objaví animovaná postavička a karta s jej menom a príbehom. Pri kóde na stĺpiku či stene stojí postavička **na zemi pod kódom**, nie vo výške kódu (`"standOnGround": true` v `route.json`, zapnuté pre trasu; kód nižšie ako 30 cm nad zemou sa berie ako ležiaci na zemi).
 7. Postavička sa uloží do **zbierky** (*„Nové! Pridané do zbierky (2/4)“*); zbierka ostane v telefóne aj po reštarte.
-8. Keď hráč od kódu odíde (viac ako 1,5 m) alebo ho 2 s nevidí, postavička kód **opustí a sprevádza hráča** – ide za ním krokom, pri väčšej vzdialenosti cvalom, a keď hráč stojí, túla sa pred ním. Pritom narastie z „kódovej“ veľkosti na väčšiu.
+8. Keď hráč od kódu odíde (viac ako 1,5 m) alebo ho 2 s nevidí, postavička kód **opustí a sprevádza hráča** – ide za ním krokom, pri väčšej vzdialenosti cvalom, a keď hráč stojí, túla sa pred ním. Pritom narastie z „kódovej“ veľkosti na väčšiu. Ak sa ocitne ďalej ako **6 m** od hráča (ARCore posunul súradnice, na A53 až o 2,5 m, alebo ju hráč predbehol), objaví sa 2 m od hráča tesne mimo záberu a pribehne k nemu.
 9. Po nájdení všetkých postavičiek trasy sa zobrazí 🏅 **„Odznak získaný!“**
 10. Obrazovka **Zbierka**: nájdené postavičky s príbehom, chýbajúce ako *„??? – ešte si ju nenašiel“*; vymazanie zbierky (dvoma ťuknutiami, aby sa nevymazala omylom).
+11. **Šetrenie batérie a tepla:** QR sa číta 8× za sekundu, len kým postavička stojí na kóde alebo 3 s po zachytení známeho kódu, inak (cestou medzi zastávkami) 2× za sekundu. Keď sa telefón prehreje (stav *SEVERE* podľa Androidu), číta sa ešte o polovicu menej a zobrazí sa *„Telefón je horúci. Medzi zastávkami ho nechaj odpočívať vo vrecku…“*.
 
 ## 📁 Štruktúra kódu
 
@@ -183,18 +184,20 @@ src/
 │   │   ├── QrOrientation.kt   #   ktorý roh je ktorý (podľa rohových štvorcov QR)
 │   │   ├── QrPoseFilter.kt    #   prijme polohu až po niekoľkých zhodných záchytoch
 │   │   ├── PoseSmoother.kt    #   plynulý pohyb modelu medzi meraniami
-│   │   ├── Frames.kt          #   prevody súradníc (kamera, kód, „zvislý“ rámec)
+│   │   ├── Frames.kt          #   prevody súradníc (kamera, kód, „zvislý“ rámec, postavenie na zem)
+│   │   ├── ScanPacer.kt       #   ako často čítať QR (8×/s pri kóde, 2×/s inak, polovica pri prehriatí)
 │   │   └── Geometry.kt        #   vektory, matice, kvaternióny
 │   └── companion/
 │       ├── Companion.kt       # správanie postavičky, ktorá sprevádza hráča
 │       └── Floor.kt           # odhad výšky podlahy
 ├── app/src/main/assets/route.json # obsah trasy: postavičky, modely, veľkosti, posuny, animácie, príbehy, zastávky
 ├── app/src/main/assets/models/ # GLB modely (fox, wolf, deer, stag, placeholder_cube)
-├── app/src/test/              # 48 unit testov
+├── app/src/test/              # 57 unit testov
 └── content/
-    ├── markers/               # QR kódy na tlač (PDF, s pravítkom 10 cm)
+    ├── markers/               # QR kódy 25 × 25 na tlač (PDF, s pravítkom 10 cm)
+    │   └── 3d/                #   tie isté kódy ako dosky na 3D tlač (STL) + náhľady PNG
     ├── qrsheet/               # PC nástroj, ktorý generuje PDF s kódmi
-    └── tools/                 # glTF → GLB, testovacia kocka
+    └── tools/                 # glTF → GLB, testovacia kocka, PDF s kódmi → STL dosky (qr_pdf_to_stl.py)
 ```
 
 ## 🛠️ Technológie
@@ -209,6 +212,7 @@ src/
 | Obsah trasy | `assets/route.json` + vlastná čítačka JSON (`Json.kt`) | obsah sa mení bez zásahu do kódu; chyby v súbore nahlási aplikácia aj testy (s menom postavičky a poľa); testy overujú modely a názvy animácií |
 | Zbierka | SharedPreferences | stačí množina ID; funguje offline, prežije reštart |
 | 3D modely | GLB (Quaternius, CC0), Python skript na konverziu glTF → GLB | štandardný formát pre mobilné 3D |
+| QR kódy na trase | 3D tlač v laboratóriu: STL z PDF (`qr_pdf_to_stl.py`), PrusaSlicer | technológia z laboratória (požiadavka vedúceho), odolnejšie ako papier |
 | Build | Gradle 9 (AGP 9.4, Kotlin 2.4), JDK 21 | |
 
 ## ✅ Stav implementácie
@@ -227,14 +231,20 @@ src/
 | Zbierka (uloženie) | ✅ | SharedPreferences |
 | Odznak za celú trasu | ✅ | |
 | Postavička sprevádza hráča | ✅ | navyše oproti pôvodnému návrhu |
-| Postavičky v životnej veľkosti na zemi pri stĺpiku | ⏳ | úprava `offset`, `modelSizeMeters`, `roamSizeMeters` v `route.json` pre trasu |
+| Postavička stojí na zemi pod kódom na stĺpiku | ✅ | `standOnGround` v `route.json`, podlaha z bodov ARCore |
+| Postavičky v životnej veľkosti pri stĺpiku | ⏳ | nastaviť `offset`, `modelSizeMeters`, `roamSizeMeters` v `route.json` podľa trasy |
+| Návrat vzdialenej postavičky k hráčovi | ✅ | nad 6 m sa objaví 2 m od hráča mimo záberu |
+| Šetrenie batérie, varovanie pri prehriatí | ✅ | NFR-07; overiť na dlhšej trase |
+| Bez prístupu na internet | ✅ | NFR-08: sieťové oprávnenia odstránené |
+| QR kódy 25 × 25 (oprava chýb Q) | ✅ | PDF aj STL na 3D tlač v `content/markers/` |
+| 3D tlačené QR dosky | ⏳ | súbory hotové; vytlačiť a otestovať s aplikáciou |
 | Úvodná obrazovka trasy (zoznam zastávok, dĺžka) | 🔄 | US-08: obrazovka hotová; dĺžka a čas trasy chýbajú v `route.json` (`lengthKm`, `minutes`) |
 | Upozornenie na bezpečnosť pri chôdzi | ✅ | US-09: na úvodnej obrazovke; kamera sa zapne až po *Začať* |
-| Nápoveda po 5 s bez nájdeného kódu | ✅ | US-07: dva tipy podľa toho, či už beží sledovanie |
+| Nápoveda (tipy) | ✅ | US-07: po 5 s bez kódu; po 2 s bez sledovania aj s príčinou (tma, rýchly pohyb, málo detailov) |
 | Test vonku a na trase | ⏳ | míľniky M5, M8 |
 | GPS overenie | ⏳ | rozšírenie |
 
-**Dočasné:** kódy z `qr-test-sheet.pdf` (`test_cube`, `test_cube_2`) zatiaľ zastupujú líšku a srnu (`aliases` v `route.json`), kým sa nevytlačí `animals.pdf`. Testovacia kocka (`axis_cube`) je v `route.json`, ale nie je zastávkou, takže sa nepočíta do zbierky.
+**Dočasné:** kódy z `qr-test-sheet.pdf` (`test_cube`, `test_cube_2`) zatiaľ zastupujú líšku a srnu (`aliases` v `route.json`), kým sa nevytlačia kódy z `animals.pdf` alebo 3D dosky. Testovacia kocka (`axis_cube`) je v `route.json`, ale nie je zastávkou, takže sa nepočíta do zbierky.
 
 Legenda: ✅ hotovo · 🔄 rozpracované · ⏳ čaká
 
@@ -247,12 +257,16 @@ Legenda: ✅ hotovo · 🔄 rozpracované · ⏳ čaká
 | I-3 | **Kým je kód v zábere, model sleduje priamo meranie kódu**; mimo záberu ho drží kotva ARCore | ARCore na A53 „uteká“ až o ~20 cm, meranie kódu je presné voči kamere | len kotva ARCore |
 | I-4 | Postavička sa ukáže až po **3 zhodných záchytoch**; meranie s chybou nad 3 px sa ignoruje | jedna zlá detekcia nesmie postaviť model vedľa | zobraziť hneď |
 | I-5 | Natočenie kódu podľa **rohových štvorcov QR**; pri sledovaní podľa predchádzajúceho natočenia | ML Kit číta rohy od rohu obrazu, nie kódu; rozmazaný obraz pri pohybe nechal viac ako polovicu detekcií nerozhodnutých | spoľahnúť sa na poradie z ML Kit |
-| I-6 | **Výkon:** QR najviac 8× za sekundu, displej 60 Hz, lacnejší odhad svetla | telefón sa prehrieval, sledovanie zaostávalo | každý snímok, 120 Hz |
+| I-6 | **Výkon:** QR 8× za sekundu len pri kóde, inak 2×; pri prehriatí polovica a upozornenie; displej 60 Hz, lacnejší odhad svetla | telefón sa prehrieval (A53 po ~30 min AR, najmä pri nabíjaní), sledovanie zaostávalo | každý snímok, 120 Hz; stále 8×/s |
 | I-7 | **Podlaha** z bodov ARCore 0,7–2,2 m pod telefónom, inak predpoklad 1,3 m pod telefónom | bez detekcie rovín | detekcia rovín |
 | I-8 | **Obsah trasy v súbore `app/src/main/assets/route.json`**, QR nesie len `smvit-ar:<id>` *(pôvodne v kóde `Catalog.kt`, presunuté 16.11.)* | obsah (postavičky, príbehy, posuny, poradie zastávok) sa upraví bez zmeny kódu; pri zmene modelu či umiestnenia netreba nové tlačiť; chybný súbor zastaví aplikáciu pri štarte so správou, ktorá pomenuje postavičku a pole; testy čítajú skutočný súbor a overia modely aj animácie. Súbor je súčasťou APK – zmena = nový build | obsah v kóde (`Catalog.kt`); sťahovanie zo servera; URL v QR |
 | I-9 | Postavička po odchode hráča **sprevádza hráča** | silnejší zážitok, postavička „ide s tebou“ | zostane pri kóde |
 | I-10 | **Úvodná obrazovka, kamera až po *Začať*** | hráč nechodí so zapnutou kamerou (US-09), šetrí batériu; mená zastávok sa odkryjú až po nájdení | AR hneď po spustení |
 | I-11 | **Vlastná čítačka JSON** (`Json.kt`) namiesto `org.json` | `route.json` sa dá načítať a skontrolovať v unit testoch na PC, bez ďalšej knižnice | `org.json` (len na Androide), Gson/Moshi |
+| I-12 | **Postavička na zemi pod kódom** (`standOnGround`) | kódy na trase visia na stĺpikoch; netreba pre každý kód zadávať jeho výšku do `offset` | výška kódu ručne v `offset.y` |
+| I-13 | **QR kód aspoň 25 × 25 (verzia 2), oprava chýb Q** | verzia 1 (21 × 21) nemá zarovnávací štvorček, čítačka štvrtý roh len odhadne; pri naklonení bol o 4–15 px vedľa a vlk s jeleňom sa odmietali. Q (~25 %) vydrží aj špinu a opotrebenie | najmenší kód (21 × 21, oprava M) |
+| I-14 | **Vzdialená postavička (nad 6 m) sa presunie k hráčovi** mimo záberu a pribehne | po skoku súradníc ARCore by inak cválala späť cez celé okolie | nechať ju dobehnúť |
+| I-15 | **Bez sieťových oprávnení** | aplikácia funguje celá offline; nič nemôže opustiť telefón (NFR-08) | ponechať oprávnenia z knižníc |
 
 Väčšie rozhodnutia patria aj do [záznamu rozhodnutí](../01.D1-Management/04.Decisions/index.md).
 

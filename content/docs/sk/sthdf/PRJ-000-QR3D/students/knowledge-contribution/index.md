@@ -183,7 +183,7 @@ val k = Intrinsics(fx * sx, fy * sy, cx * sx, cy * sy)
 client.process(InputImage.fromMediaImage(image, 0))   // rotácia 0!
 ```
 
-Skenujeme najviac **8× za sekundu** a vždy len jeden obraz naraz – každé skenovanie je ML Kit plus výpočet polohy a telefón sa inak prehrieva.
+Skenujeme **8× za sekundu**, len kým postavička stojí na kóde alebo sa kód práve objavil, inak (cestou medzi zastávkami) **2×**; pri prehriatí telefónu ešte o polovicu menej. Vždy len jeden obraz naraz – každé skenovanie je ML Kit plus výpočet polohy a telefón sa inak prehrieva.
 
 ### 2. Poloha kódu zo 4 rohov
 Kód je rovina so známymi rohmi (±5 cm pri 10 cm kóde). Zo 4 párov „roh na papieri ↔ roh v obraze“ vypočítame **homografiu** (8 lineárnych rovníc, 8 neznámych) a z nej natočenie a posun kódu voči kamere. Samotná homografia je pri šikmom pohľade citlivá na šum (pol pixela = desiatky milimetrov), preto výsledok **spresníme** metódou Levenberg–Marquardt, ktorá minimalizuje rozdiel medzi skutočnými a premietnutými rohmi (*reprojekčná chyba*). Táto chyba zároveň slúži ako miera kvality merania.
@@ -222,7 +222,7 @@ val world = Frames.upright(codePose) compose entry.offset
 | detekcia rovín a hĺbka zastavovali sledovanie niekoľkokrát za sekundu | vypnuté (`PlaneFindingMode.DISABLED`, `DepthMode.DISABLED`) |
 | pohybové senzory chodili 6× za sekundu, sledovanie sa neustálilo | oprávnenie `HIGH_SAMPLING_RATE_SENSORS` |
 | 120 Hz displej bral výkon trackeru | `preferredRefreshRate = 60f` |
-| prehrievanie pri dlhom behu (najmä pri nabíjaní) | skenovanie max. 8×/s, lacnejší odhad svetla (`AMBIENT_INTENSITY`) |
+| prehrievanie pri dlhom behu (najmä pri nabíjaní) | skenovanie 8×/s len pri kóde, inak 2×/s; pri prehriatí (`PowerManager`, stav *SEVERE*) polovica a upozornenie; lacnejší odhad svetla (`AMBIENT_INTENSITY`) |
 
 Podlahu (kam postaviť postavičku, keď odíde od kódu) bez detekcie rovín odhadujeme z bodov, ktoré ARCore sleduje 0,7–2,2 m pod telefónom; kým ich nie je dosť, predpokladáme podlahu 1,3 m pod telefónom.
 
@@ -236,7 +236,8 @@ _(doplniť po M5: z akej vzdialenosti a uhla sa 10 cm kód nájde vonku, o koľk
 ## 💡 Tipy a poznámky
 - **Tlač na 100 %.** Ak tlačiareň kód zmenší na 9,5 cm, aplikácia ho postaví o 5 % ďalej. Na papier daj pravítko a skontroluj ho.
 - **Kód skenuj mierne zboku.** Pohľad presne kolmo je pre výpočet natočenia najmenej presný.
-- **Logiku drž mimo Androidu.** Výpočty polohy v čistom Kotline (vlastné `Vec3`, `Mat3`) sa dajú testovať na PC – v projekte ich overuje 48 unit testov.
+- **Nepoužívaj najmenší QR kód (21 × 21).** Nemá zarovnávací štvorček, takže čítačka štvrtý roh len odhadne, akoby sa na kód pozerala kolmo. Pri naklonení bol roh o 4–15 px vedľa a poloha sa zahodila. Od 25 × 25 (verzia 2) je roh presný; vyššia oprava chýb (Q) navyše pomôže pri špine.
+- **Logiku drž mimo Androidu.** Výpočty polohy v čistom Kotline (vlastné `Vec3`, `Mat3`) sa dajú testovať na PC – v projekte ich overuje 57 unit testov.
 - **Model nenačítavaj znova pri každom pohybe** – jeden uzol na kód, ktorý sa len posúva.
 - **Animácie prepínaj ručne.** Automatické prehrávanie spustí všetky klipy v GLB naraz.
 

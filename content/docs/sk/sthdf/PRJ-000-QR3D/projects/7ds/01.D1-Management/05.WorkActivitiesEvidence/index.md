@@ -140,6 +140,9 @@ Denník práce tímu. Nový záznam pridávame **hore**. Podrobnosti o zmenách 
 
 | Dátum | Kto | Čo sme urobili | Výstup / odkaz |
 |-------|-----|----------------|----------------|
+| 23.11.2026 | Dániel Ruzsik | dokumentácia zosúladená s kódom po `fc3223b` a s 3D tlačou QR kódov (D4–D7, rozhodnutie R-11, riziká R11–R12, NFR, Q12, KNIFE, Summary) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
+| 23.11.2026 | Lukáš Šebök | QR kódy 25 × 25 s opravou chýb Q (nové `animals.pdf` a z neho pregenerované 3D dosky), postavičky na zemi pod kódom, šetrenie batérie a upozornenie pri prehriatí, návrat vzdialenej postavičky, tipy s príčinou výpadku sledovania, aplikácia bez prístupu na internet; 57 unit testov (commity `ee0bc02`–`fc3223b`) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
+| 23.11.2026 | Dániel Ruzsik | QR kódy ako dosky na 3D tlač (STL, skript `qr_pdf_to_stl.py`), príprava tlače v PrusaSlicer | commit `9b8c696` |
 | 23.11.2026 | Dániel Ruzsik | dokumentácia zosúladená s kódom po commite `277b3ca` (route.json, úvodná obrazovka, nápoveda, 48 testov) v D4–D7, SDLC, Q12, KNIFE a Summary | [D5 – Implementation](../../05.D5-Implementation/index.md) |
 | 16.11.2026 | Lukáš Šebök | obsah trasy presunutý z `Catalog.kt` do `assets/route.json` s kontrolou chýb; úvodná obrazovka trasy (zastávky, bezpečnostné upozornenie, *Začať*); tip po 5 s bez nájdeného kódu; 48 unit testov (commity `c691613`, `277b3ca`) | [D5 – Implementation](../../05.D5-Implementation/index.md) |
 | 16.11.2026 | Lukáš Šebök | Android aplikácia v `src/`: 4 animované zvieratá, vlastný výpočet polohy QR kódu, zbierka, odznak, sprevádzanie hráča, 38 unit testov (commit `4685821`) | [D5 – Implementation](../../05.D5-Implementation/index.md) |

@@ -140,7 +140,7 @@ fm_reserved2: ""
 - **Zoznam kontaktov** – obce, OOCR, kluby, stav rozhovoru (oslovený / stretnutie / ponuka / dohodnuté).
 - **Šablóna cenovej ponuky** – rozsah trasy, počet zastávok, termín, cena prípravy a údržby.
 - **Objednávka / dohoda** – čo dodáme, kto zabezpečí povolenia a umiestnenie kódov, kto vlastní obsah.
-- **Balík na odovzdanie** – PDF s QR kódmi, návod na umiestnenie, texty zastávok.
+- **Balík na odovzdanie** – QR kódy ako PDF aj STL na 3D tlač, návod na umiestnenie, texty zastávok.
 
 *V rámci predmetu predaj len simulujeme – cieľom je overiť, či by prevádzkovateľ o trasu mal záujem.*
 

@@ -147,8 +147,10 @@ fm_reserved2: ""
 - [x] Začať KNIFE článok „Ako postaviť AR objekt vedľa vytlačeného QR kódu“
 - [x] Úvodná obrazovka trasy, bezpečnostné upozornenie a tip po 5 s (US-07, US-08, US-09) *(16.11.)*
 - [ ] Po výbere trasy doplniť do `route.json` `lengthKm` a `minutes` (US-08) a nastaviť `offset` / veľkosti postavičiek pre stĺpiky na trase
-- [ ] Vytlačiť `animals.pdf` a po teste odstrániť dočasné aliasy `test_cube`, `test_cube_2` z `route.json`
-- [ ] Spustiť unit testy a zapísať výsledok do D6; vyplniť manuálne testy T1–T10
+- [x] QR kódy 25 × 25 a dosky na 3D tlač (STL) *(23.11.)*
+- [ ] Vytlačiť jednu 3D dosku, otestovať ju s aplikáciou (T11) a až potom zvyšné tri
+- [ ] Po teste s novými kódmi odstrániť dočasné aliasy `test_cube`, `test_cube_2` z `route.json`
+- [ ] Spustiť unit testy a zapísať výsledok do D6; vyplniť manuálne testy T1–T12
 - [ ] Zlúčiť vetvu `dev` do `main` (odkazy na `src/` v dokumentácii vedú na `main`)
 
 ---

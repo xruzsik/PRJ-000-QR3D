@@ -157,6 +157,7 @@ fm_reserved2: ""
 | **R-07** | **Zmena zamerania: turistická hra so zbieraním AR postavičiek namiesto vzdelávacieho nástroja pre múzeá** | funkčný prototyp (kocka na QR) ukázal, že AR v priestore je silnejší zážitok ako samotný model; motivácia k pohybu je širší problém; obce a regióny už dnes platia za QR kódy na trasách | pokračovať s múzeom („Okno do minulosti“); spojiť obe myšlienky (odložené) | 02.11.2026 | ✅ |
 | **R-08** | **Natívna Android aplikácia v Kotline s ARCore** | AR so sledovaním priestoru, zbierka uložená v telefóne, plná kontrola nad umiestnením postavičky; tím už má funkčný prototyp | webová aplikácia (WebXR – slabšia podpora), Unity (väčšia aplikácia, nová technológia pre tím) | 02.11.2026 | ✅ |
 | **R-09** | **QR kód nesie len identifikátor zastávky, postavičky sú uložené v aplikácii** | kód je malý a ľahko čitateľný; postavičky môžu byť detailné; funguje offline | 3D model priamo v QR (kapacita max. cca 3 KB) | 02.11.2026 | ✅ |
+| **R-11** | **QR kódy na trase tlačíme na 3D tlačiarni v laboratóriu** | vedúci odporučil použiť technológiu z laboratória; doska z plastu vydrží dážď lepšie ako papier; kód sa vygeneruje z toho istého PDF, takže je rovnaký | zalaminovaný papier, UV odolné nálepky | 23.11.2026 | ✅ |
 | R-10 | Overenie polohy cez GPS ako bonus | bráni „zbieraniu z gauča“, ale nie je nutné pre MVP | povinné GPS od začiatku | [dátum] | ⏳ návrh |
 
 Legenda: ✅ prijaté · ⏳ návrh · ❌ zrušené (ponechané kvôli histórii)

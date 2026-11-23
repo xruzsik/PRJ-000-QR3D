@@ -171,7 +171,8 @@ Aplikácia nepotrebuje server ani internet – trasa, postavičky aj zbierka sú
 | **Sprevádzanie** | postavička po odchode hráča ide s ním, stojí na odhadnutej podlahe | vlastná logika (`companion/`) |
 | **Obsah trasy** | postavičky, modely, veľkosti, posuny, animácie, príbehy, poradie zastávok | súbor `assets/route.json` v aplikácii, načíta a skontroluje ho `Catalog.kt` |
 | **Úvodná obrazovka** | trasa, zastávky, postup, bezpečnostné upozornenie, štart kamery | Jetpack Compose (`StartScreen`) |
-| **Nápoveda** | tip, keď sa 5 s nenájde žiadny kód | `SearchHint.kt` |
+| **Nápoveda** | tip, keď sa 5 s nenájde žiadny kód, alebo keď ARCore 2 s nesleduje (s príčinou: tma, rýchly pohyb, málo detailov) | `SearchHint.kt` |
+| **Šetrenie výkonu** | QR 8×/s pri kóde, inak 2×/s; pri prehriatí polovica a upozornenie | `ScanPacer.kt`, Android `PowerManager` |
 | **Zbierka** | ktoré postavičky už hráč má | SharedPreferences |
 | **Postavičky** | 3D modely | GLB súbory v aplikácii |
 
@@ -185,7 +186,9 @@ smvit-ar:fox
 
 - Aplikácia podľa neho nájde postavičku v súbore trasy (`route.json`) – model, veľkosť, umiestnenie, príbeh. Zmena modelu či umiestnenia teda nevyžaduje nové tlačenie kódov.
 - Krátky obsah = menší a ľahšie čitateľný QR kód aj z väčšej vzdialenosti.
-- Kódy sa tlačia v presnej veľkosti **10 × 10 cm** (PDF s kontrolným pravítkom), lebo z nej aplikácia počíta vzdialenosť.
+- Kód má presne **10 × 10 cm** (bez bieleho okraja), lebo z jeho veľkosti aplikácia počíta vzdialenosť.
+- Kód má **25 × 25 modulov** (verzia 2, modul 4 mm) a opravu chýb **Q** (prečíta sa aj pri ~25 % poškodenia). Najmenší kód 21 × 21 nemá zarovnávací štvorček, takže štvrtý roh sa pri naklonení určil nepresne.
+- Na trase kódy **tlačíme na 3D tlačiarni v laboratóriu**: doska 132 × 132 × 2,8 mm: biely podklad 2 mm a čierne moduly vyvýšené o 0,8 mm (STL v `src/content/markers/3d/`). Na testy pri stole stačí PDF s kontrolným pravítkom.
 - *Rozšírenie:* kód s URL, ktorý bežný fotoaparát otvorí ako webovú stránku o hre (US-13).
 
 
@@ -194,16 +197,16 @@ smvit-ar:fox
 1. ML Kit nájde QR kód a jeho 4 rohy v obraze kamery.
 2. Zo 4 rohov a známej tlačenej veľkosti (10 cm) vypočítame polohu a natočenie kódu voči kamere a cez polohu kamery z ARCore aj vo svete. Ktorý roh je ktorý, určíme podľa rohových štvorcov QR kódu.
 3. Postavičku umiestnime v **„zvislom“ rámci kódu** (+Y hore, +Z k čitateľovi, +X vpravo od kódu) – stojí rovno, aj keď kód visí na stĺpiku alebo leží na zemi.
-4. Postavička má **posun (offset)** voči kódu, v `route.json` napr. `"offset": { "x": 0.8, "y": -1.2 }` = na zemi 0,8 m vpravo od kódu, ktorý visí 1,2 m vysoko (`z` k čitateľovi, `yawDegrees` otočenie).
+4. Postavička má **posun (offset)** voči kódu, v `route.json` napr. `"offset": { "x": 0.8, "y": -1.2 }` = na zemi 0,8 m vpravo od kódu, ktorý visí 1,2 m vysoko (`z` k čitateľovi, `yawDegrees` otočenie). Pri `"standOnGround": true` (zapnuté pre trasu) stojí postavička na zemi pod kódom sama a výšku kódu netreba zadávať; kód nižšie ako 30 cm sa berie ako ležiaci na zemi.
 5. Kým je kód v zábere, postavička sleduje priamo meranie kódu; keď zmizne zo záberu, drží ju kotva ARCore.
-6. Keď hráč odíde, postavička kód opustí a sprevádza ho po podlahe.
+6. Keď hráč odíde, postavička kód opustí a sprevádza ho po podlahe. Ak sa ocitne ďalej ako 6 m (skok súradníc ARCore), objaví sa 2 m od hráča mimo záberu a pribehne.
 7. Posun, mierka a animácie sú pri každej postavičke v `route.json` – každá môže stáť inak (pri strome, na skale…).
 
 ## 🗃️ Dátový model trasy (návrh)
 
 | Objekt | Polia |
 |--------|-------|
-| **route.json** (súbor trasy) | `name`, `lengthKm`, `minutes` (voliteľné, pre úvodnú obrazovku), `stops`, `aliases`, `characters` |
+| **route.json** (súbor trasy) | `name`, `lengthKm`, `minutes` (voliteľné, pre úvodnú obrazovku), `standOnGround` (postavičky na zemi pod kódom), `stops`, `aliases`, `characters` |
 | **CatalogEntry** (postavička, položka v `characters`) | id, meno, model (GLB), tlačená veľkosť kódu, veľkosť modelu, posun voči kódu, animácia, príbeh, veľkosť pri sprevádzaní, animácie chôdze a cvalu |
 | **stops** → `Catalog.trail` (trasa) | zoznam id postavičiek v poradí na trase; všetky = odznak |
 | **aliases** | ďalšie vytlačené kódy, ktoré ukážu existujúcu postavičku (napr. `test_cube` → líška) |
@@ -214,7 +217,7 @@ smvit-ar:fox
 ## 📱 Obrazovky
 
 1. **Úvod trasy** ✅ – názov trasy, „ako hrať“, zastávky v poradí (meno až po nájdení, ✓), *Zbierka 1/4*, upozornenie *„Bezpečne na trase“*, tlačidlo *Začať* / *Pokračovať* (US-08, US-09). Dĺžka a čas trasy sa ukážu po doplnení do `route.json`.
-2. **Skenovanie (AR)** ✅ – kamera, stavový riadok (*„Namier kameru na QR kód“*), po 5 s bez kódu tip (US-07), tlačidlá *Zbierka 2/4* a *Znova skenovať*; po nájdení sa zjaví postavička. Späť → úvod trasy.
+2. **Skenovanie (AR)** ✅ – kamera, stavový riadok (*„Namier kameru na QR kód“*), po 5 s bez kódu alebo 2 s bez sledovania tip (US-07), pri prehriatí upozornenie, tlačidlá *Zbierka 2/4* a *Znova skenovať*; po nájdení sa zjaví postavička. Späť → úvod trasy.
 3. **Karta postavičky** ✅ – meno, *„Nové! Pridané do zbierky (2/4)“* alebo *„Už v zbierke“*, príbeh. Postavička sa do zbierky pridá automaticky.
 4. **Zbierka** ✅ – nájdené postavičky s príbehom, chýbajúce ako *„???“*, vymazanie zbierky.
 5. **Odznak** ✅ – dialóg *„Odznak získaný!“* po nájdení všetkých postavičiek.

@@ -143,7 +143,7 @@ fm_reserved2: ""
 | **Požiadavky** | user stories s prioritou MoSCoW → backlog | Dániel |
 | **Experiment M5** | overenie umiestnenia objektu vedľa QR kódu (vzdialenosť, uhol, posun, vnútri vs. vonku) | Dániel |
 | **Tvorba postavičky** | návrh → low-poly model v Blenderi → export GLB → kontrola veľkosti a licencie → pridanie do dát trasy | Lukáš |
-| **Príprava trasy** | výber zastávok na značenom chodníku → texty príbehov → QR kódy na tlač → laminácia | celý tím |
+| **Príprava trasy** | výber zastávok na značenom chodníku → texty príbehov → QR kódy (PDF → STL) → 3D tlač v laboratóriu → test dosky s aplikáciou | celý tím |
 | **Testovanie** | testy T1–T8 (D6), test na trase s 3–5 používateľmi (M8) | celý tím |
 | **Verzie** | práca vo vetve `dev`, zlúčenie do `main` cez Pull Request → nasadenie webu | Dániel |
 

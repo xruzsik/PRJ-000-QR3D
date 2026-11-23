@@ -175,7 +175,7 @@ Priorita podľa MoSCoW: **M** = must (MVP), **S** = should, **C** = could, **W**
 
 | Hotové | Čiastočne | Zatiaľ nie |
 |--------|-----------|------------|
-| US-01, US-02, US-03, US-04, US-06, US-07, US-09, US-11, US-16 | US-05 (offline z podstaty, netestované), US-08 (úvodná obrazovka so zastávkami hotová; v `route.json` chýba dĺžka a čas trasy), US-12 (PDF s kódmi a 10 cm pravítkom je; chýba číslo zastávky a návod „ako hrať“) | US-10 (overiť na 2 telefónoch), US-13, US-14 |
+| US-01, US-02, US-03, US-04, US-06, US-07, US-09, US-11, US-16 | US-05 (offline z podstaty, netestované), US-08 (úvodná obrazovka so zastávkami hotová; v `route.json` chýba dĺžka a čas trasy), US-12 (PDF s kódmi a 10 cm pravítkom aj STL na 3D tlač sú; chýba číslo zastávky a návod „ako hrať“) | US-10 (overiť na 2 telefónoch), US-13, US-14 |
 
 ## 🔗 Súvislosti
 - Nefunkčné požiadavky: [non-functional](./non-functional.md)

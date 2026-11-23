@@ -141,7 +141,7 @@ fm_reserved2: ""
 | Dokumentácia (tento web) | https://xruzsik.github.io/PRJ-000-QR3D/ | automaticky po zlúčení do vetvy `main` (GitHub Actions) |
 | Zdrojový kód a dokumentácia | https://github.com/xruzsik/PRJ-000-QR3D | push do `dev`, Pull Request do `main` |
 | Android aplikácia (APK) | GitHub Releases v tomto repozitári | pri každej demo verzii nová release s APK súborom |
-| QR kódy testovacej trasy | v repozitári (PDF na tlač) | pri zmene trasy |
+| QR kódy testovacej trasy | v repozitári (PDF na tlač, STL na 3D tlač) | pri zmene trasy |
 | KNIFE článok | v tomto repozitári, sekcia Knowledge Contribution | `make knifes-new`, potom PR do `main` |
 | Odovzdanie vyučujúcemu | odkaz na repozitár podľa pokynov vyučujúceho | jednorazovo pri odovzdaní |
 

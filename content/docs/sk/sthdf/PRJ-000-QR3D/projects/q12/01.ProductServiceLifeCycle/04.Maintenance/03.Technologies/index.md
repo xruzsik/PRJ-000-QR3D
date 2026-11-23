@@ -139,7 +139,7 @@ fm_reserved2: ""
 
 - **GitHub** (Issues, Pull Requests) – správa chýb a zmien.
 - **Google Play Console** – správy o pádoch aplikácie a distribúcia aktualizácií.
-- **Laminovanie / UV odolné samolepiace fólie** – kódy vydržia dážď a slnko; materiál overíme pri teste (NFR-10).
+- **3D tlač** – kódy ako plastové dosky (matný filament, vonku PETG); materiál overíme pri teste (NFR-10, T11). Laminovaný papier ostáva ako rýchla náhrada.
 - **Montáž** – sťahovacie pásky alebo skrutky na existujúci stĺpik, nie na stromy *(podľa povolenia správcu)*.
 
 [↩️ Späť](../index.md)

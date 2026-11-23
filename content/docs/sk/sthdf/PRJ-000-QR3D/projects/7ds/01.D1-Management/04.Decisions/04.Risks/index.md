@@ -140,7 +140,7 @@ fm_reserved2: ""
 |---|--------|-----------------|-------|-----------|
 | R1 | AR vonku funguje nespoľahlivo (ostré slnko, tieň, málo textúr, pohyb) | stredná | vysoký | experiment hneď na začiatku (M5); postavička sleduje priamo QR kód, kým je v zábere (ARCore na A53 uteká až o ~20 cm); podlaha z bodov ARCore |
 | R2 | QR kód sa v teréne zle číta (vzdialenosť, uhol, zašpinený) | stredná | vysoký | dostatočná veľkosť kódu, vyššia úroveň korekcie chýb, test T1 |
-| R3 | QR kódy poškodí počasie alebo vandal | vysoká | stredný | laminácia / odolné nálepky; v MVP testovacia trasa len na čas testu |
+| R3 | QR kódy poškodí počasie alebo vandal | vysoká | stredný | 3D tlačené plastové dosky (R-11), oprava chýb Q; v MVP testovacia trasa len na čas testu |
 | R4 | Telefón testera nepodporuje ARCore | stredná | stredný | overiť zoznam podporovaných zariadení vopred; náhradný režim bez AR (postavička na obrazovke) |
 | R5 | Nemáme vhodné 3D postavičky | stredná | stredný | voľne licencované modely (CC0 / CC-BY) alebo jednoduché vlastné low-poly v Blenderi |
 | R6 | Autorské práva k použitým modelom | nízka | stredný | len modely s licenciou CC0 / CC-BY, uvádzať autora |
@@ -148,6 +148,8 @@ fm_reserved2: ""
 | R8 | Umiestnenie QR kódov bez povolenia (chránené územie, súkromný pozemok) | stredná | vysoký | pre test krátka trasa s povolením alebo dočasné umiestnenie; trvalé umiestnenie len cez správcu územia (princíp P5) |
 | R9 | Nepozornosť pri chôdzi s mobilom | nízka | vysoký | skenuje sa len pri zastávke, upozornenie v aplikácii (princíp P6) |
 | R10 | Časová vyťaženosť tímu počas semestra | stredná | stredný | malé priebežné míľniky, týždenný záznam práce, prioritizácia MVP |
+| R11 | 3D tlačená doska je skrútená, lesklá alebo v zlej mierke → kód sa zle číta alebo aplikácia zle odhadne vzdialenosť | stredná | stredný | najprv jedna doska a test T11; mierka 100 % v sliceri; matný filament; dobre priľnutá prvá vrstva |
+| R12 | Telefón sa pri dlhej hre prehreje | stredná | stredný | skenovanie 2×/s mimo zastávky, pri prehriatí polovica a upozornenie; kamera až po *Začať*; test T12 |
 
 ---
 **Navigation:** [⬆️ Up](../index.md) · [🏠 Home](../../../index.md)

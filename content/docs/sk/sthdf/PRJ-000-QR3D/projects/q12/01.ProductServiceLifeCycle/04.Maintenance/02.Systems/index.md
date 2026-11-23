@@ -139,7 +139,7 @@ fm_reserved2: ""
 
 - **GitHub Issues** – hlásenia chýb a požiadavky na zmenu obsahu.
 - **Verzie obsahu trasy** – obsah trasy je v súbore `route.json` v aplikácii – mení sa bez zásahu do kódu, ale vyžaduje nový build (novú verziu aplikácie); zmeny zapisujeme do Change Logu (SDLC 09).
-- **Balík kódov** – archív všetkých QR kódov trasy na opätovnú tlač.
+- **Balík kódov** – archív všetkých QR kódov trasy (PDF aj STL) na opätovnú tlač.
 - **Hlásenie poškodeného kódu** z aplikácie *(rozšírenie, nie v MVP)*.
 
 [↩️ Späť](../index.md)

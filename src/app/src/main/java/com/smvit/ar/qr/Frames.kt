@@ -46,4 +46,17 @@ object Frames {
         val z = forward.normalized()
         return RigidPose(Mat3.fromColumns(up cross z, up, z), anchor.translation)
     }
+
+    /**
+     * [upright] lowered to the ground at height [groundY] (world +Y up), for a
+     * code on a post or wall. A code already near the ground (lying on it, or the
+     * floor estimate is off) stays where it is.
+     */
+    fun onGround(upright: RigidPose, groundY: Double): RigidPose {
+        val t = upright.translation
+        return if (t.y - groundY < MIN_HEIGHT_FOR_GROUND) upright else RigidPose(upright.rotation, Vec3(t.x, groundY, t.z))
+    }
+
+    /** Codes less than this above the ground are treated as lying on it. */
+    const val MIN_HEIGHT_FOR_GROUND = 0.3
 }

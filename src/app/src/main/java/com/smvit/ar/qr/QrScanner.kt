@@ -24,12 +24,12 @@ data class QrSighting(
 /**
  * Runs ML Kit QR detection on ARCore's CPU camera image and turns each detected
  * code into a world pose. At most one image is in flight, and scans are spaced
- * [intervalNanos] apart to limit heat on mid-range phones.
+ * [intervalNanos] apart (changeable at any time) to limit heat on mid-range phones.
  */
 class QrScanner(
     /** Printed edge length of the code with this payload, or null for codes we don't know. */
     private val sizeFor: (payload: String) -> Double?,
-    private val intervalNanos: Long = 200_000_000,
+    @Volatile var intervalNanos: Long = 200_000_000,
     /** Called with the payload of a QR code that [sizeFor] doesn't know. */
     private val onUnknown: (payload: String) -> Unit = {},
     /** World rotation of a code already being tracked, or null for a new one. */

@@ -58,6 +58,11 @@ class Catalog(
     val routeName: String? = null,
     val lengthKm: Double? = null,
     val minutes: Int? = null,
+    /**
+     * Characters stand on the ground below their code (codes on posts or walls)
+     * rather than at the code's height (codes on a table).
+     */
+    val standOnGround: Boolean = false,
 ) {
     private val byId = entries.associateBy { it.id }
     private val byPayload = byId.mapKeys { PAYLOAD_PREFIX + it.key } +
@@ -99,7 +104,7 @@ class Catalog(
                 throw FormatException("$source: ${e.message}")
             }
             return Fields(root, source).run {
-                allowOnly("name", "lengthKm", "minutes", "stops", "aliases", "characters")
+                allowOnly("name", "lengthKm", "minutes", "standOnGround", "stops", "aliases", "characters")
                 val entries = list("characters").mapIndexed { i, it ->
                     val where = (it as? Map<*, *>)?.get("id") as? String ?: "#${i + 1}"
                     entry(Fields(it, "$source: character \"$where\""))
@@ -125,6 +130,7 @@ class Catalog(
                     routeName = optionalString("name"),
                     lengthKm = optionalNumber("lengthKm", 0.0..100.0),
                     minutes = optionalNumber("minutes", 1.0..1440.0)?.toInt(),
+                    standOnGround = optionalBoolean("standOnGround") ?: false,
                 )
             }
         }
@@ -186,6 +192,12 @@ class Catalog(
             is List<*> -> v.joinToString(" ") { it as? String ?: fail("\"$key\" must be a list of texts in quotes") }
                 .ifBlank { fail("\"$key\" is empty") }
             else -> optionalString(key)
+        }
+
+        fun optionalBoolean(key: String): Boolean? = when (val v = map[key]) {
+            null -> null
+            is Boolean -> v
+            else -> fail("\"$key\" must be true or false (no quotes)")
         }
 
         fun number(key: String, range: ClosedFloatingPointRange<Double>) =

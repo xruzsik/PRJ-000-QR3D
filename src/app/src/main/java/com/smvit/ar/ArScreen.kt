@@ -38,6 +38,7 @@ import com.smvit.ar.qr.QrPoseFilter
 import com.smvit.ar.qr.QrScanner
 import com.smvit.ar.qr.Quat
 import com.smvit.ar.qr.RigidPose
+import com.smvit.ar.qr.ScanPacer
 import com.smvit.ar.qr.Vec3
 import com.smvit.ar.qr.toArPose
 import com.smvit.ar.qr.toRigidPose
@@ -68,9 +69,6 @@ private fun TrackingFailureReason.toHintFailure(): SearchHint.Failure? = when (t
 }
 
 private const val TRACKING_WARMUP_NANOS = 1_500_000_000L
-
-/** QR scans per second are capped by this interval; each one is ML Kit plus pose solving. */
-private const val SCAN_INTERVAL_NANOS = 125_000_000L
 
 /** A code not seen for this long is held where it was last shown, on an ARCore anchor. */
 private const val LOST_NANOS = 1_000_000_000L
@@ -150,14 +148,16 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
     val floorY = remember { AtomicReference<Double?>(null) }
     val lastFloorCheckNanos = remember { AtomicLong(0) }
 
+    val pacer = remember { ScanPacer() }
     val scanner = remember {
         QrScanner(
             sizeFor = { payload -> catalog.forPayload(payload)?.qrSizeMeters },
-            intervalNanos = SCAN_INTERVAL_NANOS,
+            intervalNanos = pacer.slowNanos,
             onUnknown = { payload -> if (codes.isEmpty()) status = Texts.unknownCode(payload) },
             expectedRotation = { payload -> codes[payload]?.target?.rotation },
         ) { sighting ->
             val payload = sighting.payload
+            pacer.onKnownSighting(sighting.timestampNanos)
             val code = codes[payload]
             if (code != null) {
                 if (sighting.reprojectionErrorPx > MAX_REPROJECTION_PX) return@QrScanner
@@ -230,6 +230,7 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
                 val warmedUp = tracking && frame.timestamp - trackingSinceNanos.get() >= TRACKING_WARMUP_NANOS
 
                 if (warmedUp) {
+                    scanner.intervalNanos = pacer.intervalNanos(frame.timestamp, followingACode = codes.values.any { it.companion == null })
                     scanner.onFrame(frame)
                     if (status == Texts.TRACKING_PROMPT) status = Texts.SCAN_PROMPT
                 } else if (codes.isEmpty()) {
@@ -246,7 +247,7 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
                     hint = newHint
                 }
                 val camera = frame.camera.pose.toRigidPose()
-                if (tracking && codes.values.any { it.entry.roamSizeMeters != null } &&
+                if (tracking && (catalog.standOnGround || codes.values.any { it.entry.roamSizeMeters != null }) &&
                     frame.timestamp - lastFloorCheckNanos.get() > FLOOR_CHECK_NANOS
                 ) {
                     lastFloorCheckNanos.set(frame.timestamp)
@@ -254,7 +255,7 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
                 }
                 codes.forEach { (payload, code) ->
                     val roaming = codes.values.count { it.companion != null }
-                    if (updateDisplay(session, frame, tracking, camera, floorY, roaming, payload, code)) {
+                    if (updateDisplay(session, frame, tracking, camera, floorY, catalog.standOnGround, roaming, payload, code)) {
                         status = Texts.companionJoined(code.entry.name)
                     }
                 }
@@ -360,6 +361,7 @@ private fun updateDisplay(
     tracking: Boolean,
     camera: RigidPose,
     floorY: AtomicReference<Double?>,
+    standOnGround: Boolean,
     roaming: Int,
     payload: String,
     code: TrackedCode,
@@ -390,7 +392,7 @@ private fun updateDisplay(
         val codePosition = code.displayed.translation
         val awayFromCode = Math.hypot(codePosition.x - camera.translation.x, codePosition.z - camera.translation.z)
         if (now - code.lastSeenNanos > RELEASE_UNSEEN_NANOS || awayFromCode > RELEASE_DISTANCE_METERS) {
-            val start = Frames.upright(code.displayed) compose code.entry.offset
+            val start = placed(code, floorY, camera, standOnGround) compose code.entry.offset
             code.companion = Companion(start, roamSize, SIDE_BIASES[roaming % SIDE_BIASES.size])
             code.lastStepNanos = now
             code.held?.detach()
@@ -408,8 +410,16 @@ private fun updateDisplay(
     val held = code.held
     val target = if (held != null && held.trackingState == TrackingState.TRACKING) held.pose.toRigidPose() else code.target
     code.displayed = code.smoother.step(target, now)
-    code.node?.let { showAt(it, Frames.upright(code.displayed)) }
+    code.node?.let { showAt(it, placed(code, floorY, camera, standOnGround)) }
     return false
+}
+
+/** Where a character on its code stands: the code's upright frame, lowered to the ground if asked. */
+private fun placed(code: TrackedCode, floorY: AtomicReference<Double?>, camera: RigidPose, standOnGround: Boolean): RigidPose {
+    val upright = Frames.upright(code.displayed)
+    if (!standOnGround) return upright
+    val ground = floorY.get() ?: Floor.assumed(camera.translation.y).also { floorY.compareAndSet(null, it) }
+    return Frames.onGround(upright, ground)
 }
 
 /** Eases a released character from its on-code size up to its roaming size. */

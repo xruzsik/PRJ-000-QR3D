@@ -97,6 +97,7 @@ python content/tools/qr_pdf_to_stl.py content/markers/animals.pdf content/marker
   "name": "Postavičky na trase",
   "lengthKm": 3.5,
   "minutes": 90,
+  "standOnGround": true,
   "stops": ["fox", "wolf"],
   "aliases": { "test_cube": "fox" },
   "characters": [
@@ -118,6 +119,7 @@ python content/tools/qr_pdf_to_stl.py content/markers/animals.pdf content/marker
 | Field | Meaning |
 |---|---|
 | `name`, `lengthKm`, `minutes` | Optional route info for the start screen. |
+| `standOnGround` | Optional, default `false`. `true` for codes on posts or walls: characters stand on the ground below their code instead of at its height. A code less than 30 cm above the ground counts as lying on it either way. |
 | `stops` | Character ids to collect, in walking order. Finding them all earns the badge. |
 | `aliases` | Optional. Extra printed code ids that show an existing character. |
 | `id` | Lowercase `a-z`, `0-9`, `_`. The code printed for it reads `smvit-ar:<id>`. |

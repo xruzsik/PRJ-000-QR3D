@@ -123,4 +123,11 @@ class CatalogTest {
         assertTrue("defined twice" in errorFor("""{"stops":["fox"],"characters":[$fox,$fox]}"""))
         assertFalse(errorFor("""{"stops":[],"characters":[$fox]}""").isEmpty())
     }
+
+    @Test
+    fun standOnGroundIsOptionalAndMustBeABoolean() {
+        assertFalse(Catalog.fromJson("""{"stops":["fox"],"characters":[$fox]}""").standOnGround)
+        assertTrue(Catalog.fromJson("""{"standOnGround":true,"stops":["fox"],"characters":[$fox]}""").standOnGround)
+        assertTrue("true or false" in errorFor("""{"standOnGround":"yes","stops":["fox"],"characters":[$fox]}"""))
+    }
 }

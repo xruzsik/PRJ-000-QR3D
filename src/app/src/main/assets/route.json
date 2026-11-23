@@ -1,5 +1,6 @@
 {
   "name": "Postavičky na trase",
+  "standOnGround": true,
 
   "stops": ["fox", "wolf", "deer", "stag"],
 

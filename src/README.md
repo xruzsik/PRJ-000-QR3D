@@ -37,6 +37,26 @@ the app works out distances from the codes' printed size. Scan a code at a
 slight angle (square-on views are least accurate), then walk away from it and
 the character follows you.
 
+### 3D-printed markers
+
+`content/markers/3d/` has the four animal codes from `animals.pdf` as printable
+plates (138 × 138 × 2.8 mm, QR symbol exactly 100 mm, white margin 4 modules):
+
+- `qr-<id>.stl`: one piece, white 2 mm base with dark modules raised 0.8 mm.
+  On a single-nozzle printer, add a filament change (white → black) at 2.0 mm in
+  the slicer.
+- `qr-<id>-base.stl` + `qr-<id>-modules.stl`: the same plate in two parts for
+  multi-colour printers; load both as one object and give each part its colour.
+- `qr-<id>-preview.png`: top view; scan it off the screen to check the code.
+
+Print flat and matte (glossy filament reflects sunlight); PETG lasts outdoors
+better than PLA. The plate must not warp: the app assumes a flat square. To
+regenerate them or change the thickness:
+
+```bash
+python content/tools/qr_pdf_to_stl.py content/markers/animals.pdf content/markers/3d --base 2.0 --relief 0.8
+```
+
 ## Layout
 
 | Path | What |
@@ -49,9 +69,9 @@ the character follows you.
 | `app/src/main/java/com/smvit/ar/companion/` | Roaming behaviour and floor estimate. |
 | `app/src/main/assets/models/` | Character models (GLB). |
 | `app/src/test/` | Unit tests (pose solver, orientation, companions, catalog, …). |
-| `content/markers/` | Printable marker sheets (PDF). |
+| `content/markers/` | Printable marker sheets (PDF); `3d/` the same codes as 3D-printable plates (STL). |
 | `content/qrsheet/` | PC tool that renders marker sheets. |
-| `content/tools/` | Model helpers (glTF → GLB, placeholder cube). |
+| `content/tools/` | Model helpers (glTF → GLB, placeholder cube, marker PDF → STL plates). |
 
 ## Adding a character
 

@@ -50,6 +50,9 @@ object Texts {
     const val CLEAR_COLLECTION = "Vymazať zbierku"
     const val CLEAR_CONFIRM = "Naozaj vymazať? (Klepni znova.)"
     fun hint(hint: SearchHint.Hint) = when (hint) {
+        SearchHint.Hint.TOO_DARK -> "Tip: je tu príliš tma. Choď na svetlejšie miesto alebo zapni viac svetla."
+        SearchHint.Hint.TOO_FAST -> "Tip: hýbeš sa príliš rýchlo. Zastav a pohybuj telefónom pomalšie."
+        SearchHint.Hint.NOT_ENOUGH_DETAIL -> "Tip: kamera nevidí dosť detailov. Namier ju na miesto s trávou, kameňmi či stromami, nie na hladkú stenu alebo zem."
         SearchHint.Hint.MOVE_SLOWLY -> "Tip: pomaly pohni telefónom do strán, aby kamera videla okolie. Pomôže aj viac svetla."
         SearchHint.Hint.GET_CLOSER -> "Tip: priblíž sa ku kódu, aby bol celý v zábere, a chvíľu drž telefón pokojne."
     }

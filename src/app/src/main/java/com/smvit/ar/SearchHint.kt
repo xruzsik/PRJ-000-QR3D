@@ -1,12 +1,24 @@
 package com.smvit.ar
 
 /**
- * Decides when to show a tip because nothing has been found for a while
- * (US-07): after [afterNanos] of searching without seeing a known code.
+ * Decides which tip to show (US-07):
+ * - when ARCore has stopped tracking for [failureAfterNanos], the reason it
+ *   gives (too dark, too fast, nothing to see), even while a character is out;
+ * - when nothing has been found for [searchAfterNanos], a general tip.
  */
-class SearchHint(private val afterNanos: Long = 5_000_000_000L) {
+class SearchHint(
+    private val searchAfterNanos: Long = 5_000_000_000L,
+    private val failureAfterNanos: Long = 2_000_000_000L,
+) {
+    /** Why ARCore isn't tracking (from its TrackingFailureReason). */
+    enum class Failure { TOO_DARK, TOO_FAST, NOT_ENOUGH_DETAIL, OTHER }
+
     enum class Hint {
-        /** AR tracking hasn't started: the camera needs to see more of the surroundings. */
+        TOO_DARK,
+        TOO_FAST,
+        NOT_ENOUGH_DETAIL,
+
+        /** AR tracking hasn't started, for no particular reason given. */
         MOVE_SLOWLY,
 
         /** Tracking works but no known code is being read. */
@@ -14,22 +26,38 @@ class SearchHint(private val afterNanos: Long = 5_000_000_000L) {
     }
 
     private var searchingSinceNanos = 0L
+    private var failure: Failure? = null
+    private var failingSinceNanos = 0L
 
-    /** Restart the wait, e.g. on "scan again" or when a known code is sighted. */
+    /** Restart the search wait, e.g. on "scan again" or when a known code is sighted. */
     fun reset() {
         searchingSinceNanos = 0L
     }
 
     /**
      * Call every frame. [searching]: no character is shown yet; [readyToScan]:
-     * AR tracking is warmed up and codes are being read.
+     * AR tracking is warmed up and codes are being read; [failure]: why ARCore
+     * isn't tracking, or null while it is (or gives no reason).
      */
-    fun update(nowNanos: Long, searching: Boolean, readyToScan: Boolean): Hint? {
+    fun update(nowNanos: Long, searching: Boolean, readyToScan: Boolean, failure: Failure? = null): Hint? {
+        if (failure != this.failure) {
+            this.failure = failure
+            failingSinceNanos = nowNanos
+        }
+        if (failure != null && nowNanos - failingSinceNanos >= failureAfterNanos) {
+            return when (failure) {
+                Failure.TOO_DARK -> Hint.TOO_DARK
+                Failure.TOO_FAST -> Hint.TOO_FAST
+                Failure.NOT_ENOUGH_DETAIL -> Hint.NOT_ENOUGH_DETAIL
+                Failure.OTHER -> Hint.MOVE_SLOWLY
+            }
+        }
+
         if (!searching || searchingSinceNanos == 0L) {
             searchingSinceNanos = nowNanos
             return null
         }
-        if (nowNanos - searchingSinceNanos < afterNanos) return null
+        if (nowNanos - searchingSinceNanos < searchAfterNanos) return null
         return if (readyToScan) Hint.GET_CLOSER else Hint.MOVE_SLOWLY
     }
 }

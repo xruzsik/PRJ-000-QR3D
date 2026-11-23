@@ -37,10 +37,19 @@ private fun pt(mm: Double) = mm * 72 / 25.4
 private fun fmt(v: Double) = "%.3f".format(java.util.Locale.ROOT, v)
 
 private fun pageContent(payload: String, sizeMm: Double): String {
-    val matrix = QRCodeWriter().encode(
+    // Version 1 (21x21) has no alignment pattern, so scanners only guess the
+    // bottom-right corner (as if the code were seen square-on). Under any tilt
+    // that corner is off by several pixels and the app rejects the pose, so
+    // never print version 1. Level Q also survives more dirt and wear outdoors.
+    fun encode(version: Int?) = QRCodeWriter().encode(
         payload, BarcodeFormat.QR_CODE, 0, 0,
-        mapOf(EncodeHintType.MARGIN to 0, EncodeHintType.ERROR_CORRECTION to ErrorCorrectionLevel.M),
+        buildMap {
+            put(EncodeHintType.MARGIN, 0)
+            put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.Q)
+            if (version != null) put(EncodeHintType.QR_VERSION, version)
+        },
     )
+    val matrix = encode(null).let { if (it.width == 21) encode(2) else it }
     val modules = matrix.width
     val moduleMm = sizeMm / modules
     val left = (PAGE_W_MM - sizeMm) / 2

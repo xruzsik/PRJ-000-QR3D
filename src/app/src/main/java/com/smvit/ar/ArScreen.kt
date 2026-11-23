@@ -28,6 +28,7 @@ import com.google.ar.core.Anchor
 import com.google.ar.core.Config
 import com.google.ar.core.Frame
 import com.google.ar.core.Session
+import com.google.ar.core.TrackingFailureReason
 import com.google.ar.core.TrackingState
 import com.smvit.ar.companion.Companion
 import com.smvit.ar.companion.Floor
@@ -55,6 +56,17 @@ import kotlin.math.exp
 private const val TAG = "SmvitAR"
 
 /** Continuous tracking needed before QR sightings are trusted. */
+/** A sighting this far from where its code was means the world frame shifted. */
+private const val WORLD_JUMP_METERS = 0.15
+
+private fun TrackingFailureReason.toHintFailure(): SearchHint.Failure? = when (this) {
+    TrackingFailureReason.NONE -> null
+    TrackingFailureReason.INSUFFICIENT_LIGHT -> SearchHint.Failure.TOO_DARK
+    TrackingFailureReason.EXCESSIVE_MOTION -> SearchHint.Failure.TOO_FAST
+    TrackingFailureReason.INSUFFICIENT_FEATURES -> SearchHint.Failure.NOT_ENOUGH_DETAIL
+    else -> SearchHint.Failure.OTHER
+}
+
 private const val TRACKING_WARMUP_NANOS = 1_500_000_000L
 
 /** QR scans per second are capped by this interval; each one is ML Kit plus pose solving. */
@@ -116,6 +128,8 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
     var status by remember { mutableStateOf(Texts.SCAN_PROMPT) }
     val searchHint = remember { SearchHint() }
     var hint by remember { mutableStateOf<SearchHint.Hint?>(null) }
+    // Last logged ARCore tracking state, as text (logged only when it changes).
+    val lastTrackingLog = remember { AtomicReference("") }
 
     val context = LocalContext.current
     val store = remember { CollectionStore(context) }
@@ -147,6 +161,10 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
             val code = codes[payload]
             if (code != null) {
                 if (sighting.reprojectionErrorPx > MAX_REPROJECTION_PX) return@QrScanner
+                // A code doesn't move, so a big step means ARCore's world frame
+                // shifted (a tracking reset); logged to tell that apart from pose errors.
+                val step = (sighting.worldFromAnchor.translation - code.target.translation).norm()
+                if (step > WORLD_JUMP_METERS) Log.d(TAG, "\"$payload\": world jumped %.0f mm".format(step * 1000))
                 code.target = sighting.worldFromAnchor
                 code.lastSeenNanos = sighting.timestampNanos
                 code.held?.let {
@@ -201,6 +219,9 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
                 // settles (seen on the A53), so only use sightings after a warm-up,
                 // and drop collected ones whenever tracking breaks.
                 val tracking = frame.camera.trackingState == TrackingState.TRACKING
+                val failureReason = frame.camera.trackingFailureReason
+                val trackingLog = if (tracking) "TRACKING" else "${frame.camera.trackingState} ($failureReason)"
+                if (lastTrackingLog.getAndSet(trackingLog) != trackingLog) Log.d(TAG, "ARCore: $trackingLog")
                 if (!tracking) {
                     if (trackingSinceNanos.getAndSet(0) != 0L) filter.reset()
                 } else if (trackingSinceNanos.get() == 0L) {
@@ -214,7 +235,16 @@ fun ArScreen(catalog: Catalog, onBack: () -> Unit) {
                 } else if (codes.isEmpty()) {
                     status = Texts.TRACKING_PROMPT
                 }
-                hint = searchHint.update(frame.timestamp, searching = codes.isEmpty(), readyToScan = warmedUp)
+                val newHint = searchHint.update(
+                    frame.timestamp,
+                    searching = codes.isEmpty(),
+                    readyToScan = warmedUp,
+                    failure = if (tracking) null else failureReason.toHintFailure(),
+                )
+                if (newHint != hint) {
+                    Log.d(TAG, "tip: ${newHint ?: "none"}")
+                    hint = newHint
+                }
                 val camera = frame.camera.pose.toRigidPose()
                 if (tracking && codes.values.any { it.entry.roamSizeMeters != null } &&
                     frame.timestamp - lastFloorCheckNanos.get() > FLOOR_CHECK_NANOS

@@ -28,4 +28,26 @@ class SearchHintTest {
         assertNull(hint.update(13 * s, searching = true, readyToScan = true))
         assertNull(hint.update(17 * s, searching = true, readyToScan = true))
     }
+
+    @Test
+    fun trackingFailureReasonShowsAfterTwoSecondsEvenWithACharacterOut() {
+        val hint = SearchHint()
+        val dark = SearchHint.Failure.TOO_DARK
+        assertNull(hint.update(10 * s, searching = false, readyToScan = false, failure = dark))
+        assertNull(hint.update(11 * s, searching = false, readyToScan = false, failure = dark))
+        assertEquals(SearchHint.Hint.TOO_DARK, hint.update(12 * s, searching = false, readyToScan = false, failure = dark))
+        // A different reason restarts the wait.
+        val fast = SearchHint.Failure.TOO_FAST
+        assertNull(hint.update(13 * s, searching = false, readyToScan = false, failure = fast))
+        assertEquals(SearchHint.Hint.TOO_FAST, hint.update(15 * s, searching = false, readyToScan = false, failure = fast))
+        // Tracking again: no tip while a character is out.
+        assertNull(hint.update(16 * s, searching = false, readyToScan = true))
+    }
+
+    @Test
+    fun unexplainedFailureFallsBackToMoveSlowly() {
+        val hint = SearchHint()
+        hint.update(1, searching = false, readyToScan = false, failure = SearchHint.Failure.OTHER)
+        assertEquals(SearchHint.Hint.MOVE_SLOWLY, hint.update(3 * s, searching = false, readyToScan = false, failure = SearchHint.Failure.OTHER))
+    }
 }
